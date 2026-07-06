@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="index.html" class="flex items-center gap-2">
           <img src="assets/logo_new_revolving.png" alt="SSP Logo" class="w-5 h-5 object-contain rotate-slow">
           <span class="font-heading font-black text-lg tracking-wider text-stone-900">
-            SSP <span class="text-[#2d5a27] font-bold">SYSTEMS</span>
+            SSP <span class="text-[#2d5a27] font-bold">INDUSTRIES</span>
           </span>
         </a>
         <button id="close-menu-btn" class="text-stone-500 hover:text-[#2d5a27] focus:outline-none">
@@ -49,23 +49,26 @@ document.addEventListener("DOMContentLoaded", () => {
           <i class="fa-solid fa-chevron-right text-xs opacity-40"></i>
         </a>
         
-        <!-- About Us Submenu Container -->
-        <div class="flex flex-col border-b border-stone-100 pb-4">
-          <div class="text-stone-400 font-mono text-[10px] tracking-wider uppercase py-2">
+        <!-- About Us Collapsible Submenu -->
+        <div class="flex flex-col border-b border-stone-100">
+          <button id="mobile-submenu-trigger" class="w-full text-lg font-bold text-stone-800 hover:text-[#2d5a27] transition-colors py-3 flex items-center justify-between focus:outline-none">
             About Us
+            <i class="fa-solid fa-chevron-down text-xs opacity-40 transition-transform duration-300"></i>
+          </button>
+          <div id="mobile-submenu-items" class="max-h-0 overflow-hidden transition-all duration-350 ease-in-out pl-4 flex flex-col gap-3 pb-0">
+            <a href="about.html" class="mobile-nav-link text-base font-medium text-stone-600 hover:text-[#2d5a27] transition-colors py-1.5 flex items-center justify-between">
+              About Company
+              <i class="fa-solid fa-chevron-right text-[10px] opacity-30"></i>
+            </a>
+            <a href="team.html" class="mobile-nav-link text-base font-medium text-stone-600 hover:text-[#2d5a27] transition-colors py-1.5 flex items-center justify-between">
+              Team
+              <i class="fa-solid fa-chevron-right text-[10px] opacity-30"></i>
+            </a>
+            <a href="achievements.html" class="mobile-nav-link text-base font-medium text-stone-600 hover:text-[#2d5a27] transition-colors py-1.5 flex items-center justify-between">
+              Achievements
+              <i class="fa-solid fa-chevron-right text-[10px] opacity-30"></i>
+            </a>
           </div>
-          <a href="about.html" class="mobile-nav-link text-base font-bold text-stone-800 hover:text-[#2d5a27] transition-colors pl-4 py-2 flex items-center justify-between">
-            About Company
-            <i class="fa-solid fa-chevron-right text-xs opacity-30"></i>
-          </a>
-          <a href="team.html" class="mobile-nav-link text-base font-bold text-stone-800 hover:text-[#2d5a27] transition-colors pl-4 py-2 flex items-center justify-between">
-            Team
-            <i class="fa-solid fa-chevron-right text-xs opacity-30"></i>
-          </a>
-          <a href="achievements.html" class="mobile-nav-link text-base font-bold text-stone-800 hover:text-[#2d5a27] transition-colors pl-4 py-2 flex items-center justify-between">
-            Achievements
-            <i class="fa-solid fa-chevron-right text-xs opacity-30"></i>
-          </a>
         </div>
 
         <a href="products.html" class="mobile-nav-link text-lg font-bold text-stone-800 hover:text-[#2d5a27] transition-colors py-2 border-b border-stone-100 flex items-center justify-between">
@@ -80,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <a href="#" class="hover:text-[#2d5a27] transition-colors"><i class="fa-solid fa-globe text-base"></i></a>
           <a href="#" class="hover:text-[#2d5a27] transition-colors"><i class="fa-solid fa-magnifying-glass text-base"></i></a>
         </div>
-        <a href="contact.html" class="block w-full text-center px-6 py-3.5 bg-[#2d5a27] hover:bg-[#1e3e1a] text-white text-xs font-bold uppercase tracking-wider transition-colors duration-300">
+        <a href="contact.html" class="block w-full text-center px-6 py-3.5 bg-[#2d5a27] hover:bg-[#1e3e1a] text-white text-xs font-bold uppercase tracking-wider transition-colors duration-300 rounded-full shadow-md shadow-brand-green/10">
           Contact Us
         </a>
         <div class="text-[9px] text-stone-400 font-mono tracking-widest uppercase">
@@ -106,9 +109,42 @@ document.addEventListener("DOMContentLoaded", () => {
           currentPath.endsWith("index.html")))
     ) {
       link.classList.remove("text-stone-800");
+      link.classList.remove("text-stone-600");
       link.classList.add("text-[#2d5a27]");
+      link.classList.add("font-bold");
     }
   });
+
+  // 3b. Handle Submenu Accordion Open/Close
+  const submenuTrigger = document.getElementById("mobile-submenu-trigger");
+  const submenuItems = document.getElementById("mobile-submenu-items");
+  const submenuChevron = submenuTrigger ? submenuTrigger.querySelector("i") : null;
+
+  if (submenuTrigger && submenuItems && submenuChevron) {
+    // Accordion click handler
+    submenuTrigger.addEventListener("click", () => {
+      const isOpen = submenuItems.style.maxHeight && submenuItems.style.maxHeight !== "0px";
+      if (isOpen) {
+        submenuItems.style.maxHeight = "0px";
+        submenuItems.style.paddingBottom = "0px";
+        submenuChevron.style.transform = "rotate(0deg)";
+      } else {
+        submenuItems.style.maxHeight = submenuItems.scrollHeight + "px";
+        submenuItems.style.paddingBottom = "12px";
+        submenuChevron.style.transform = "rotate(180deg)";
+      }
+    });
+
+    // Auto-expand on load if user is inside a submenu page
+    const activeSublink = submenuItems.querySelector(".text-\\[\\#2d5a27\\]");
+    if (activeSublink) {
+      submenuItems.style.maxHeight = submenuItems.scrollHeight + "px";
+      submenuItems.style.paddingBottom = "12px";
+      submenuChevron.style.transform = "rotate(180deg)";
+      // Also highlight parent button
+      submenuTrigger.classList.add("text-[#2d5a27]");
+    }
+  }
 
   // 4. Set up Click Handlers for opening/closing drawer
   const openBtn = document.getElementById("mobile-menu-btn");
