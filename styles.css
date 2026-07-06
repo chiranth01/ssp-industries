@@ -760,14 +760,23 @@ html.lenis, html.lenis body {
 /* Modal details layout styling */
 .modal-header-banner {
   height: 120px;
-  width: calc(100% + 4rem);
-  margin-left: -2rem;
-  margin-right: -2rem;
-  margin-top: -2rem;
+  width: calc(100% + 3rem);
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  margin-top: -1.5rem;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .modal-header-banner {
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    margin-right: -2rem;
+    margin-top: -2rem;
+  }
 }
 
 .modal-header-icon {
