@@ -1733,7 +1733,7 @@
       const sequenceState = { frame: 0 };
 
       function resizeCanvas() {
-        drawFrame(sequenceState.frame);
+        drawFrame(Math.round(sequenceState.frame));
       }
 
       function drawFrame(index) {
@@ -1847,18 +1847,18 @@
       // Pinned Scroll Sequence (Pins the section, plays the animation, then unpins to scroll to the next section)
       gsap.to(sequenceState, {
         frame: totalFrames - 1,
-        snap: "frame",
         ease: "none",
         scrollTrigger: {
           trigger: "#scroll-sequence-section",
           start: "top top",      // Pin when the top of the section hits the top of the viewport
           end: "+=300%",         // Pin for 300% of viewport height (approx 3 full scrolls)
           pin: true,             // Pin the section in place!
-          scrub: 0.5,            // Lerp smoothing
+          scrub: 1.2,            // Sweet-spot momentum smoothing to eliminate scroll step jitter
           anticipatePin: 1,      // Prevents page layout jump
         },
         onUpdate: () => {
-          drawFrame(sequenceState.frame);
+          // Pass rounded integer index to avoid CPU-heavy fallback search loop
+          drawFrame(Math.round(sequenceState.frame));
         }
       });
 
@@ -1872,7 +1872,7 @@
         img.src = getFrameUrl(idx + 1);
         img.onload = () => {
           images[idx] = img;
-          drawFrame(sequenceState.frame);
+          drawFrame(Math.round(sequenceState.frame));
         };
       });
 
@@ -1884,7 +1884,7 @@
         img.onload = () => {
           images[i] = img;
           // Redraw only if we are currently looking at a fallback frame that just finished loading
-          drawFrame(sequenceState.frame);
+          drawFrame(Math.round(sequenceState.frame));
         };
       }
 
