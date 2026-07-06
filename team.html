@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team | SSP Industries</title>
+  <meta name="description" content="Meet the leadership and scientific team behind SSP Industries, leading B2B manufacturing and formulation innovations.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#2d5a27',
+              greenHover: '#1e3e1a',
+              lightBg: '#fcfbf9',
+              cardBg: '#f5f5f4',
+              border: '#e5e5e5',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <!-- Custom Navigation Logic -->
+  <script src="navigation.js" defer></script>
+</head>
+<body class="bg-brand-lightBg text-stone-900 relative antialiased selection:bg-brand-green/10 selection:text-brand-green overflow-hidden">
+
+  <!-- Page Preloader Screen -->
+  <div id="preloader">
+    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+      <div class="flex items-center gap-2">
+        <img src="assets/logo_new_revolving_white.png" alt="SSP Logo" class="w-8 h-8 object-contain rotate-slow">
+        <span class="font-heading font-black text-2xl tracking-wider text-white">SSP <span class="opacity-80">SYSTEMS</span></span>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="loader-progress"></div>
+      </div>
+      <p id="loader-status" class="loader-status-text">CONNECTING TO SYSTEM...</p>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-header py-4 px-6 md:px-12 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 group">
+        <img src="assets/logo_new_revolving.png" alt="SSP Logo" class="w-5 h-5 object-contain rotate-slow">
+        <span class="font-heading font-black text-xl tracking-wider text-stone-900 group-hover:text-brand-green transition-colors">
+          SSP <span class="text-brand-green font-bold">INDUSTRIES</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="divisions.html" class="nav-link">Divisions</a>
+        
+        <!-- Dropdown Container -->
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1 active py-2 focus:outline-none">
+            About Us
+            <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white/95 backdrop-blur border border-stone-200/80 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 rounded-xl py-2">
+            <a href="about.html" class="block px-4 py-2 text-stone-700 hover:text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              About Company
+            </a>
+            <a href="team.html" class="block px-4 py-2 text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              Team
+            </a>
+            <a href="achievements.html" class="block px-4 py-2 text-stone-700 hover:text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              Achievements
+            </a>
+          </div>
+        </div>
+
+        <a href="products.html" class="nav-link">Products</a>
+      </nav>
+
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-stone-500 hover:text-brand-green transition-colors"><i class="fa-solid fa-globe text-base"></i></a>
+        <a href="#" class="text-stone-500 hover:text-brand-green transition-colors"><i class="fa-solid fa-magnifying-glass text-base"></i></a>
+        <a href="contact.html" id="nav-cta" class="hidden md:inline-flex magnetic-btn shimmer-effect px-6 py-2.5 bg-brand-green hover:bg-brand-greenHover text-white text-xs font-bold uppercase tracking-wider transition-colors duration-300">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Wrapper -->
+  <div id="smooth-wrapper" class="pt-12">
+    <div id="smooth-content">
+      
+      <!-- HERO & TITLE -->
+      <section class="relative bg-white bg-grid-pattern text-stone-900 py-16 px-6 md:px-12 border-b border-stone-200/80 overflow-hidden flex flex-col items-center justify-center min-h-[260px]">
+        <!-- Radial Spotlight overlay to fade out the grid pattern at the edges -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0)_0%,rgba(255,255,255,0.8)_60%,rgba(255,255,255,1)_100%)] pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto text-center space-y-4 z-10 hero-fade opacity-0 translate-y-8">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 border border-brand-green/10 rounded-full font-mono text-[9px] uppercase tracking-wider font-bold text-brand-green mx-auto w-max">
+            <span class="w-1.5 h-1.5 bg-brand-green rounded-full animate-pulse"></span>
+            Leadership & Science
+          </div>
+          <h1 class="text-4xl sm:text-6xl md:text-7xl font-black font-heading tracking-tight uppercase bg-gradient-to-r from-stone-950 via-[#2d5a27] to-stone-950 bg-clip-text text-transparent">
+            Our Team
+          </h1>
+          <p class="text-stone-500 text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed">
+            The visionary leaders, research scientists, and manufacturing specialists driving B2B packaging and chemical formulation forward.
+          </p>
+        </div>
+      </section>
+
+      <!-- LEADERSHIP GRID -->
+      <section class="py-12 px-6 md:px-12 bg-white bg-grid-pattern border-b border-stone-200/80 relative">
+        <div class="max-w-7xl mx-auto space-y-16">
+          
+          <!-- Category 1: Executive Leadership -->
+          <div class="space-y-12">
+            <div class="space-y-4 text-center max-w-xl mx-auto">
+              <h2 class="text-3xl md:text-4xl font-black font-heading text-stone-900 tracking-tight uppercase">Executive Leadership</h2>
+              <div class="w-12 h-1 bg-brand-green mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <!-- Mrs. SHRIKAMALA M -->
+              <div class="flex flex-col h-[490px] bg-white rounded-2xl border border-stone-200/80 hover:border-brand-green/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
+                <!-- Member Photo -->
+                <div class="aspect-[4/3] w-full relative overflow-hidden bg-stone-100">
+                  <img src="assets/team_shrikamala.jpg" alt="Mrs. SHRIKAMALA M" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="p-6 flex-1 flex flex-col bg-white">
+                  <div class="mb-3">
+                    <h3 class="text-xl font-bold font-heading text-stone-900">Mrs. SHRIKAMALA M</h3>
+                    <p class="text-brand-green font-mono text-[9px] uppercase tracking-widest font-bold mt-1">Proprietrix</p>
+                  </div>
+                  <p class="text-stone-600 text-xs font-light leading-relaxed">
+                    Directing corporate governance, guiding board-level decisions, and defining strategic parameters for SSP Industries.
+                  </p>
+                  <div class="pt-4 border-t border-stone-100 flex gap-4 text-stone-400 mt-auto">
+                    <a href="#" class="hover:text-brand-green hover:scale-110 transition-all duration-300"><i class="fa-brands fa-linkedin-in text-base"></i></a>
+                    <a href="#" class="hover:text-brand-green hover:scale-110 transition-all duration-300"><i class="fa-solid fa-envelope text-base"></i></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mr. CHANDRASHEKAR H S -->
+              <div class="flex flex-col h-[490px] bg-white rounded-2xl border border-stone-200/80 hover:border-brand-green/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
+                <!-- Member Photo -->
+                <div class="aspect-[4/3] w-full relative overflow-hidden bg-stone-100">
+                  <img src="assets/team_chandrashekar.png" alt="Mr. CHANDRASHEKAR H S" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="p-6 flex-1 flex flex-col bg-white">
+                  <div class="mb-3">
+                    <h3 class="text-xl font-bold font-heading text-stone-900">Mr. CHANDRASHEKAR H S</h3>
+                    <p class="text-brand-green font-mono text-[9px] uppercase tracking-widest font-bold mt-1">CMD - Chief Marketing Director</p>
+                  </div>
+                  <p class="text-stone-600 text-xs font-light leading-relaxed">
+                    Leads commercial strategy, national market acquisition, B2B partner relations, and marketing campaigns across all industrial divisions.
+                  </p>
+                  <div class="pt-4 border-t border-stone-100 flex gap-4 text-stone-400 mt-auto">
+                    <a href="tel:9844092575" class="hover:text-brand-green hover:scale-110 transition-all duration-300" title="Call Chandrashekar H S"><i class="fa-solid fa-phone text-base"></i></a>
+                    <a href="mailto:info@sspipl.com" class="hover:text-brand-green hover:scale-110 transition-all duration-300" title="Email Chandrashekar H S"><i class="fa-solid fa-envelope text-base"></i></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mr. J SURESH -->
+              <div class="flex flex-col h-[490px] bg-white rounded-2xl border border-stone-200/80 hover:border-brand-green/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
+                <!-- Member Photo -->
+                <div class="aspect-[4/3] w-full relative overflow-hidden bg-stone-100">
+                  <img src="assets/team_suresh.jpg" alt="Mr. J SURESH" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="p-6 flex-1 flex flex-col bg-white">
+                  <div class="mb-3">
+                    <h3 class="text-xl font-bold font-heading text-stone-900">Mr. J SURESH</h3>
+                    <p class="text-brand-green font-mono text-[9px] uppercase tracking-widest font-bold mt-1">CEO - SSP Industries</p>
+                    <p class="text-stone-500 font-mono text-[8px] uppercase tracking-wider font-semibold mt-0.5">Managing Trustee - Dr. M H Marigowda Foundation</p>
+                  </div>
+                  <p class="text-stone-600 text-xs font-light leading-relaxed">
+                    Leading corporate development, joint ventures, and sustainable partnerships. Spearheads strategic alignments and organizational expansion.
+                  </p>
+                  <div class="pt-4 border-t border-stone-100 flex gap-4 text-stone-400 mt-auto">
+                    <a href="#" class="hover:text-brand-green hover:scale-110 transition-all duration-300"><i class="fa-brands fa-linkedin-in text-base"></i></a>
+                    <a href="#" class="hover:text-brand-green hover:scale-110 transition-all duration-300"><i class="fa-solid fa-envelope text-base"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Scientific & Technical Team -->
+          <div class="space-y-12">
+            <div class="space-y-4 text-center max-w-xl mx-auto">
+              <h2 class="text-3xl md:text-4xl font-black font-heading text-stone-900 tracking-tight uppercase">Scientific & Technical</h2>
+              <div class="w-12 h-1 bg-brand-green mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <!-- Mr. RAJU PILLAI -->
+              <div class="flex flex-col h-[490px] bg-white rounded-2xl border border-stone-200/80 hover:border-brand-green/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
+                <!-- Member Photo -->
+                <div class="aspect-[4/3] w-full relative overflow-hidden bg-stone-100">
+                  <img src="assets/team_raju_pillai.jpg" alt="Mr. RAJU PILLAI" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="p-6 flex-1 flex flex-col bg-white">
+                  <div class="mb-3">
+                    <h3 class="text-xl font-bold font-heading text-stone-900">Mr. RAJU PILLAI</h3>
+                    <p class="text-brand-green font-mono text-[9px] uppercase tracking-widest font-bold mt-1">Scientist</p>
+                  </div>
+                  <p class="text-stone-600 text-xs font-light leading-relaxed">
+                    Leading material analysis, chemical compliance, and biotechnology research to design robust, eco-friendly corrugation coatings.
+                  </p>
+                  <div class="pt-4 border-t border-stone-100 flex gap-4 text-stone-400 mt-auto">
+                    <a href="#" class="hover:text-brand-green hover:scale-110 transition-all duration-300"><i class="fa-brands fa-linkedin-in text-base"></i></a>
+                    <a href="#" class="hover:text-brand-green hover:scale-110 transition-all duration-300"><i class="fa-solid fa-envelope text-base"></i></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mr. PRABAKARAN SUBRAMANIYAN -->
+              <div class="flex flex-col h-[490px] bg-white rounded-2xl border border-stone-200/80 hover:border-brand-green/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
+                <!-- Member Photo -->
+                <div class="aspect-[4/3] w-full relative overflow-hidden bg-stone-100">
+                  <img src="assets/team_prabakaran.png" alt="Mr. PRABAKARAN SUBRAMANIYAN" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="p-6 flex-1 flex flex-col bg-white">
+                  <div class="mb-3">
+                    <h3 class="text-xl font-bold font-heading text-stone-900">Mr. PRABAKARAN SUBRAMANIYAN</h3>
+                    <p class="text-brand-green font-mono text-[9px] uppercase tracking-widest font-bold mt-1">Scientist - SSP Industries</p>
+                    <p class="text-stone-500 font-mono text-[8px] uppercase tracking-wider font-semibold mt-0.5">Consultant - ICAR-ITMU (Govt of India) // Product Dev Expert</p>
+                  </div>
+                  <p class="text-stone-600 text-xs font-light leading-relaxed">
+                    Expert consultant on product commercialization, government research transfers, and strategic formulation initiatives.
+                  </p>
+                  <div class="pt-4 border-t border-stone-100 flex gap-4 text-stone-400 mt-auto">
+                    <a href="#" class="hover:text-brand-green hover:scale-110 transition-all duration-300"><i class="fa-brands fa-linkedin-in text-base"></i></a>
+                    <a href="#" class="hover:text-brand-green hover:scale-110 transition-all duration-300"><i class="fa-solid fa-envelope text-base"></i></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mr. PREETHAM G -->
+              <div class="flex flex-col h-[490px] bg-white rounded-2xl border border-stone-200/80 hover:border-brand-green/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
+                <!-- Member Photo -->
+                <div class="aspect-[4/3] w-full relative overflow-hidden bg-stone-100">
+                  <img src="assets/team_preetham.jpg" alt="Mr. PREETHAM G" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="p-6 flex-1 flex flex-col bg-white">
+                  <div class="mb-3">
+                    <h3 class="text-xl font-bold font-heading text-stone-900">Mr. PREETHAM G</h3>
+                    <p class="text-brand-green font-mono text-[9px] uppercase tracking-widest font-bold mt-1">Manager - Administration & Business Development</p>
+                  </div>
+                  <p class="text-stone-600 text-xs font-light leading-relaxed">
+                    Directs administrative strategies, business expansion initiatives, client relations, and commercial development operations.
+                  </p>
+                  <div class="pt-4 border-t border-stone-100 flex gap-4 text-stone-400 mt-auto">
+                    <a href="tel:+917022556137" class="hover:text-brand-green hover:scale-110 transition-all duration-300" title="+91 70225 56137"><i class="fa-solid fa-phone text-base"></i></a>
+                    <a href="mailto:info@sspipl.com" class="hover:text-brand-green hover:scale-110 transition-all duration-300" title="info@sspipl.com"><i class="fa-solid fa-envelope text-base"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Advisory & Operations -->
+          <div class="space-y-12">
+            <div class="space-y-4 text-center max-w-xl mx-auto">
+              <h2 class="text-3xl md:text-4xl font-black font-heading text-stone-900 tracking-tight uppercase">Advisory & Operations</h2>
+              <div class="w-12 h-1 bg-brand-green mx-auto"></div>
+            </div>
+            
+            <div class="flex justify-center">
+              <!-- Mr. G.N. DHANANJAYA -->
+              <div class="w-full max-w-sm flex flex-col h-[490px] bg-white rounded-2xl border border-stone-200/80 hover:border-brand-green/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
+                <!-- Member Photo -->
+                <div class="aspect-[4/3] w-full relative overflow-hidden bg-stone-100">
+                  <img src="assets/team_dhananjaya_v2.jpg" alt="Mr. G.N. DHANANJAYA" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="p-6 flex-1 flex flex-col bg-white">
+                  <div class="mb-3">
+                    <h3 class="text-xl font-bold font-heading text-stone-900">Mr. G.N. DHANANJAYA</h3>
+                    <p class="text-brand-green font-mono text-[9px] uppercase tracking-widest font-bold mt-1">Advocate & Legal Consultant (B.A. LL.B)</p>
+                    <p class="text-stone-500 font-mono text-[8px] uppercase tracking-wider font-semibold mt-0.5">G N D Associates</p>
+                  </div>
+                  <p class="text-stone-600 text-xs font-light leading-relaxed">
+                    Directs legal advisory operations, commercial contracts, litigation support, and corporate regulatory compliance.
+                  </p>
+                  <div class="pt-4 border-t border-stone-100 flex gap-4 text-stone-400 mt-auto">
+                    <a href="tel:9980132290" class="hover:text-brand-green hover:scale-110 transition-all duration-300" title="Call G.N. Dhananjaya"><i class="fa-solid fa-phone text-base"></i></a>
+                    <a href="mailto:daanigowda.2009@gmail.com" class="hover:text-brand-green hover:scale-110 transition-all duration-300" title="Email G.N. Dhananjaya"><i class="fa-solid fa-envelope text-base"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="bg-[#2d5a27] text-white py-10 px-6 md:px-12 border-t border-brand-greenHover relative z-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+          
+          <!-- Column 1 -->
+          <div class="space-y-6">
+            <div>
+              <span class="font-heading font-black text-2xl tracking-wider text-white">
+                SSP Industries
+              </span>
+            </div>
+            <ul class="space-y-3 text-sm font-medium text-stone-200">
+              <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+              <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+              <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+            <div class="bg-white p-2 inline-block w-max rounded-none">
+              <svg class="w-20 h-20 text-black" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M5 5h30v30H5V5zm6 6v18h18V11H11zM65 5h30v30H65V5zm6 6v18h18V11H71zM5 65h30v30H5V65zm6 6v18h18V71H11z" />
+                <rect x="17" y="17" width="6" height="6" /><rect x="77" y="17" width="6" height="6" /><rect x="17" y="77" width="6" height="6" /><rect x="45" y="15" width="8" height="8" /><rect x="45" y="35" width="12" height="6" /><rect x="35" y="45" width="6" height="12" /><rect x="55" y="55" width="10" height="10" /><rect x="75" y="45" width="12" height="8" /><rect x="45" y="75" width="10" height="12" /><rect x="65" y="75" width="8" height="6" /><rect x="75" y="65" width="6" height="16" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="space-y-6">
+            <h4 class="text-xl font-bold text-white tracking-wide">Contact Us</h4>
+            <div class="space-y-2 text-sm font-medium text-stone-200">
+              <p>9845814147 | 9902756137</p>
+              <p><a href="mailto:info@sspipl.com" class="hover:text-white transition-colors">info@sspipl.com</a></p>
+            </div>
+            
+            <div class="space-y-2 text-sm text-stone-200">
+              <h5 class="font-bold text-white">Corporate Office Address</h5>
+              <p class="leading-relaxed font-light">
+                No.40/11-1, 2nd floor, BDA No.1269/B,<br>
+                MRCR Layout, Agrahara dasarahalli,<br>
+                Magadi Main Road, Beside Housing<br>
+                Board Underpass, Govindarajnagar,<br>
+                Bangalore 560040
+              </p>
+            </div>
+
+            <div class="space-y-2 text-sm text-stone-200">
+              <h5 class="font-bold text-white">Factory Address</h5>
+              <p class="leading-relaxed font-light">
+                Plot # SpecialQ-26, KSSIDC Indl Estate,<br>
+                Magadi Taluk, Ramanagar - 562 120
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="space-y-6">
+            <h4 class="text-3xl font-heading font-bold text-white leading-tight">
+              Connect with<br>us for the More<br>details
+            </h4>
+            <form class="space-y-4 w-full max-w-sm" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+              <input type="email" placeholder="Email" required class="w-full px-4 py-3 text-sm text-white placeholder-stone-300 bg-brand-greenHover/80 border border-white focus:outline-none focus:bg-brand-greenHover transition-all rounded-none">
+              <button type="submit" class="w-full py-3 bg-white hover:bg-stone-100 text-stone-900 font-bold text-sm uppercase tracking-wider rounded-full transition-colors duration-300">
+                Subscribe
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[10px] text-stone-200 tracking-wider uppercase font-semibold gap-6">
+          <p>© 2026 SSP INDUSTRIES. ALL RIGHTS RESERVED.</p>
+          <div class="flex gap-6 text-base">
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/sspipl?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com/@sspipl?si=KId9bfi1pkHxVgCs" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+          <div class="flex gap-6 text-[10px]">
+            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    window.addEventListener("DOMContentLoaded", () => {
+      // Preloader initialization sequence
+      let progress = 0;
+      const progressEl = document.getElementById("loader-progress");
+      const statusEl = document.getElementById("loader-status");
+      const preloader = document.getElementById("preloader");
+      
+      const statuses = [
+        "Connecting to Systems...",
+        "Ready."
+      ];
+      
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 25) + 12;
+        if (progress > 100) progress = 100;
+        
+        if (progressEl) progressEl.style.width = `${progress}%`;
+        if (statusEl) {
+          statusEl.innerText = statuses[Math.min(Math.floor(progress / 51), statuses.length - 1)];
+        }
+        
+        if (progress === 100) {
+          clearInterval(interval);
+          
+          gsap.to(preloader, {
+            yPercent: -100,
+            duration: 0.85,
+            ease: "power4.inOut",
+            delay: 0.15,
+            onComplete: () => {
+              preloader.style.display = "none";
+              document.body.classList.remove("overflow-hidden");
+              
+              // Trigger intro animations
+              gsap.to(".hero-fade", { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" });
+            }
+          });
+        }
+      }, 50);
+    });
+  </script>
+</body>
+</html>

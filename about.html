@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | SSP Industries</title>
+  <meta name="description" content="Learn about SSP Industries, our history since 2005, our values, and our commitment to sustainable manufacturing.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#2d5a27',
+              greenHover: '#1e3e1a',
+              lightBg: '#fcfbf9',
+              cardBg: '#f5f5f4',
+              border: '#e5e5e5',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <!-- Custom Navigation Logic -->
+  <script src="navigation.js" defer></script>
+</head>
+<body class="bg-brand-lightBg text-stone-900 relative antialiased selection:bg-brand-green/10 selection:text-brand-green overflow-hidden">
+
+  <!-- Page Preloader Screen -->
+  <div id="preloader">
+    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+      <div class="flex items-center gap-2">
+        <img src="assets/logo_new_revolving_white.png" alt="SSP Logo" class="w-8 h-8 object-contain rotate-slow">
+        <span class="font-heading font-black text-2xl tracking-wider text-white">SSP <span class="opacity-80">SYSTEMS</span></span>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="loader-progress"></div>
+      </div>
+      <p id="loader-status" class="loader-status-text">CONNECTING TO SYSTEM...</p>
+    </div>
+  </div>
+
+
+  <!-- Header Navigation -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-header py-4 px-6 md:px-12 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 group">
+        <img src="assets/logo_new_revolving.png" alt="SSP Logo" class="w-5 h-5 object-contain rotate-slow">
+        <span class="font-heading font-black text-xl tracking-wider text-stone-900 group-hover:text-brand-green transition-colors">
+          SSP <span class="text-brand-green font-bold">INDUSTRIES</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="divisions.html" class="nav-link">Divisions</a>
+        
+        <!-- Dropdown Container -->
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1 active py-2 focus:outline-none">
+            About Us
+            <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white/95 backdrop-blur border border-stone-200/80 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 rounded-xl py-2">
+            <a href="about.html" class="block px-4 py-2 text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              About Company
+            </a>
+            <a href="team.html" class="block px-4 py-2 text-stone-700 hover:text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              Team
+            </a>
+            <a href="achievements.html" class="block px-4 py-2 text-stone-700 hover:text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              Achievements
+            </a>
+          </div>
+        </div>
+
+        <a href="products.html" class="nav-link">Products</a>
+      </nav>
+
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-stone-500 hover:text-brand-green transition-colors"><i class="fa-solid fa-globe text-base"></i></a>
+        <a href="#" class="text-stone-500 hover:text-brand-green transition-colors"><i class="fa-solid fa-magnifying-glass text-base"></i></a>
+        <a href="contact.html" id="nav-cta" class="hidden md:inline-flex magnetic-btn shimmer-effect px-6 py-2.5 bg-brand-green hover:bg-brand-greenHover text-white text-xs font-bold uppercase tracking-wider transition-colors duration-300">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Wrapper -->
+  <div id="smooth-wrapper" class="pt-12">
+    <div id="smooth-content">
+      
+      <!-- [SEC.01] HERO & STRATEGIC IDENTITY -->
+      <section class="relative bg-white bg-grid-pattern text-stone-900 py-24 px-6 md:px-12 border-b border-stone-200/80 overflow-hidden flex flex-col items-center justify-center min-h-[380px]">
+        <!-- Blueprint Overlay Accents -->
+        <div class="absolute top-4 left-4 font-mono text-[9px] text-stone-500 select-none">SYS.REF // ABOUT_HERO_SEC.01</div>
+        <div class="absolute top-4 right-4 font-mono text-[9px] text-stone-500 select-none">[12.9716° N, 77.5946° E]</div>
+
+
+        <!-- Corner Crosshairs -->
+        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#2d5a27]/30 z-20"></div>
+        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#2d5a27]/30 z-20"></div>
+        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#2d5a27]/30 z-20"></div>
+        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#2d5a27]/30 z-20"></div>
+
+        <div class="max-w-4xl mx-auto text-center space-y-6 z-10 hero-fade opacity-0 translate-y-8">
+          <span class="px-3.5 py-1.5 bg-emerald-50 text-brand-green rounded-full font-mono text-[10px] uppercase tracking-wider font-semibold border border-brand-green/10">
+            About Company
+          </span>
+          <h1 class="text-4xl sm:text-6xl md:text-7xl font-black font-heading tracking-tight uppercase bg-gradient-to-r from-stone-950 via-[#2d5a27] to-stone-950 bg-clip-text text-transparent">
+            About Us
+          </h1>
+          <p class="text-stone-500 text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed">
+            Leading industrial-scale B2B manufacturing and clean biotechnology formulations since 2005.
+          </p>
+        </div>
+      </section>
+
+      <!-- [SEC.02] INFRASTRUCTURE & TECHNICAL SPECS -->
+      <section id="infrastructure" class="py-16 px-6 md:px-12 bg-white bg-grid-pattern border-b border-stone-200/80 relative">
+
+        
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 mt-8 items-start">
+          <!-- Left side: Facilities Info -->
+          <div class="lg:col-span-6 space-y-8 journey-text opacity-0 translate-y-8">
+            <div class="space-y-4">
+              <h2 class="text-3xl md:text-5xl font-black font-heading text-stone-900 tracking-tight">Our Facilities</h2>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-3.5 py-1.5 bg-stone-100 text-stone-700 rounded-full font-mono text-[10px] uppercase tracking-wider font-semibold border border-stone-200/40">
+                  UNITS: 02
+                </span>
+                <span class="px-3.5 py-1.5 bg-emerald-50 text-brand-green rounded-full font-mono text-[10px] uppercase tracking-wider font-semibold border border-brand-green/10">
+                  LOC: MAGADI INDUSTRIAL AREA
+                </span>
+              </div>
+            </div>
+            
+            <div class="space-y-6">
+              <div class="p-6 bg-white border border-stone-200/80 hover:border-brand-green/30 hover:shadow-xl hover:shadow-stone-200/40 rounded-2xl transition-all duration-300 flex items-start gap-4">
+                <div class="w-12 h-12 bg-emerald-50/85 text-brand-green rounded-xl flex items-center justify-center text-xl shrink-0">
+                  <i class="fa-solid fa-robot"></i>
+                </div>
+                <div class="space-y-1">
+                  <h3 class="text-lg font-bold text-stone-900 font-heading">Unit A: Specialized Ops</h3>
+                  <p class="text-stone-500 text-sm font-light leading-relaxed">
+                    Separate high-capacity facilities designed specifically for automated cleaning sections and high-throughput corrugation lines.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="p-6 bg-white border border-stone-200/80 hover:border-brand-green/30 hover:shadow-xl hover:shadow-stone-200/40 rounded-2xl transition-all duration-300 flex items-start gap-4">
+                <div class="w-12 h-12 bg-emerald-50/85 text-brand-green rounded-xl flex items-center justify-center text-xl shrink-0">
+                  <i class="fa-solid fa-flask-vial"></i>
+                </div>
+                <div class="space-y-1">
+                  <h3 class="text-lg font-bold text-stone-900 font-heading">Scientific Formulation</h3>
+                  <p class="text-stone-500 text-sm font-light leading-relaxed">
+                    Formulations led by qualified scientists as part of joint ventures with ICAR and ITMU, Government of India.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right side: Specs & Image -->
+          <div class="lg:col-span-6 space-y-8 journey-stats opacity-0 translate-y-8">
+            <div class="divide-y divide-stone-200/60 space-y-4">
+              <div class="flex items-start gap-6 pb-4">
+                <span class="font-mono text-xl font-bold text-brand-green">01.</span>
+                <p class="text-stone-600 text-sm font-light leading-relaxed">
+                  NABL-approved laboratory partnerships for rigorous product testing, parameter verification, and compliance setting.
+                </p>
+              </div>
+              <div class="flex items-start gap-6 py-4">
+                <span class="font-mono text-xl font-bold text-brand-green">02.</span>
+                <p class="text-stone-600 text-sm font-light leading-relaxed">
+                  Active collaboration with ICAR for advanced biological technology integration and rigorous manufacturing supervision.
+                </p>
+              </div>
+              <div class="flex items-start gap-6 pt-4">
+                <span class="font-mono text-xl font-bold text-brand-green">03.</span>
+                <p class="text-stone-600 text-sm font-light leading-relaxed">
+                  Utmost technical supervision ensuring every output batch meets strict global industrial and environmental standards.
+                </p>
+              </div>
+            </div>
+            
+            <div class="border border-stone-200 shadow-xl shadow-stone-200/50 rounded-2xl overflow-hidden bg-stone-950">
+              <img src="assets/facility_wide_angle.png" alt="State-of-the-Art Cleanroom Facility" class="w-full h-64 object-cover image-scale opacity-95 rounded-2xl">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- [SEC.03] COMPETITIVE ARCHITECTURE -->
+      <section id="competitive" class="py-16 px-6 md:px-12 bg-white bg-grid-pattern border-b border-stone-200/80 relative">
+        <div class="absolute top-0 left-0 right-0 bg-stone-100 text-stone-600 py-2 px-6 font-mono text-[10px] tracking-wider uppercase border-b border-stone-200 select-none flex justify-between">
+          <span>[SEC.03] COMPETITIVE ARCHITECTURE</span>
+          <span>BENTO_GRID_V2.1 // ALIGNMENT</span>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-8 space-y-12">
+          <div class="text-center space-y-4 max-w-2xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-black font-heading text-stone-900 tracking-tight">Why Choose SSP Industries?</h2>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bento-container opacity-0 translate-y-8">
+            <!-- Bento Box 1 -->
+            <div class="p-8 bg-white border border-stone-200/80 hover:border-brand-green/30 hover:shadow-xl hover:shadow-stone-200/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-64 rounded-2xl">
+              <div class="w-11 h-11 bg-emerald-50 text-brand-green flex items-center justify-center rounded-xl text-lg shrink-0">
+                <i class="fa-solid fa-microscope"></i>
+              </div>
+              <div class="space-y-2 mt-4">
+                <h3 class="text-xl font-bold font-heading text-stone-900">Expertise & Innovation</h3>
+                <p class="text-stone-500 text-xs font-light leading-relaxed">
+                  20 years of industry experience collaborating with ICAR and NABL labs to lead in biological and material sciences.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Bento Box 2 -->
+            <div class="p-8 bg-white border border-stone-200/80 hover:border-brand-green/30 hover:shadow-xl hover:shadow-stone-200/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-64 rounded-2xl">
+              <div class="w-11 h-11 bg-emerald-50 text-brand-green flex items-center justify-center rounded-xl text-lg shrink-0">
+                <i class="fa-solid fa-industry"></i>
+              </div>
+              <div class="space-y-2 mt-4">
+                <h3 class="text-xl font-bold font-heading text-stone-900">State-of-the-Art</h3>
+                <p class="text-stone-500 text-xs font-light leading-relaxed">
+                  Two specialized units in Magadi Industrial Area, built for high-performance throughput and eco-friendly assembly.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Bento Box 3 -->
+            <div class="p-8 bg-white border border-stone-200/80 hover:border-brand-green/30 hover:shadow-xl hover:shadow-stone-200/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-64 rounded-2xl">
+              <div class="w-11 h-11 bg-emerald-50 text-brand-green flex items-center justify-center rounded-xl text-lg shrink-0">
+                <i class="fa-solid fa-leaf"></i>
+              </div>
+              <div class="space-y-2 mt-4">
+                <h3 class="text-xl font-bold font-heading text-stone-900">Sustainability & Quality</h3>
+                <p class="text-stone-500 text-xs font-light leading-relaxed">
+                  ISO 9001:2015 certified, focusing on fully recyclable fibers and eco-friendly chemical manufacturing processes.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Bento Box 4 -->
+            <div class="p-8 bg-white border border-stone-200/80 hover:border-brand-green/30 hover:shadow-xl hover:shadow-stone-200/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-64 rounded-2xl">
+              <div class="w-11 h-11 bg-emerald-50 text-brand-green flex items-center justify-center rounded-xl text-lg shrink-0">
+                <i class="fa-solid fa-compass-drafting"></i>
+              </div>
+              <div class="space-y-2 mt-4">
+                <h3 class="text-xl font-bold font-heading text-stone-900">Customized Solutions</h3>
+                <p class="text-stone-500 text-xs font-light leading-relaxed">
+                  Tailored products meeting specific customer dimensions, materials specs, and formulations with modular precision.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Bento Box 5 -->
+            <div class="p-8 bg-white border border-stone-200/80 hover:border-brand-green/30 hover:shadow-xl hover:shadow-stone-200/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-64 rounded-2xl">
+              <div class="w-11 h-11 bg-emerald-50 text-brand-green flex items-center justify-center rounded-xl text-lg shrink-0">
+                <i class="fa-solid fa-truck-ramp-box"></i>
+              </div>
+              <div class="space-y-2 mt-4">
+                <h3 class="text-xl font-bold font-heading text-stone-900">Reliable Delivery</h3>
+                <p class="text-stone-500 text-xs font-light leading-relaxed">
+                  Organized supply chain and proprietary distribution networks guaranteeing on-time delivery without compromise.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Bento Box 6 -->
+            <div class="p-8 bg-white border border-stone-200/80 hover:border-brand-green/30 hover:shadow-xl hover:shadow-stone-200/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-64 rounded-2xl">
+              <div class="w-11 h-11 bg-emerald-50 text-brand-green flex items-center justify-center rounded-xl text-lg shrink-0">
+                <i class="fa-solid fa-handshake-simple"></i>
+              </div>
+              <div class="space-y-2 mt-4">
+                <h3 class="text-xl font-bold font-heading text-stone-900">Trusted by Leaders</h3>
+                <p class="text-stone-500 text-xs font-light leading-relaxed">
+                  Recognized as an A-category supplier to global corporate leaders like Cargill Industries, verifying our B2B capability.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- [SEC.04] COMMITMENT FRAMEWORK & LEAD GEN -->
+      <section id="commitment" class="py-16 px-6 md:px-12 bg-white bg-grid-pattern relative">
+        <div class="absolute top-0 left-0 right-0 bg-stone-900 text-white py-2 px-6 font-mono text-[10px] tracking-wider uppercase border-b border-stone-900 select-none flex justify-between">
+          <span>[SEC.04] CORE VALUES & COMMITMENT</span>
+          <span>SPECS_LEAD_GEN // PORT_8001</span>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-8 space-y-16">
+          <!-- Values Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 values-container opacity-0 translate-y-8">
+            <!-- Value Item 1 -->
+            <div class="space-y-4 border-l-2 border-stone-300 pl-6 py-2">
+              <div class="font-mono text-[10px] text-brand-green font-bold">[UNIT_01]</div>
+              <div class="w-10 h-10 bg-emerald-50 text-brand-green flex items-center justify-center text-lg">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+              <h3 class="text-xl font-bold font-heading text-stone-900">Quality & Consistency</h3>
+              <p class="text-stone-600 text-xs font-light leading-relaxed">
+                High standards in every single batch, ensuring structural integrity and chemical parameters remain excellent.
+              </p>
+            </div>
+            
+            <!-- Value Item 2 -->
+            <div class="space-y-4 border-l-2 border-stone-300 pl-6 py-2">
+              <div class="font-mono text-[10px] text-brand-green font-bold">[UNIT_02]</div>
+              <div class="w-10 h-10 bg-emerald-50 text-brand-green flex items-center justify-center text-lg">
+                <i class="fa-solid fa-lightbulb"></i>
+              </div>
+              <h3 class="text-xl font-bold font-heading text-stone-900">Continuous Innovation</h3>
+              <p class="text-stone-600 text-xs font-light leading-relaxed">
+                Developing cutting-edge formulations through active research pipelines and collaborative ICAR tech-stack.
+              </p>
+            </div>
+            
+            <!-- Value Item 3 -->
+            <div class="space-y-4 border-l-2 border-stone-300 pl-6 py-2">
+              <div class="font-mono text-[10px] text-brand-green font-bold">[UNIT_03]</div>
+              <div class="w-10 h-10 bg-emerald-50 text-brand-green flex items-center justify-center text-lg">
+                <i class="fa-solid fa-scale-balanced"></i>
+              </div>
+              <h3 class="text-xl font-bold font-heading text-stone-900">Ethical Practices</h3>
+              <p class="text-stone-600 text-xs font-light leading-relaxed">
+                Transparent and sustainable corporate practices, maintaining environment-first operations globally.
+              </p>
+            </div>
+            
+            <!-- Value Item 4 -->
+            <div class="space-y-4 border-l-2 border-stone-300 pl-6 py-2">
+              <div class="font-mono text-[10px] text-brand-green font-bold">[UNIT_04]</div>
+              <div class="w-10 h-10 bg-emerald-50 text-brand-green flex items-center justify-center text-lg">
+                <i class="fa-solid fa-face-smile"></i>
+              </div>
+              <h3 class="text-xl font-bold font-heading text-stone-900">Customer Satisfaction</h3>
+              <p class="text-stone-600 text-xs font-light leading-relaxed">
+                Providing unmatched B2B support and specialized products designed to exceed enterprise expectations.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Technical Lead Capture Footer Section -->
+          <div class="bg-black text-white p-8 md:p-12 border-2 border-stone-900 shadow-[8px_8px_0px_0px_#000] relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="space-y-3 max-w-xl text-center md:text-left">
+              <h4 class="text-2xl md:text-3xl font-black font-heading tracking-tight text-white uppercase">
+                Connect with us for technical specifications
+              </h4>
+              <p class="text-stone-400 text-xs font-mono tracking-wider">
+                REQUEST SCHEMATICS, LABORATORY REPORTS, AND SPECIFICATION SHEETS.
+              </p>
+            </div>
+            
+            <form class="flex flex-col sm:flex-row w-full md:w-auto gap-4 max-w-md shrink-0 z-10" onsubmit="event.preventDefault(); alert('Technical specs request submitted!');">
+              <input type="email" placeholder="ENTER SYSTEM EMAIL" required class="bg-stone-900 border border-stone-850 px-4 py-3 text-sm text-white placeholder-stone-600 font-mono tracking-widest focus:outline-none focus:border-brand-green rounded-none w-full sm:w-64">
+              <button type="submit" class="magnetic-btn px-6 py-3.5 bg-brand-green hover:bg-brand-greenHover text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors duration-300 shrink-0 border border-stone-900 shadow-[2px_2px_0px_0px_rgba(255,255,255,0.2)]">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>      <!-- [SEC.05] OUR CLIENTS (two marquee rows layout) -->
+      <style>
+        /* Marquee Rows Styles */
+        #clients {
+          user-select: none;
+        }
+        .marquee-track {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+        }
+        .constellation-node {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          pointer-events: auto;
+          will-change: transform;
+        }
+        .node-wrapper {
+          padding: 0.5rem 1.5rem !important;
+          background-color: white;
+          border: none;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+        .constellation-node:hover .node-wrapper {
+          box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.03);
+          transform: scale(1.08);
+        }
+        .constellation-node .logo-img {
+          will-change: transform, opacity;
+          transition: opacity 0.3s ease;
+        }
+        
+        /* Mobile responsive adjustments */
+        @media (max-width: 767px) {
+          #clients {
+            min-height: auto;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+          }
+          .node-wrapper {
+            padding: 0.35rem 0.8rem !important;
+            border: none !important;
+          }
+          .node-wrapper img {
+            height: 24px !important;
+          }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+          .constellation-node {
+            transition: none !important;
+          }
+          .constellation-node .logo-img {
+            transform: none !important;
+            opacity: 1 !important;
+          }
+        }
+      </style>
+      <section id="clients" class="py-4 bg-white relative overflow-hidden flex flex-col items-center justify-center min-h-0 w-full">
+        <!-- Subtle gradient fade on left and right edges -->
+        <div class="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-30 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-30 pointer-events-none"></div>
+
+        <div class="w-full flex flex-col items-center justify-between h-full py-0">
+          
+          <!-- Top Row (Right-to-Left) -->
+          <div class="w-full relative h-[140px] md:h-[190px] overflow-hidden" id="marquee-row-top">
+            <div class="marquee-track" id="track-top">
+              <!-- Logos will be generated dynamically -->
+            </div>
+          </div>
+
+          <!-- Fixed Centered Heading -->
+          <div class="text-center my-2 md:my-3 z-25 select-none pointer-events-none">
+            <h2 class="text-4xl md:text-6xl font-black font-heading text-stone-900 tracking-tight uppercase mb-3">Our Clients</h2>
+            <p class="text-stone-500 text-xs md:text-sm font-light uppercase tracking-widest font-sans">
+              Trusted by leading organizations across industries.
+            </p>
+          </div>
+
+          <!-- Bottom Row (Left-to-Right) -->
+          <div class="w-full relative h-[140px] md:h-[190px] overflow-hidden" id="marquee-row-bottom">
+            <div class="marquee-track" id="track-bottom">
+              <!-- Logos will be generated dynamically -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="bg-[#2d5a27] text-white py-10 px-6 md:px-12 border-t border-brand-greenHover relative z-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+          
+          <!-- Column 1 -->
+          <div class="space-y-6">
+            <div>
+              <span class="font-heading font-black text-2xl tracking-wider text-white">
+                SSP Industries
+              </span>
+            </div>
+            <ul class="space-y-3 text-sm font-medium text-stone-200">
+              <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+              <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+              <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+            <div class="bg-white p-2 inline-block w-max rounded-none">
+              <svg class="w-20 h-20 text-black" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M5 5h30v30H5V5zm6 6v18h18V11H11zM65 5h30v30H65V5zm6 6v18h18V11H71zM5 65h30v30H5V65zm6 6v18h18V71H11z" />
+                <rect x="17" y="17" width="6" height="6" /><rect x="77" y="17" width="6" height="6" /><rect x="17" y="77" width="6" height="6" /><rect x="45" y="15" width="8" height="8" /><rect x="45" y="35" width="12" height="6" /><rect x="35" y="45" width="6" height="12" /><rect x="55" y="55" width="10" height="10" /><rect x="75" y="45" width="12" height="8" /><rect x="45" y="75" width="10" height="12" /><rect x="65" y="75" width="8" height="6" /><rect x="75" y="65" width="6" height="16" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="space-y-6">
+            <h4 class="text-xl font-bold text-white tracking-wide">Contact Us</h4>
+            <div class="space-y-2 text-sm font-medium text-stone-200">
+              <p>9845814147 | 9902756137</p>
+              <p><a href="mailto:info@sspipl.com" class="hover:text-white transition-colors">info@sspipl.com</a></p>
+            </div>
+            
+            <div class="space-y-2 text-sm text-stone-200">
+              <h5 class="font-bold text-white">Corporate Office Address</h5>
+              <p class="leading-relaxed font-light">
+                No.40/11-1, 2nd floor, BDA No.1269/B,<br>
+                MRCR Layout, Agrahara dasarahalli,<br>
+                Magadi Main Road, Beside Housing<br>
+                Board Underpass, Govindarajnagar,<br>
+                Bangalore 560040
+              </p>
+            </div>
+
+            <div class="space-y-2 text-sm text-stone-200">
+              <h5 class="font-bold text-white">Factory Address</h5>
+              <p class="leading-relaxed font-light">
+                Plot # SpecialQ-26, KSSIDC Indl Estate,<br>
+                Magadi Taluk, Ramanagar - 562 120
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="space-y-6">
+            <h4 class="text-3xl font-heading font-bold text-white leading-tight">
+              Connect with<br>us for the More<br>details
+            </h4>
+            <form class="space-y-4 w-full max-w-sm" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+              <input type="email" placeholder="Email" required class="w-full px-4 py-3 text-sm text-white placeholder-stone-300 bg-brand-greenHover/80 border border-white focus:outline-none focus:bg-brand-greenHover transition-all rounded-none">
+              <button type="submit" class="w-full py-3 bg-white hover:bg-stone-100 text-stone-900 font-bold text-sm uppercase tracking-wider rounded-full transition-colors duration-300">
+                Subscribe
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[10px] text-stone-200 tracking-wider uppercase font-semibold gap-6">
+          <p>© 2026 SSP INDUSTRIES. ALL RIGHTS RESERVED.</p>
+          <div class="flex gap-6 text-base">
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/sspipl?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com/@sspipl?si=KId9bfi1pkHxVgCs" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+          <div class="flex gap-6 text-[10px]">
+            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+  
+
+
+    // Card Mouse tracking for radial border glow
+    const glowCards = document.querySelectorAll(".glow-border-card");
+    glowCards.forEach(card => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      });
+    });
+
+
+
+    // 5. Magnetic CTA Buttons Handler
+    const magneticBtns = document.querySelectorAll(".magnetic-btn");
+    magneticBtns.forEach(btn => {
+      btn.addEventListener("mousemove", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        gsap.to(btn, {
+          x: x * 0.35,
+          y: y * 0.35,
+          scale: 1.02,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+      btn.addEventListener("mouseleave", () => {
+        gsap.to(btn, {
+          x: 0,
+          y: 0,
+          scale: 1,
+          duration: 0.5,
+          ease: "elastic.out(1, 0.3)"
+        });
+      });
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      // Preloader initialization sequence
+      let progress = 0;
+      const progressEl = document.getElementById("loader-progress");
+      const statusEl = document.getElementById("loader-status");
+      const preloader = document.getElementById("preloader");
+      
+      const statuses = [
+        "Connecting to Zurich Hub...",
+        "Reading System Schematics...",
+        "Synthesizing Material Catalog...",
+        "Ready."
+      ];
+      
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 15) + 6;
+        if (progress > 100) progress = 100;
+        
+        if (progressEl) progressEl.style.width = `${progress}%`;
+        if (statusEl) {
+          statusEl.innerText = statuses[Math.min(Math.floor(progress / 26), statuses.length - 1)];
+        }
+        
+        if (progress === 100) {
+          clearInterval(interval);
+          
+          // Animate preloader out
+          gsap.to(preloader, {
+            yPercent: -100,
+            duration: 0.85,
+            ease: "power4.inOut",
+            delay: 0.15,
+            onComplete: () => {
+              preloader.style.display = "none";
+              document.body.classList.remove("overflow-hidden");
+              
+              // Trigger intro animations
+              const introTl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.2 } });
+              introTl
+                .to(".hero-fade", { opacity: 1, y: 0, stagger: 0.15 });
+            }
+          });
+        }
+      }, 50);
+
+      // Scroll triggers
+      gsap.to(".journey-text, .journey-stats", {
+        scrollTrigger: {
+          trigger: "#infrastructure",
+          start: "top 80%"
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+
+      gsap.to(".bento-container", {
+        scrollTrigger: {
+          trigger: "#competitive",
+          start: "top 80%"
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
+      gsap.to(".values-container", {
+        scrollTrigger: {
+          trigger: "#commitment",
+          start: "top 80%"
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
+      // ----------------------------------------------------
+      // CLIENTS TWO-ROW MARQUEE SIMULATION
+      // ----------------------------------------------------
+      (function() {
+        const section = document.getElementById('clients');
+        const trackTop = document.getElementById('track-top');
+        const trackBottom = document.getElementById('track-bottom');
+        const rowTopElement = document.getElementById('marquee-row-top');
+        const rowBottomElement = document.getElementById('marquee-row-bottom');
+        
+        if (!section || !trackTop || !trackBottom) return;
+        
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        const clientNames = [
+          "Cargill Industries", "Swiss Agro Foods", "Apex Logistics", "Zenith Chemicals",
+          "BioCore Labs", "Novatech Biotech", "CleanFiber Solutions", "ICAR Research Partner",
+          "Curamax Health", "EcoPack Systems", "Quantum Materials", "Apex Precision",
+          "Vertex Formulations", "Delta Nutrition", "Magna Supply", "Global Logistics",
+          "Synergy Labs", "TechCorp Group", "Prime Pack", "United Agro",
+          "Beacon Chemicals", "Horizon Materials", "Phoenix Energy", "Orion Biotech",
+          "Nexa Industries", "Genesis Foods", "Vanguard Dynamics", "Atlas Systems",
+          "Matrix Tech", "Alpha Logistics"
+        ];
+        
+        const logosPerRow = 15;
+        let isActive = false;
+        let lastTime = performance.now();
+        const nodeStates = [];
+        
+        let isTopHovered = false;
+        let isBottomHovered = false;
+        
+        if (rowTopElement) {
+          rowTopElement.addEventListener('mouseenter', () => { isTopHovered = true; });
+          rowTopElement.addEventListener('mouseleave', () => { isTopHovered = false; });
+        }
+        if (rowBottomElement) {
+          rowBottomElement.addEventListener('mouseenter', () => { isBottomHovered = true; });
+          rowBottomElement.addEventListener('mouseleave', () => { isBottomHovered = false; });
+        }
+        
+        // Helper to generate a node
+        function createLogoNode(i, container, rowType) {
+          const node = document.createElement('div');
+          node.className = 'constellation-node cursor-pointer';
+          
+          const wrapper = document.createElement('div');
+          wrapper.className = 'node-wrapper p-4 bg-white transition-all duration-300';
+          
+          const img = document.createElement('img');
+          img.src = `assets/client_logos/processed/${i + 1}.png`;
+          img.alt = clientNames[i];
+          img.className = 'h-14 md:h-[95px] w-auto object-contain logo-img';
+          
+          wrapper.appendChild(img);
+          node.appendChild(wrapper);
+          container.appendChild(node);
+          
+          const state = {
+            element: node,
+            x: 0,
+            row: rowType,
+            index: i % logosPerRow
+          };
+          
+          nodeStates.push(state);
+        }
+        
+        // 1. Clear containers and build elements
+        trackTop.innerHTML = '';
+        trackBottom.innerHTML = '';
+        
+        for (let i = 0; i < 15; i++) {
+          createLogoNode(i, trackTop, 'top');
+        }
+        for (let i = 15; i < 30; i++) {
+          createLogoNode(i, trackBottom, 'bottom');
+        }
+        
+        // Initialize positions based on spacing
+        function initPositions() {
+          const currentSpacing = window.innerWidth < 768 ? 160 : 260;
+          nodeStates.forEach((ns) => {
+            ns.x = ns.index * currentSpacing;
+          });
+        }
+        
+        initPositions();
+        
+        function updateMarquees(time) {
+          const dt = (time - lastTime) / 1000; // in seconds
+          lastTime = time;
+          
+          const W = section.clientWidth;
+          const currentSpacing = window.innerWidth < 768 ? 160 : 260;
+          
+          // Total length of the loop track
+          const L = Math.max(logosPerRow * currentSpacing, W + 520);
+          
+          // Speed: complete one full cycle (L pixels) in 48 seconds (much slower)
+          const scrollSpeed = L / 48; 
+          
+          nodeStates.forEach((ns) => {
+            const isRowHovered = ns.row === 'top' ? isTopHovered : isBottomHovered;
+            
+            if (!isRowHovered && !prefersReducedMotion) {
+              if (ns.row === 'top') {
+                // Top row: scrolls right-to-left
+                ns.x -= scrollSpeed * dt;
+                if (ns.x < -260) {
+                  ns.x += L;
+                }
+              } else {
+                // Bottom row: scrolls left-to-right
+                ns.x += scrollSpeed * dt;
+                if (ns.x > L - 260) {
+                  ns.x -= L;
+                }
+              }
+            }
+            
+            // Map wrapping horizontally
+            let displayX = ns.x;
+            if (ns.row === 'top') {
+              if (displayX < -260) displayX += L;
+            } else {
+              if (displayX > L - 260) displayX -= L;
+            }
+            
+            ns.element.style.transform = `translate3d(${displayX}px, -50%, 0)`;
+            ns.element.style.zIndex = isRowHovered ? 50 : 25;
+          });
+        }
+        
+        function tick(time) {
+          if (!isActive) return;
+          updateMarquees(time);
+          requestAnimationFrame(tick);
+        }
+        
+        // ScrollTrigger to manage animation state
+        gsap.to("#clients", {
+          scrollTrigger: {
+            trigger: "#clients",
+            start: "top 95%",
+            end: "bottom 5%",
+            onEnter: () => {
+              isActive = true;
+              lastTime = performance.now();
+              requestAnimationFrame(tick);
+            },
+            onLeave: () => { isActive = false; },
+            onEnterBack: () => {
+              isActive = true;
+              lastTime = performance.now();
+              requestAnimationFrame(tick);
+            },
+            onLeaveBack: () => { isActive = false; }
+          }
+        });
+        
+        // Run once on load to position nodes immediately
+        updateMarquees(performance.now());
+        
+        // Listen to window resizing to instantly update positions
+        window.addEventListener('resize', () => {
+          initPositions();
+          updateMarquees(performance.now());
+        });
+      })();
+    });
+  </script>
+</body>
+</html>

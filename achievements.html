@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Achievements & Certifications | SSP Industries</title>
+  <meta name="description" content="Explore the major achievements, certifications, and timeline milestones of SSP Industries in B2B corrugation and formulation fields.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#2d5a27',
+              greenHover: '#1e3e1a',
+              lightBg: '#fcfbf9',
+              cardBg: '#f5f5f4',
+              border: '#e5e5e5',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <!-- Custom Navigation Logic -->
+  <script src="navigation.js" defer></script>
+</head>
+<body class="bg-brand-lightBg text-stone-900 relative antialiased selection:bg-brand-green/10 selection:text-brand-green overflow-hidden">
+
+  <!-- Page Preloader Screen -->
+  <div id="preloader">
+    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+      <div class="flex items-center gap-2">
+        <img src="assets/logo_new_revolving_white.png" alt="SSP Logo" class="w-8 h-8 object-contain rotate-slow">
+        <span class="font-heading font-black text-2xl tracking-wider text-white">SSP <span class="opacity-80">SYSTEMS</span></span>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="loader-progress"></div>
+      </div>
+      <p id="loader-status" class="loader-status-text">CONNECTING TO SYSTEM...</p>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-header py-4 px-6 md:px-12 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 group">
+        <img src="assets/logo_new_revolving.png" alt="SSP Logo" class="w-5 h-5 object-contain rotate-slow">
+        <span class="font-heading font-black text-xl tracking-wider text-stone-900 group-hover:text-brand-green transition-colors">
+          SSP <span class="text-brand-green font-bold">INDUSTRIES</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="divisions.html" class="nav-link">Divisions</a>
+        
+        <!-- Dropdown Container -->
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1 active py-2 focus:outline-none">
+            About Us
+            <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white/95 backdrop-blur border border-stone-200/80 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 rounded-xl py-2">
+            <a href="about.html" class="block px-4 py-2 text-stone-700 hover:text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              About Company
+            </a>
+            <a href="team.html" class="block px-4 py-2 text-stone-700 hover:text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              Team
+            </a>
+            <a href="achievements.html" class="block px-4 py-2 text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              Achievements
+            </a>
+          </div>
+        </div>
+
+        <a href="products.html" class="nav-link">Products</a>
+      </nav>
+
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-stone-500 hover:text-brand-green transition-colors"><i class="fa-solid fa-globe text-base"></i></a>
+        <a href="#" class="text-stone-500 hover:text-brand-green transition-colors"><i class="fa-solid fa-magnifying-glass text-base"></i></a>
+        <a href="contact.html" id="nav-cta" class="hidden md:inline-flex magnetic-btn shimmer-effect px-6 py-2.5 bg-brand-green hover:bg-brand-greenHover text-white text-xs font-bold uppercase tracking-wider transition-colors duration-300">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Wrapper -->
+  <div id="smooth-wrapper" class="pt-12">
+    <div id="smooth-content">
+      
+      <!-- HERO & TITLE -->
+      <section class="relative bg-white bg-grid-pattern text-stone-900 py-24 px-6 md:px-12 border-b border-stone-200/80 overflow-hidden flex flex-col items-center justify-center min-h-[380px]">
+        <!-- Blueprint Overlay Accents -->
+        <div class="absolute top-4 left-4 font-mono text-[9px] text-stone-500 select-none">SYS.REF // ACHIEVEMENTS_SEC.01</div>
+        <div class="absolute top-4 right-4 font-mono text-[9px] text-stone-500 select-none">[12.9716° N, 77.5946° E]</div>
+        <div class="absolute bottom-4 left-4 font-mono text-[9px] text-stone-500 select-none">STATUS // CERT_ACTIVE</div>
+        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur border border-stone-200 px-3 py-1 font-mono text-[9px] text-[#2d5a27] tracking-wider z-20 select-none">
+          MILESTONES_V1.1 // ACTIVE
+        </div>
+
+        <!-- Corner Crosshairs -->
+        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#2d5a27]/30 z-20"></div>
+        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#2d5a27]/30 z-20"></div>
+        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#2d5a27]/30 z-20"></div>
+        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#2d5a27]/30 z-20"></div>
+
+        <div class="max-w-4xl mx-auto text-center space-y-6 z-10 hero-fade opacity-0 translate-y-8">
+          <span class="px-3.5 py-1.5 bg-emerald-50 text-brand-green rounded-full font-mono text-[10px] uppercase tracking-wider font-semibold border border-brand-green/10">
+            Milestones & Industry Standards
+          </span>
+          <h1 class="text-4xl sm:text-6xl md:text-7xl font-black font-heading tracking-tight uppercase bg-gradient-to-r from-stone-950 via-[#2d5a27] to-stone-950 bg-clip-text text-transparent">
+            Achievements
+          </h1>
+          <p class="text-stone-500 text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed">
+            Our historical timeline, joint ventures, and international standards verification that highlight our role as a trusted industry supplier.
+          </p>
+        </div>
+      </section>
+
+      <!-- TIMELINE SECTION -->
+      <section class="py-20 px-6 md:px-12 bg-white bg-grid-pattern border-b border-stone-200/80 relative">
+        <div class="max-w-5xl mx-auto">
+          <div class="space-y-4 mb-16 text-center max-w-xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-black font-heading text-stone-900 tracking-tight">Our Timeline</h2>
+            <div class="w-12 h-1 bg-brand-green mx-auto"></div>
+          </div>
+
+          <!-- Vertical Timeline -->
+          <div class="relative border-l border-stone-200 pl-6 md:pl-10 space-y-12">
+            <!-- Milestone 1 -->
+            <div class="relative">
+              <!-- Bullet -->
+              <div class="absolute -left-[31px] md:-left-[47px] top-1 w-4 h-4 md:w-5 md:h-5 bg-white border-2 border-brand-green rounded-full flex items-center justify-center">
+                <div class="w-1.5 h-1.5 md:w-2 md:h-2 bg-brand-green rounded-full"></div>
+              </div>
+              <div class="space-y-2">
+                <span class="font-mono text-xl font-black text-brand-green">2005</span>
+                <h3 class="text-lg font-bold font-heading text-stone-900">Company Inception</h3>
+                <p class="text-stone-500 text-sm font-light leading-relaxed">
+                  SSP Industries was established in Bangalore, Karnataka, as a specialized corrugation and industrial paper supply partner for domestic markets.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 2 -->
+            <div class="relative">
+              <!-- Bullet -->
+              <div class="absolute -left-[31px] md:-left-[47px] top-1 w-4 h-4 md:w-5 md:h-5 bg-white border-2 border-brand-green rounded-full flex items-center justify-center">
+                <div class="w-1.5 h-1.5 md:w-2 md:h-2 bg-brand-green rounded-full"></div>
+              </div>
+              <div class="space-y-2">
+                <span class="font-mono text-xl font-black text-brand-green">2010</span>
+                <h3 class="text-lg font-bold font-heading text-stone-900">Magadi Unit A Operations</h3>
+                <p class="text-stone-500 text-sm font-light leading-relaxed">
+                  Commissioned and built Unit A in Magadi Industrial Area, introducing automated cleaning divisions and high-throughput corrugation setups.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 3 -->
+            <div class="relative">
+              <!-- Bullet -->
+              <div class="absolute -left-[31px] md:-left-[47px] top-1 w-4 h-4 md:w-5 md:h-5 bg-white border-2 border-brand-green rounded-full flex items-center justify-center">
+                <div class="w-1.5 h-1.5 md:w-2 md:h-2 bg-brand-green rounded-full"></div>
+              </div>
+              <div class="space-y-2">
+                <span class="font-mono text-xl font-black text-brand-green">2015</span>
+                <h3 class="text-lg font-bold font-heading text-stone-900">Strategic JV with ICAR & ITMU</h3>
+                <p class="text-stone-500 text-sm font-light leading-relaxed">
+                  Signed joint venture agreements with ICAR and ITMU (Government of India) for scientific formulation transfers and biological science integrations.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 4 -->
+            <div class="relative">
+              <!-- Bullet -->
+              <div class="absolute -left-[31px] md:-left-[47px] top-1 w-4 h-4 md:w-5 md:h-5 bg-white border-2 border-brand-green rounded-full flex items-center justify-center">
+                <div class="w-1.5 h-1.5 md:w-2 md:h-2 bg-brand-green rounded-full"></div>
+              </div>
+              <div class="space-y-2">
+                <span class="font-mono text-xl font-black text-brand-green">2020</span>
+                <h3 class="text-lg font-bold font-heading text-stone-900">NABL Laboratory Collaboration</h3>
+                <p class="text-stone-500 text-sm font-light leading-relaxed">
+                  Established NABL-certified partnerships for advanced product testing, ensuring every batch meets international tensile and chemical metrics.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 5 -->
+            <div class="relative">
+              <!-- Bullet -->
+              <div class="absolute -left-[31px] md:-left-[47px] top-1 w-4 h-4 md:w-5 md:h-5 bg-white border-2 border-brand-green rounded-full flex items-center justify-center">
+                <div class="w-1.5 h-1.5 md:w-2 md:h-2 bg-brand-green rounded-full"></div>
+              </div>
+              <div class="space-y-2">
+                <span class="font-mono text-xl font-black text-brand-green">Present</span>
+                <h3 class="text-lg font-bold font-heading text-stone-900">Category-A Global Supplier</h3>
+                <p class="text-stone-500 text-sm font-light leading-relaxed">
+                  Recognized as an A-category B2B supplier to global enterprise giants, delivering eco-friendly, ISO 9001:2015 compliant solutions at scale.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS SECTION -->
+      <section class="py-20 px-6 md:px-12 bg-white bg-grid-pattern border-b border-stone-200/80 relative">
+        <div class="max-w-7xl mx-auto">
+          <div class="space-y-4 mb-16 text-center max-w-xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-black font-heading text-stone-900 tracking-tight">Accreditations</h2>
+            <div class="w-12 h-1 bg-brand-green mx-auto"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Cert 1 -->
+            <div class="p-8 bg-white border border-stone-200/80 hover:border-brand-green/30 hover:shadow-xl hover:shadow-stone-200/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-72 rounded-2xl">
+              <div class="space-y-4">
+                <div class="w-12 h-12 bg-emerald-50 text-brand-green flex items-center justify-center rounded-xl text-xl">
+                  <i class="fa-solid fa-award"></i>
+                </div>
+                <div class="space-y-1">
+                  <h3 class="text-lg font-bold font-heading text-stone-900">ISO 9001:2015</h3>
+                  <p class="text-brand-green font-mono text-[9px] uppercase tracking-wider font-bold">Quality Management System</p>
+                </div>
+                <p class="text-stone-500 text-xs font-light leading-relaxed">
+                  Certified international standard for robust quality management systems, proving batch-to-batch consistency and manufacturing reliability.
+                </p>
+              </div>
+            </div>
+
+            <!-- Cert 2 -->
+            <div class="p-8 bg-white border border-stone-200/80 hover:border-brand-green/30 hover:shadow-xl hover:shadow-stone-200/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-72 rounded-2xl">
+              <div class="space-y-4">
+                <div class="w-12 h-12 bg-emerald-50 text-brand-green flex items-center justify-center rounded-xl text-xl">
+                  <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <div class="space-y-1">
+                  <h3 class="text-lg font-bold font-heading text-stone-900">NABL Laboratory</h3>
+                  <p class="text-brand-green font-mono text-[9px] uppercase tracking-wider font-bold">Standardized Parameter Testing</p>
+                </div>
+                <p class="text-stone-500 text-xs font-light leading-relaxed">
+                  Collaboration with NABL-approved laboratories for comprehensive testing of tensile parameters, absorption, and chemical composition.
+                </p>
+              </div>
+            </div>
+
+            <!-- Cert 3 -->
+            <div class="p-8 bg-white border border-stone-200/80 hover:border-brand-green/30 hover:shadow-xl hover:shadow-stone-200/50 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-72 rounded-2xl">
+              <div class="space-y-4">
+                <div class="w-12 h-12 bg-emerald-50 text-brand-green flex items-center justify-center rounded-xl text-xl">
+                  <i class="fa-solid fa-landmark"></i>
+                </div>
+                <div class="space-y-1">
+                  <h3 class="text-lg font-bold font-heading text-stone-900">ICAR & ITMU Transfer</h3>
+                  <p class="text-brand-green font-mono text-[9px] uppercase tracking-wider font-bold">Government of India Collaborations</p>
+                </div>
+                <p class="text-stone-500 text-xs font-light leading-relaxed">
+                  Registered technology transfer and formulation authorization under standard joint agreements with Indian biological research councils.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RECOGNITIONS GALLERY -->
+      <section class="py-20 px-6 md:px-12 bg-white bg-grid-pattern border-b border-stone-200/80 relative">
+        <div class="max-w-7xl mx-auto space-y-16">
+          <div class="space-y-4 text-center max-w-xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-black font-heading text-stone-900 tracking-tight uppercase">Gallery of Honor</h2>
+            <div class="w-12 h-1 bg-brand-green mx-auto"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Gallery Item 1 -->
+            <div class="border border-stone-200 shadow-xl shadow-stone-200/40 rounded-2xl overflow-hidden bg-stone-950 flex flex-col group">
+              <div class="h-64 overflow-hidden relative">
+                <img src="assets/achievement_womens_day.jpg" alt="International Women's Day" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              </div>
+              <div class="p-6 bg-white flex-grow flex flex-col justify-between">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-bold font-heading text-stone-900">International Women's Day</h3>
+                  <p class="text-stone-500 text-xs font-light leading-relaxed">
+                    Recognizing 123 power women in 123 minutes to create a landmark milestone record.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gallery Item 2 -->
+            <div class="border border-stone-200 shadow-xl shadow-stone-200/40 rounded-2xl overflow-hidden bg-stone-950 flex flex-col group">
+              <div class="h-64 overflow-hidden relative">
+                <img src="assets/achievement_bhagini_award.jpg" alt="Bhagini Award" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              </div>
+              <div class="p-6 bg-white flex-grow flex flex-col justify-between">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-bold font-heading text-stone-900">Bhagini Award</h3>
+                  <p class="text-stone-500 text-xs font-light leading-relaxed">
+                    Honored with the prestigious Bhagini Award for leadership excellence and corporate contribution.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gallery Item 3 -->
+            <div class="border border-stone-200 shadow-xl shadow-stone-200/40 rounded-2xl overflow-hidden bg-stone-950 flex flex-col group">
+              <div class="h-64 overflow-hidden relative">
+                <img src="assets/achievement_msme_woman.jpg" alt="MSME Woman Award" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              </div>
+              <div class="p-6 bg-white flex-grow flex flex-col justify-between">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-bold font-heading text-stone-900">MSME Woman Award</h3>
+                  <p class="text-stone-500 text-xs font-light leading-relaxed">
+                    Recipient of the National MSME woman entrepreneur recognition for outstanding leadership in industrial scaling.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gallery Item 4 -->
+            <div class="border border-stone-200 shadow-xl shadow-stone-200/40 rounded-2xl overflow-hidden bg-stone-950 flex flex-col group">
+              <div class="h-64 overflow-hidden relative">
+                <img src="assets/achievement_dubai_india.jpg" alt="Dubai - India Awards" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              </div>
+              <div class="p-6 bg-white flex-grow flex flex-col justify-between">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-bold font-heading text-stone-900">International Iconic Awards</h3>
+                  <p class="text-stone-500 text-xs font-light leading-relaxed">
+                    Honored at the Dubai-India International Iconic Awards (2025) for exceptional business leadership and industrial impact.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gallery Item 5 -->
+            <div class="border border-stone-200 shadow-xl shadow-stone-200/40 rounded-2xl overflow-hidden bg-stone-950 flex flex-col group">
+              <div class="h-64 overflow-hidden relative">
+                <img src="assets/achievement_book_release.jpg" alt="Geddavara Siddasoothra" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              </div>
+              <div class="p-6 bg-white flex-grow flex flex-col justify-between">
+                <div class="space-y-2">
+                  <h3 class="text-lg font-bold font-heading text-stone-900">Geddavara Siddasoothra</h3>
+                  <p class="text-stone-500 text-xs font-light leading-relaxed">
+                    The official textbook of success book release event (2026), recognizing leadership strategies in standard enterprise settings.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="bg-[#2d5a27] text-white py-10 px-6 md:px-12 border-t border-brand-greenHover relative z-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+          
+          <!-- Column 1 -->
+          <div class="space-y-6">
+            <div>
+              <span class="font-heading font-black text-2xl tracking-wider text-white">
+                SSP Industries
+              </span>
+            </div>
+            <ul class="space-y-3 text-sm font-medium text-stone-200">
+              <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+              <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+              <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+            <div class="bg-white p-2 inline-block w-max rounded-none">
+              <svg class="w-20 h-20 text-black" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M5 5h30v30H5V5zm6 6v18h18V11H11zM65 5h30v30H65V5zm6 6v18h18V11H71zM5 65h30v30H5V65zm6 6v18h18V71H11z" />
+                <rect x="17" y="17" width="6" height="6" /><rect x="77" y="17" width="6" height="6" /><rect x="17" y="77" width="6" height="6" /><rect x="45" y="15" width="8" height="8" /><rect x="45" y="35" width="12" height="6" /><rect x="35" y="45" width="6" height="12" /><rect x="55" y="55" width="10" height="10" /><rect x="75" y="45" width="12" height="8" /><rect x="45" y="75" width="10" height="12" /><rect x="65" y="75" width="8" height="6" /><rect x="75" y="65" width="6" height="16" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="space-y-6">
+            <h4 class="text-xl font-bold text-white tracking-wide">Contact Us</h4>
+            <div class="space-y-2 text-sm font-medium text-stone-200">
+              <p>9845814147 | 9902756137</p>
+              <p><a href="mailto:info@sspipl.com" class="hover:text-white transition-colors">info@sspipl.com</a></p>
+            </div>
+            
+            <div class="space-y-2 text-sm text-stone-200">
+              <h5 class="font-bold text-white">Corporate Office Address</h5>
+              <p class="leading-relaxed font-light">
+                No.40/11-1, 2nd floor, BDA No.1269/B,<br>
+                MRCR Layout, Agrahara dasarahalli,<br>
+                Magadi Main Road, Beside Housing<br>
+                Board Underpass, Govindarajnagar,<br>
+                Bangalore 560040
+              </p>
+            </div>
+
+            <div class="space-y-2 text-sm text-stone-200">
+              <h5 class="font-bold text-white">Factory Address</h5>
+              <p class="leading-relaxed font-light">
+                Plot # SpecialQ-26, KSSIDC Indl Estate,<br>
+                Magadi Taluk, Ramanagar - 562 120
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="space-y-6">
+            <h4 class="text-3xl font-heading font-bold text-white leading-tight">
+              Connect with<br>us for the More<br>details
+            </h4>
+            <form class="space-y-4 w-full max-w-sm" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+              <input type="email" placeholder="Email" required class="w-full px-4 py-3 text-sm text-white placeholder-stone-300 bg-brand-greenHover/80 border border-white focus:outline-none focus:bg-brand-greenHover transition-all rounded-none">
+              <button type="submit" class="w-full py-3 bg-white hover:bg-stone-100 text-stone-900 font-bold text-sm uppercase tracking-wider rounded-full transition-colors duration-300">
+                Subscribe
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[10px] text-stone-200 tracking-wider uppercase font-semibold gap-6">
+          <p>© 2026 SSP INDUSTRIES. ALL RIGHTS RESERVED.</p>
+          <div class="flex gap-6 text-base">
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/sspipl?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com/@sspipl?si=KId9bfi1pkHxVgCs" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+          <div class="flex gap-6 text-[10px]">
+            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    window.addEventListener("DOMContentLoaded", () => {
+      // Preloader initialization sequence
+      let progress = 0;
+      const progressEl = document.getElementById("loader-progress");
+      const statusEl = document.getElementById("loader-status");
+      const preloader = document.getElementById("preloader");
+      
+      const statuses = [
+        "Connecting to Systems...",
+        "Ready."
+      ];
+      
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 25) + 12;
+        if (progress > 100) progress = 100;
+        
+        if (progressEl) progressEl.style.width = `${progress}%`;
+        if (statusEl) {
+          statusEl.innerText = statuses[Math.min(Math.floor(progress / 51), statuses.length - 1)];
+        }
+        
+        if (progress === 100) {
+          clearInterval(interval);
+          
+          gsap.to(preloader, {
+            yPercent: -100,
+            duration: 0.85,
+            ease: "power4.inOut",
+            delay: 0.15,
+            onComplete: () => {
+              preloader.style.display = "none";
+              document.body.classList.remove("overflow-hidden");
+              
+              // Trigger intro animations
+              gsap.to(".hero-fade", { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" });
+            }
+          });
+        }
+      }, 50);
+    });
+  </script>
+</body>
+</html>

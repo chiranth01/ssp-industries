@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Catalog | SSP Industries</title>
+  <meta name="description" content="Browse the full product catalog of SSP Industries across Corrugated Packaging, Hygiene, and Animal Feed.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#2d5a27',
+              greenHover: '#1e3e1a',
+              lightBg: '#fcfbf9',
+              cardBg: '#f5f5f4',
+              border: '#e5e5e5',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <!-- Products Database -->
+  <script src="products_data.js?v=4"></script>
+  <!-- Custom Navigation Logic -->
+  <script src="navigation.js" defer></script>
+  <style>
+    #products-headline .word-inner {
+      background: linear-gradient(to right, #1c1917, #2d5a27, #1c1917);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-brand-lightBg text-stone-900 relative antialiased selection:bg-brand-green/10 selection:text-brand-green overflow-hidden">
+
+  <!-- Page Preloader Screen -->
+  <div id="preloader">
+    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+      <div class="flex items-center gap-2">
+        <img src="assets/logo_new_revolving_white.png" alt="SSP Logo" class="w-8 h-8 object-contain rotate-slow">
+        <span class="font-heading font-black text-2xl tracking-wider text-white">SSP <span class="opacity-80">SYSTEMS</span></span>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="loader-progress"></div>
+      </div>
+      <p id="loader-status" class="loader-status-text">CONNECTING TO SYSTEM...</p>
+    </div>
+  </div>
+
+
+  <!-- Header Navigation -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-header py-4 px-6 md:px-12 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 group">
+        <img src="assets/logo_new_revolving.png" alt="SSP Logo" class="w-5 h-5 object-contain rotate-slow">
+        <span class="font-heading font-black text-xl tracking-wider text-stone-900 group-hover:text-brand-green transition-colors">
+          SSP <span class="text-brand-green font-bold">INDUSTRIES</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="divisions.html" class="nav-link">Divisions</a>
+        
+        <!-- Dropdown Container -->
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1 py-2 focus:outline-none">
+            About Us
+            <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white/95 backdrop-blur border border-stone-200/80 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 rounded-xl py-2">
+            <a href="about.html" class="block px-4 py-2 text-stone-700 hover:text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              About Company
+            </a>
+            <a href="team.html" class="block px-4 py-2 text-stone-700 hover:text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              Team
+            </a>
+            <a href="achievements.html" class="block px-4 py-2 text-stone-700 hover:text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              Achievements
+            </a>
+          </div>
+        </div>
+
+        <a href="products.html" class="nav-link active">Products</a>
+      </nav>
+
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-stone-500 hover:text-brand-green transition-colors"><i class="fa-solid fa-globe text-base"></i></a>
+        <a href="#" class="text-stone-500 hover:text-brand-green transition-colors"><i class="fa-solid fa-magnifying-glass text-base"></i></a>
+        <a href="contact.html" id="nav-cta" class="hidden md:inline-flex magnetic-btn shimmer-effect px-6 py-2.5 bg-brand-green hover:bg-brand-greenHover text-white text-xs font-bold uppercase tracking-wider transition-colors duration-300">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Wrapper -->
+  <div id="smooth-wrapper" class="pt-12">
+    <div id="smooth-content">
+      
+      <!-- HERO -->
+      <section class="py-16 px-6 md:px-12 bg-grid-pattern border-b border-stone-200">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+          <span class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 border border-emerald-200 text-brand-green text-xs font-bold uppercase tracking-widest rounded-full">
+            SSP divisions
+          </span>
+          <h1 id="products-headline" class="text-4xl sm:text-6xl font-black font-heading tracking-tight leading-none uppercase">
+            Our Products
+          </h1>
+          <p id="products-subheadline" class="text-stone-600 text-lg sm:text-xl font-light leading-relaxed max-w-2xl mx-auto opacity-0 translate-y-8">
+            Explore our advanced Curamax eco-friendly repellents and cleaning formulations, alongside our heavy-duty industrial corrugation packaging solutions.
+          </p>
+        </div>
+      </section>
+
+      <!-- CATALOG GRID & FILTER -->
+      <section class="py-12 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
+        
+        <!-- Search and Filter Controls -->
+        <div class="space-y-6 max-w-4xl mx-auto text-center">
+          <!-- Search Bar -->
+          <div class="relative w-full max-w-xl mx-auto">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-stone-400">
+              <i class="fa-solid fa-magnifying-glass text-sm"></i>
+            </span>
+            <input type="text" id="product-search" oninput="performFilter()" placeholder="Search from 40+ products (e.g. water, rat, repellent, box)..." class="w-full pl-11 pr-4 py-3 bg-white border border-stone-200/80 focus:border-brand-green focus:ring-1 focus:ring-brand-green/30 focus:outline-none text-sm text-stone-800 placeholder-stone-400 rounded-full transition-all duration-300 shadow-sm shadow-stone-900/5">
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="flex flex-wrap justify-center gap-2 select-btns border-b border-stone-200/60 pb-6">
+            <button onclick="setCategory('all')" id="cat-btn-all" class="filter-btn px-5 py-2 bg-brand-green text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-full flex items-center">All Products<span class="count-badge ml-1.5 px-2 py-0.5 bg-black/15 text-[9px] rounded-full"></span></button>
+            <button onclick="setCategory('cleaners')" id="cat-btn-cleaners" class="filter-btn px-5 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-full flex items-center">Curamax Cleaners<span class="count-badge ml-1.5 px-2 py-0.5 bg-black/10 text-[9px] rounded-full text-stone-500"></span></button>
+            <button onclick="setCategory('repellents')" id="cat-btn-repellents" class="filter-btn px-5 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-full flex items-center">Curamax Repellents<span class="count-badge ml-1.5 px-2 py-0.5 bg-black/10 text-[9px] rounded-full text-stone-500"></span></button>
+            <button onclick="setCategory('packaging')" id="cat-btn-packaging" class="filter-btn px-5 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-full flex items-center">Corrugated Packaging<span class="count-badge ml-1.5 px-2 py-0.5 bg-black/10 text-[9px] rounded-full text-stone-500"></span></button>
+            <button onclick="setCategory('customised')" id="cat-btn-customised" class="filter-btn px-5 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-full flex items-center">Custom Formulations<span class="count-badge ml-1.5 px-2 py-0.5 bg-black/10 text-[9px] rounded-full text-stone-500"></span></button>
+          </div>
+
+        </div>
+
+        <!-- Download brochure / PDF banner -->
+        <div class="max-w-4xl mx-auto bg-stone-900 text-white rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl relative overflow-hidden group border border-stone-800">
+          <div class="absolute inset-0 bg-gradient-to-r from-brand-green/20 to-transparent pointer-events-none"></div>
+          <div class="space-y-2 relative z-10 text-center md:text-left">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-green text-white text-[10px] font-bold uppercase tracking-wider">
+              <i class="fa-solid fa-file-pdf"></i> PDF Brochure
+            </span>
+            <h3 class="text-xl font-bold font-heading">SSP Industries Complete Product Catalog</h3>
+            <p class="text-stone-300 text-xs font-light max-w-md">Download our official 12-page company brochure to view all specifications, founders' profile, and custom packaging details.</p>
+          </div>
+          <a href="broucher.pdf" download class="relative z-10 px-6 py-3 bg-brand-green hover:bg-brand-greenHover text-white text-xs font-bold uppercase tracking-wider transition-colors duration-300 rounded-full flex items-center gap-2 shadow-lg shadow-brand-green/20 shrink-0">
+            <i class="fa-solid fa-download"></i> Download Catalog
+          </a>
+        </div>
+
+        <!-- Dynamic Catalog Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
+          <!-- Dynamically populated via JS -->
+        </div>
+
+        <!-- No Results Found Banner -->
+        <div id="no-results-banner" class="hidden max-w-md mx-auto text-center py-16 space-y-4">
+          <div class="w-16 h-16 bg-stone-100 rounded-full flex items-center justify-center text-stone-400 text-2xl mx-auto">
+            <i class="fa-solid fa-face-frown"></i>
+          </div>
+          <h3 class="text-lg font-bold text-stone-800">No Products Found</h3>
+          <p class="text-stone-500 text-xs font-light">We couldn't find any products matching your search term or filters. Try adjusting your search query or selecting a different category.</p>
+          <button onclick="resetFilters()" class="px-4 py-2 bg-brand-green text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-brand-greenHover transition-colors">Reset All Filters</button>
+        </div>
+
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="bg-[#2d5a27] text-white py-10 px-6 md:px-12 border-t border-brand-greenHover relative z-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+          
+          <!-- Column 1 -->
+          <div class="space-y-6">
+            <div>
+              <span class="font-heading font-black text-2xl tracking-wider text-white">
+                SSP Industries
+              </span>
+            </div>
+            <ul class="space-y-3 text-sm font-medium text-stone-200">
+              <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+              <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+              <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+            <div class="bg-white p-2 inline-block w-max rounded-none">
+              <svg class="w-20 h-20 text-black" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M5 5h30v30H5V5zm6 6v18h18V11H11zM65 5h30v30H65V5zm6 6v18h18V11H71zM5 65h30v30H5V65zm6 6v18h18V71H11z" />
+                <rect x="17" y="17" width="6" height="6" /><rect x="77" y="17" width="6" height="6" /><rect x="17" y="77" width="6" height="6" /><rect x="45" y="15" width="8" height="8" /><rect x="45" y="35" width="12" height="6" /><rect x="35" y="45" width="6" height="12" /><rect x="55" y="55" width="10" height="10" /><rect x="75" y="45" width="12" height="8" /><rect x="45" y="75" width="10" height="12" /><rect x="65" y="75" width="8" height="6" /><rect x="75" y="65" width="6" height="16" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="space-y-6">
+            <h4 class="text-xl font-bold text-white tracking-wide">Contact Us</h4>
+            <div class="space-y-2 text-sm font-medium text-stone-200">
+              <p>9845814147 | 9902756137</p>
+              <p><a href="mailto:info@sspipl.com" class="hover:text-white transition-colors">info@sspipl.com</a></p>
+            </div>
+            
+            <div class="space-y-2 text-sm text-stone-200">
+              <h5 class="font-bold text-white">Corporate Office Address</h5>
+              <p class="leading-relaxed font-light">
+                No.40/11-1, 2nd floor, BDA No.1269/B,<br>
+                MRCR Layout, Agrahara dasarahalli,<br>
+                Magadi Main Road, Beside Housing<br>
+                Board Underpass, Govindarajnagar,<br>
+                Bangalore 560040
+              </p>
+            </div>
+
+            <div class="space-y-2 text-sm text-stone-200">
+              <h5 class="font-bold text-white">Factory Address</h5>
+              <p class="leading-relaxed font-light">
+                Plot # SpecialQ-26, KSSIDC Indl Estate,<br>
+                Magadi Taluk, Ramanagar - 562 120
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="space-y-6">
+            <h4 class="text-3xl font-heading font-bold text-white leading-tight">
+              Connect with<br>us for the More<br>details
+            </h4>
+            <form class="space-y-4 w-full max-w-sm" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+              <input type="email" placeholder="Email" required class="w-full px-4 py-3 text-sm text-white placeholder-stone-300 bg-brand-greenHover/80 border border-white focus:outline-none focus:bg-brand-greenHover transition-all rounded-none">
+              <button type="submit" class="w-full py-3 bg-white hover:bg-stone-100 text-stone-900 font-bold text-sm uppercase tracking-wider rounded-full transition-colors duration-300">
+                Subscribe
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[10px] text-stone-200 tracking-wider uppercase font-semibold gap-6">
+          <p>© 2026 SSP INDUSTRIES. ALL RIGHTS RESERVED.</p>
+          <div class="flex gap-6 text-base">
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/sspipl?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com/@sspipl?si=KId9bfi1pkHxVgCs" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+          <div class="flex gap-6 text-[10px]">
+            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Product Details Modal Overlay -->
+  <div id="product-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+    <!-- Backdrop overlay -->
+    <div id="modal-backdrop" onclick="closeModal()" class="absolute inset-0 bg-stone-900/60 backdrop-blur-sm transition-opacity duration-300 opacity-0"></div>
+    
+    <!-- Modal Content Drawer -->
+    <div id="modal-content" class="relative bg-white border border-stone-200 shadow-2xl rounded-2xl w-full max-w-lg p-6 md:p-8 overflow-hidden z-10 transition-all duration-300 transform scale-95 opacity-0 flex flex-col max-h-[85vh]">
+      
+      <!-- Close button -->
+      <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 text-stone-600 hover:text-stone-900 flex items-center justify-center focus:outline-none transition-colors z-20">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <!-- Modal Body (Dynamic) -->
+      <div id="modal-body" class="space-y-6 overflow-y-auto pr-1">
+        <!-- Dynamically rendered via JS -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. Dynamic Split-Text Words generator helper
+    function splitTextIntoWords(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      const text = el.innerText;
+      el.innerHTML = text.split(" ").map(word => {
+        return `<span class="word-mask"><span class="word-inner">${word}</span></span>`;
+      }).join(" ");
+    }
+
+
+    // Card Mouse tracking for radial border glow
+    const glowCards = document.querySelectorAll(".glow-border-card");
+    glowCards.forEach(card => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      });
+    });
+
+
+
+    // 5. Magnetic CTA Buttons Handler
+    const magneticBtns = document.querySelectorAll(".magnetic-btn");
+    magneticBtns.forEach(btn => {
+      btn.addEventListener("mousemove", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        gsap.to(btn, {
+          x: x * 0.35,
+          y: y * 0.35,
+          scale: 1.02,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+      btn.addEventListener("mouseleave", () => {
+        gsap.to(btn, {
+          x: 0,
+          y: 0,
+          scale: 1,
+          duration: 0.5,
+          ease: "elastic.out(1, 0.3)"
+        });
+      });
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      splitTextIntoWords("products-headline");
+      
+      // Preloader initialization sequence
+      let progress = 0;
+      const progressEl = document.getElementById("loader-progress");
+      const statusEl = document.getElementById("loader-status");
+      const preloader = document.getElementById("preloader");
+      
+      const statuses = [
+        "Connecting to Zurich Hub...",
+        "Reading System Schematics...",
+        "Synthesizing Material Catalog...",
+        "Ready."
+      ];
+      
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 15) + 6;
+        if (progress > 100) progress = 100;
+        
+        if (progressEl) progressEl.style.width = `${progress}%`;
+        if (statusEl) {
+          statusEl.innerText = statuses[Math.min(Math.floor(progress / 26), statuses.length - 1)];
+        }
+        
+        if (progress === 100) {
+          clearInterval(interval);
+          
+          // Animate preloader out
+          gsap.to(preloader, {
+            yPercent: -100,
+            duration: 0.85,
+            ease: "power4.inOut",
+            delay: 0.15,
+            onComplete: () => {
+              preloader.style.display = "none";
+              document.body.classList.remove("overflow-hidden");
+              
+              // Trigger intro animations
+              const introTl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.2 } });
+              introTl
+                .to(".word-inner", { y: 0, stagger: 0.05 })
+                .to("#products-subheadline", { opacity: 1, y: 0 }, "-=0.8");
+            }
+          });
+        }
+      }, 50);
+
+      // Initialize catalog
+      initCatalog();
+    });
+
+    // Global state for filtering
+    let activeCategory = "all";
+    let activeSector = "all";
+    let searchQuery = "";
+
+    function initCatalog() {
+      // Setup event delegation for card mouse movement glow
+      const grid = document.getElementById("product-grid");
+      if (grid) {
+        grid.addEventListener("mousemove", (e) => {
+          const card = e.target.closest(".glow-border-card");
+          if (!card) return;
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty("--mouse-x", `${x}px`);
+          card.style.setProperty("--mouse-y", `${y}px`);
+        });
+      }
+
+      // Check URL parameters for initial category filter
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get("cat");
+      if (catParam) {
+        activeCategory = catParam;
+      }
+
+      const secParam = urlParams.get("sector");
+      if (secParam) {
+        activeSector = secParam;
+      }
+
+      // Render initially
+      renderProducts();
+    }
+
+    // Main render function
+    function renderProducts() {
+      const grid = document.getElementById("product-grid");
+      const noResults = document.getElementById("no-results-banner");
+      if (!grid) return;
+
+      // Clear current content
+      grid.innerHTML = "";
+
+      // Clean search term
+      const query = searchQuery.trim().toLowerCase();
+
+      // 1. Calculate dynamic counts based on search query
+      updateFilterCounts(query);
+
+      // Filter products
+      const filtered = PRODUCTS.filter(prod => {
+        // 1. Search Query check
+        const matchesSearch = !query || 
+          prod.name.toLowerCase().includes(query) || 
+          prod.description.toLowerCase().includes(query) ||
+          prod.packing.toLowerCase().includes(query);
+
+        // 2. Category check
+        const matchesCategory = activeCategory === "all" || prod.category === activeCategory;
+
+        // 3. Sector check
+        const matchesSector = activeSector === "all" || prod.sectors.includes(activeSector);
+
+        return matchesSearch && matchesCategory && matchesSector;
+      });
+
+      // Update UI state for Active Category Tab Buttons
+      const catButtons = document.querySelectorAll(".filter-btn");
+      catButtons.forEach(btn => {
+        const btnOnclick = btn.getAttribute("onclick");
+        if (btnOnclick && btnOnclick.includes(`'${activeCategory}'`)) {
+          btn.className = "filter-btn px-5 py-2 bg-brand-green text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-full flex items-center";
+          const badge = btn.querySelector(".count-badge");
+          if (badge) {
+            badge.className = "count-badge ml-1.5 px-2 py-0.5 bg-black/15 text-[9px] rounded-full text-white font-bold";
+          }
+        } else {
+          btn.className = "filter-btn px-5 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-full flex items-center";
+          const badge = btn.querySelector(".count-badge");
+          if (badge) {
+            badge.className = "count-badge ml-1.5 px-2 py-0.5 bg-black/10 text-[9px] rounded-full text-stone-500 font-semibold";
+          }
+        }
+      });
+
+
+      // Check if we have results
+      if (filtered.length === 0) {
+        grid.classList.add("hidden");
+        if (noResults) noResults.classList.remove("hidden");
+        return;
+      }
+
+      grid.classList.remove("hidden");
+      if (noResults) noResults.classList.add("hidden");
+
+      // Generate HTML for each product card
+      filtered.forEach(prod => {
+        // Map brand details to badges and gradients
+        let brandClass = "brand-theme-premium";
+        let gradientClass = "prod-gradient-premium";
+        let brandLabel = "Premium";
+        if (prod.brand === "forte") {
+          brandClass = "brand-theme-forte";
+          gradientClass = "prod-gradient-forte";
+          brandLabel = "Forte";
+        } else if (prod.brand === "nano") {
+          brandClass = "brand-theme-nano";
+          gradientClass = "prod-gradient-nano";
+          brandLabel = "Nano";
+        } else if (prod.brand === "packaging") {
+          brandClass = "brand-theme-packaging";
+          gradientClass = "prod-gradient-packaging";
+          brandLabel = "Heavy Duty";
+        }
+
+        // Format category text
+        let catLabel = prod.category.charAt(0).toUpperCase() + prod.category.slice(1);
+        if (prod.category === "cleaners") catLabel = "Cleaner";
+        if (prod.category === "repellents") catLabel = "Repellent";
+        if (prod.category === "customised") catLabel = "Custom";
+
+        // Generate sector tags
+        const sectorTags = prod.sectors.map(sec => {
+          let secLabel = sec.charAt(0).toUpperCase() + sec.slice(1);
+          if (sec === "hospital") secLabel = "Medical";
+          return `<span class="px-2 py-0.5 bg-stone-100 text-stone-600 text-[8px] font-bold uppercase rounded border border-stone-200/50">${secLabel}</span>`;
+        }).join(" ");
+
+        const card = document.createElement("div");
+        card.className = "prod-card-v2 glow-border-card opacity-0 translate-y-8 cursor-pointer";
+        card.setAttribute("onclick", `openProductModal('${prod.id}', event)`);
+        card.innerHTML = `
+          <!-- Image Container / Minimalist product shot -->
+          <div class="prod-image-container bg-white border-b border-stone-100">
+            <!-- Badges -->
+            <span class="prod-cat-badge">${catLabel}</span>
+            <span class="prod-brand-badge ${brandClass}">${brandLabel}</span>
+            
+            <!-- Centered sharp product image containing the bottle fully on white bg -->
+            <img src="${prod.image}" alt="${prod.name}" class="w-full h-full object-contain p-5 transition-transform duration-500 group-hover:scale-105">
+          </div>
+
+          <!-- Info container -->
+          <div class="prod-info-container">
+            <div class="space-y-2">
+              <h3 class="prod-title-v2 line-clamp-2">${prod.name}</h3>
+              <p class="prod-desc-v2 line-clamp-3">
+                ${prod.description}
+              </p>
+            </div>
+            
+            <!-- Footer and Tags -->
+            <div class="prod-footer-v2 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-[9px] font-bold text-stone-500 uppercase tracking-wider flex items-center gap-1 font-mono">
+                  <i class="fa-solid fa-box-open text-[10px]"></i> ${prod.packing}
+                </span>
+                <div class="flex flex-wrap gap-1 items-center">
+                  ${sectorTags}
+                </div>
+              </div>
+              
+              <div class="flex justify-between items-center pt-1">
+                <span class="text-[9px] font-bold text-emerald-600 uppercase tracking-widest flex items-center gap-1 font-mono">
+                  <i class="fa-solid fa-leaf text-[10px]"></i> Eco-Safe
+                </span>
+                <a href="contact.html?product=${encodeURIComponent(prod.name)}" class="magnetic-btn text-brand-green font-bold text-xs uppercase tracking-widest hover:text-brand-greenHover transition-colors flex items-center gap-1">
+                  Request Quote <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      // Animate card entrance using GSAP
+      gsap.to("#product-grid .prod-card-v2", {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.05,
+        ease: "power2.out"
+      });
+
+      // Re-initialize magnetic CTA buttons
+      const magneticBtns = document.querySelectorAll(".prod-card-v2 .magnetic-btn");
+      magneticBtns.forEach(btn => {
+        btn.addEventListener("mousemove", (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          gsap.to(btn, {
+            x: x * 0.35,
+            y: y * 0.35,
+            scale: 1.02,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+        btn.addEventListener("mouseleave", () => {
+          gsap.to(btn, {
+            x: 0,
+            y: 0,
+            scale: 1,
+            duration: 0.5,
+            ease: "elastic.out(1, 0.3)"
+          });
+        });
+      });
+    }
+
+    // Function to calculate counts of filtered products
+    function updateFilterCounts(query) {
+      // 1. Categories counts
+      const categories = ["all", "cleaners", "repellents", "packaging", "customised"];
+      categories.forEach(cat => {
+        const count = PRODUCTS.filter(prod => {
+          const matchesSearch = !query || 
+            prod.name.toLowerCase().includes(query) || 
+            prod.description.toLowerCase().includes(query);
+          const matchesCat = cat === "all" || prod.category === cat;
+          return matchesSearch && matchesCat;
+        }).length;
+        
+        const badge = document.querySelector(`#cat-btn-${cat} .count-badge`);
+        if (badge) badge.innerText = count;
+      });
+
+    }
+
+    // Modal control functions
+    function openProductModal(prodId, event) {
+      // Ignore clicks on links or button elements
+      if (event && (event.target.closest('a') || event.target.closest('button'))) {
+        return;
+      }
+
+      const prod = PRODUCTS.find(p => p.id === prodId);
+      if (!prod) return;
+
+      const modal = document.getElementById("product-modal");
+      const backdrop = document.getElementById("modal-backdrop");
+      const content = document.getElementById("modal-content");
+      const body = document.getElementById("modal-body");
+
+      if (!modal || !body) return;
+
+      // Map brand gradient class
+      let gradientClass = "prod-gradient-premium";
+      let brandLabel = "Curamax Premium";
+      let explainerText = "ECO-FRIENDLY PREMIUM RANGE: Formulated using organic and botanical extracts. Safe for domestic use, non-toxic, and chemical-fume free.";
+      if (prod.brand === "forte") {
+        gradientClass = "prod-gradient-forte";
+        brandLabel = "Curamax Forte";
+        explainerText = "HEAVY-DUTY FORTE RANGE: Industrial-strength chemical formulations built to cut through heavy grease, scale, mineral build-up, and medical pathogen removal.";
+      } else if (prod.brand === "nano") {
+        gradientClass = "prod-gradient-nano";
+        brandLabel = "Curamax Nano";
+        explainerText = "NANO COLLOIDAL RANGE: Advanced nanotechnology-driven formulations providing 3-in-1 multi-surface cleansing, sanitizing, and deodorizing actions.";
+      } else if (prod.brand === "packaging") {
+        gradientClass = "prod-gradient-packaging";
+        brandLabel = "SSP Packaging";
+        explainerText = "HEAVY-DUTY CORRUGATED PACKAGING: Recyclable Kraft paperboard structures featuring rust-proof wire pins, customized sizes, and premium strength rating.";
+      }
+
+      // Generate dynamic usage instructions if none exists in DB
+      let usageText = "Mix 50-100ml of the formula per 1 Ltr of water. Apply onto target area, scrub lightly if needed, and rinse or wipe clean.";
+      if (prod.category === "repellents") {
+        usageText = "Spray directly on active entry points, insect paths, or ledges. Reapply every 7-10 days to maintain active olfactory scent barrier.";
+      } else if (prod.category === "packaging") {
+        usageText = "Ideal for shipping cargo, automobile parts, and heavy supplies. Keep stored in a dry, ventilated warehouse space.";
+      } else if (prod.id === "silk-saree-stain-remover") {
+        usageText = "Apply 2-3 drops directly on the stain. Let sit for 60 seconds. Blot gently with a damp clean white cloth. Do not rub.";
+      }
+
+      const sectorsList = prod.sectors.map(sec => {
+        let label = sec.charAt(0).toUpperCase() + sec.slice(1);
+        if (sec === "hospital") label = "Medical";
+        return `<span class="px-2.5 py-1 bg-stone-100 text-stone-700 text-xs font-bold uppercase rounded border border-stone-200">${label}</span>`;
+      }).join(" ");
+
+      // Populate modal content
+      body.innerHTML = `
+        <!-- Header Image banner -->
+        <div class="modal-header-banner bg-white border-b border-stone-100 overflow-hidden">
+          <!-- Centered sharp product image containing the bottle fully -->
+          <img src="${prod.image}" alt="${prod.name}" class="h-full mx-auto object-contain p-3">
+        </div>
+
+        <!-- Meta headers -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">${prod.category} Range</span>
+            <span class="px-3 py-1 bg-brand-green/10 text-brand-green text-xs font-bold uppercase rounded-full">${brandLabel}</span>
+          </div>
+          <h2 class="text-2xl font-black font-heading text-stone-900 leading-tight">${prod.name}</h2>
+        </div>
+
+        <div class="space-y-4 pt-2 border-t border-stone-100">
+          <!-- Description -->
+          <div class="space-y-1">
+            <h4 class="modal-section-title">Product Overview</h4>
+            <p class="modal-detail-value text-stone-600">${prod.description}</p>
+          </div>
+
+          <!-- Usage Instructions -->
+          <div class="space-y-1">
+            <h4 class="modal-section-title">Usage & Application</h4>
+            <p class="modal-detail-value text-stone-600">${usageText}</p>
+          </div>
+
+          <!-- Formulation Strength Details -->
+          <div class="space-y-1">
+            <h4 class="modal-section-title">Range Classification</h4>
+            <p class="modal-detail-value text-stone-500 font-light italic">${explainerText}</p>
+          </div>
+
+          <!-- Pack Size & Sectors -->
+          <div class="grid grid-cols-2 gap-4 pt-2 border-t border-stone-100">
+            <div class="space-y-1">
+              <span class="text-[10px] font-bold text-stone-400 uppercase tracking-widest block">Available Packing</span>
+              <span class="inline-flex items-center gap-1 px-3 py-1 bg-emerald-50 text-brand-green text-xs font-mono font-bold rounded border border-emerald-100"><i class="fa-solid fa-box-open"></i> ${prod.packing}</span>
+            </div>
+            <div class="space-y-1">
+              <span class="text-[10px] font-bold text-stone-400 uppercase tracking-widest block">Applicable Sectors</span>
+              <div class="flex flex-wrap gap-1 mt-1">
+                ${sectorsList}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Inquiry CTA -->
+        <div class="pt-4 border-t border-stone-100 flex gap-3">
+          <button onclick="closeModal()" class="flex-1 py-3 border border-stone-300 hover:bg-stone-50 text-stone-700 text-xs font-bold uppercase tracking-wider rounded-full transition-colors duration-300">
+            Close
+          </button>
+          <a href="contact.html?product=${encodeURIComponent(prod.name)}" class="flex-[2] py-3 bg-brand-green hover:bg-brand-greenHover text-white text-xs font-bold uppercase tracking-wider rounded-full text-center transition-colors duration-300 shadow-md shadow-brand-green/10 flex items-center justify-center gap-1">
+            Send Inquiry <i class="fa-solid fa-paper-plane text-[10px] ml-1"></i>
+          </a>
+        </div>
+      `;
+
+      // Show modal
+      modal.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden");
+
+      // Animate opening
+      gsap.killTweensOf([backdrop, content]);
+      gsap.to(backdrop, { opacity: 1, duration: 0.3 });
+      gsap.to(content, { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" });
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("product-modal");
+      const backdrop = document.getElementById("modal-backdrop");
+      const content = document.getElementById("modal-content");
+
+      if (!modal) return;
+
+      gsap.killTweensOf([backdrop, content]);
+      gsap.to(backdrop, { opacity: 0, duration: 0.25 });
+      gsap.to(content, { 
+        opacity: 0, 
+        scale: 0.95, 
+        duration: 0.25, 
+        ease: "power2.in",
+        onComplete: () => {
+          modal.classList.add("hidden");
+          document.body.classList.remove("overflow-hidden");
+        }
+      });
+    }
+
+    // Trigger filters on input
+    function performFilter() {
+      searchQuery = document.getElementById("product-search").value;
+      renderProducts();
+    }
+
+    // Set category
+    function setCategory(cat) {
+      activeCategory = cat;
+      renderProducts();
+    }
+
+    // Set sector
+    function setSector(sec) {
+      activeSector = sec;
+      renderProducts();
+    }
+
+    // Reset filters
+    function resetFilters() {
+      document.getElementById("product-search").value = "";
+      searchQuery = "";
+      activeCategory = "all";
+      activeSector = "all";
+      renderProducts();
+    }
+
+
+
+
+  </script>
+</body>
+</html>

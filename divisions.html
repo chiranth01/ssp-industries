@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Core Divisions | SSP Industries</title>
+  <meta name="description" content="Explore SSP Industries core operating divisions: Corrugated Packaging & Carton Boxes and Curamax Hygiene & Cleaning Solutions.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#2d5a27',
+              greenHover: '#1e3e1a',
+              lightBg: '#fcfbf9',
+              cardBg: '#f5f5f4',
+              border: '#e5e5e5',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <!-- Custom Navigation Logic -->
+  <script src="navigation.js" defer></script>
+  <!-- Custom Redesign Styles -->
+  <style>
+    @media (min-width: 768px) {
+      .split-panel {
+        transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .split-hero-container:hover .split-panel {
+        width: 33.3333%;
+      }
+      .split-hero-container .split-panel:hover {
+        width: 66.6667%;
+      }
+    }
+    
+    /* Bento Grid Dashboard Cards */
+    .bento-card {
+      background: #ffffff;
+      border: 1px solid rgba(120, 113, 108, 0.15);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 20px -2px rgba(120, 113, 108, 0.04);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .bento-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px -4px rgba(120, 113, 108, 0.08);
+      border-color: rgba(120, 113, 108, 0.25);
+    }
+    .bento-card-dark {
+      background: #191614;
+      border-color: #2e2621;
+      color: #ffffff;
+    }
+    .bento-card-dark:hover {
+      border-color: #473a30;
+      box-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.3);
+    }
+    .bento-card-accent {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border-color: #bbf7d0;
+      color: #14532d;
+    }
+    .bento-card-accent:hover {
+      border-color: #86efac;
+    }
+    .bento-card-accent-blue {
+      background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
+      border-color: #a5f3fc;
+      color: #164e63;
+    }
+    .bento-card-accent-blue:hover {
+      border-color: #67e8f9;
+    }
+
+    /* Live Blinker Dot */
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+      position: relative;
+    }
+    .status-dot::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      animation: pulse-ring 1.8s infinite ease-in-out;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.7); opacity: 1; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+
+    /* Corrugated Cardboard Configurator High-End Canvas */
+    .board-canvas {
+      background: #12100e;
+      border: 1px solid #231c18;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.7);
+      transition: all 0.4s ease;
+      min-height: 140px;
+    }
+    
+    /* pH scale scientific styling */
+    .ph-bar {
+      background: linear-gradient(to right, 
+        #ef4444 0%,   /* 1 - highly acidic */
+        #f97316 20%,  /* 3 - orange */
+        #eab308 45%,  /* 6 - yellow */
+        #22c55e 55%,  /* 7 - neutral green */
+        #06b6d4 70%,  /* 10 - cyan */
+        #3b82f6 85%,  /* 12 - blue */
+        #6366f1 100%  /* 14 - highly alkaline */
+      );
+      height: 10px;
+      border-radius: 5px;
+      position: relative;
+    }
+    .ph-indicator {
+      width: 22px;
+      height: 22px;
+      background: #ffffff;
+      border: 4px solid #2d5a27;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 0 4px rgba(45, 90, 39, 0.15), 0 4px 8px rgba(0,0,0,0.25);
+      transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ph-indicator::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #2d5a27;
+      border-radius: 50%;
+    }
+    .ph-scale-ticks {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 6px;
+      margin-top: 6px;
+    }
+    .ph-tick {
+      font-size: 8px;
+      font-family: monospace;
+      color: #78716c;
+      position: relative;
+    }
+    .ph-tick::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 5px;
+      background: #d6d3d1;
+    }
+
+    /* List items hover dynamics */
+    .app-list-item {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border-left: 3px solid transparent;
+    }
+    .app-list-item:hover {
+      transform: translateX(6px);
+      border-left-color: #2d5a27;
+      background-color: #fdfcfb;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+  </style>
+</head>
+<body class="bg-brand-lightBg text-stone-900 relative antialiased selection:bg-brand-green/10 selection:text-brand-green overflow-hidden">
+
+  <!-- Page Preloader Screen -->
+  <div id="preloader">
+    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+      <div class="flex items-center gap-2">
+        <img src="assets/logo_new_revolving_white.png" alt="SSP Logo" class="w-8 h-8 object-contain rotate-slow">
+        <span class="font-heading font-black text-2xl tracking-wider text-white">SSP <span class="opacity-80">SYSTEMS</span></span>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="loader-progress"></div>
+      </div>
+      <p id="loader-status" class="loader-status-text">CONNECTING TO SYSTEM...</p>
+    </div>
+  </div>
+
+
+  <!-- Header Navigation -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-header py-4 px-6 md:px-12 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 group">
+        <img src="assets/logo_new_revolving.png" alt="SSP Logo" class="w-5 h-5 object-contain rotate-slow">
+        <span class="font-heading font-black text-xl tracking-wider text-stone-900 group-hover:text-brand-green transition-colors">
+          SSP <span class="text-brand-green font-bold">INDUSTRIES</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="divisions.html" class="nav-link active">Divisions</a>
+        
+        <!-- Dropdown Container -->
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1 py-2 focus:outline-none">
+            About Us
+            <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white/95 backdrop-blur border border-stone-200/80 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 rounded-xl py-2">
+            <a href="about.html" class="block px-4 py-2 text-stone-700 hover:text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              About Company
+            </a>
+            <a href="team.html" class="block px-4 py-2 text-stone-700 hover:text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              Team
+            </a>
+            <a href="achievements.html" class="block px-4 py-2 text-stone-700 hover:text-brand-green hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              Achievements
+            </a>
+          </div>
+        </div>
+
+        <a href="products.html" class="nav-link">Products</a>
+      </nav>
+
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-stone-500 hover:text-brand-green transition-colors"><i class="fa-solid fa-globe text-base"></i></a>
+        <a href="#" class="text-stone-500 hover:text-brand-green transition-colors"><i class="fa-solid fa-magnifying-glass text-base"></i></a>
+        <a href="contact.html" id="nav-cta" class="hidden md:inline-flex magnetic-btn shimmer-effect px-6 py-2.5 bg-brand-green hover:bg-brand-greenHover text-white text-xs font-bold uppercase tracking-wider transition-colors duration-300">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Wrapper -->
+  <div id="smooth-wrapper" class="pt-12">
+    <div id="smooth-content">
+      
+      <!-- DUAL SPLIT SHOWCASE HERO -->
+      <section class="split-hero-container h-[85vh] min-h-[500px] flex flex-col md:flex-row overflow-hidden border-b border-stone-300 relative z-10 bg-stone-100">
+        
+        <!-- Packaging Panel -->
+        <a href="#divisions-workspace" onclick="switchWorkspace('packaging')" class="split-panel group relative w-full md:w-1/2 flex items-center justify-center p-8 md:p-12 transition-all cursor-pointer select-none overflow-hidden bg-stone-950 text-white opacity-0 translate-y-8">
+          <!-- Background image & overlay -->
+          <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700" style="background-image: url('assets/packaging_bg.png');"></div>
+          <div class="absolute inset-0 bg-gradient-to-tr from-stone-950 via-stone-950/80 to-transparent"></div>
+          
+          <div class="relative z-10 space-y-4 max-w-md">
+            <span class="text-[9px] font-mono font-bold tracking-widest text-[#cba37c] bg-[#cba37c]/10 border border-[#cba37c]/30 px-3 py-1 uppercase rounded-full">Division 01 // Industrial Packaging</span>
+            <h2 class="text-3xl md:text-5xl font-black font-heading tracking-tight leading-none uppercase group-hover:text-[#cba37c] transition-colors">
+              Corrugated<br>Packaging
+            </h2>
+            <p class="text-xs text-stone-300 font-light leading-relaxed">
+              State-of-the-art manufacturing of 3/5/7-ply heavy-duty shipping cartons, partition sheets, and custom flex-printed brand boxes.
+            </p>
+            <div class="pt-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#cba37c]">
+              Launch Configurator &amp; Specs
+              <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Hygiene Panel -->
+        <a href="#divisions-workspace" onclick="switchWorkspace('hygiene')" class="split-panel group relative w-full md:w-1/2 flex items-center justify-center p-8 md:p-12 transition-all cursor-pointer select-none overflow-hidden bg-brand-greenHover text-white opacity-0 translate-y-8">
+          <!-- Background image & overlay -->
+          <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700" style="background-image: url('assets/hygiene_bg.png');"></div>
+          <div class="absolute inset-0 bg-gradient-to-tl from-[#1e3e1a] via-[#1e3e1a]/95 to-[#2d5a27]/30"></div>
+          
+          <div class="relative z-10 space-y-4 max-w-md">
+            <span class="text-[9px] font-mono font-bold tracking-widest text-emerald-450 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 uppercase rounded-full">Division 02 // Chemical Formulations</span>
+            <h2 class="text-3xl md:text-5xl font-black font-heading tracking-tight leading-none uppercase group-hover:text-emerald-400 transition-colors">
+              Curamax<br>Hygiene
+            </h2>
+            <p class="text-xs text-stone-200 font-light leading-relaxed">
+              Scientist-led, customized cleaning formulations, hospital-grade disinfection fluids, and organic repellents.
+            </p>
+            <div class="pt-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400">
+              Launch R&amp;D Lab Specs
+              <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
+            </div>
+          </div>
+        </a>
+
+      </section>
+
+      <!-- MASTER DIVISION WORKSPACE SWITCHER -->
+      <section id="divisions-workspace" class="scroll-mt-24 py-16 px-6 md:px-12 bg-stone-50 border-b border-stone-200">
+        <div class="max-w-5xl mx-auto space-y-12">
+          
+          <!-- Master Switcher Bar -->
+          <!-- Master Switcher Bar -->
+          <div class="flex justify-center">
+            <div class="inline-flex bg-stone-200/80 p-1 border border-stone-300 shadow-inner rounded-full">
+              <button onclick="switchWorkspace('packaging')" id="ws-btn-packaging" class="px-6 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all duration-500 bg-stone-900 text-white shadow-sm">
+                📦 Industrial Packaging
+              </button>
+              <button onclick="switchWorkspace('hygiene')" id="ws-btn-hygiene" class="px-6 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all duration-500 text-stone-600 hover:text-stone-900">
+                🧪 Curamax Hygiene
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Workspace Panel -->
+          <div class="relative min-h-[550px] mt-8">
+            
+            <!-- Pane 1: Packaging Division Details -->
+            <div id="pane-packaging" class="workspace-pane grid grid-cols-1 md:grid-cols-12 gap-6 transition-all duration-500">
+              
+              <!-- CARD 1: Configurator & Visualizer Hub -->
+              <div class="md:col-span-8 bento-card bento-card-dark min-h-[380px] p-8">
+                <div class="flex flex-col md:flex-row gap-8 justify-between h-full">
+                  
+                  <!-- Left Side: Configurator Canvas -->
+                  <div class="w-full md:w-1/2 flex flex-col justify-between space-y-6">
+                    <div class="space-y-3">
+                      <div class="flex items-center gap-2">
+                        <span class="status-dot text-amber-500 bg-amber-500"></span>
+                        <span class="text-[9px] font-mono tracking-widest text-[#cba37c] uppercase font-bold">Configurator Engine Active</span>
+                      </div>
+                      <h4 class="text-[10px] font-mono text-stone-400 uppercase tracking-widest font-bold">Select Board Thickness</h4>
+                      <div class="flex bg-stone-900 p-0.5 rounded-full border border-stone-850 w-fit">
+                        <button onclick="setPly(3)" id="ply-btn-3" class="px-4 py-1.5 rounded-full text-[9px] font-bold font-mono tracking-widest uppercase transition-all duration-300">3-Ply</button>
+                        <button onclick="setPly(5)" id="ply-btn-5" class="px-4 py-1.5 rounded-full text-[9px] font-bold font-mono tracking-widest uppercase transition-all duration-300">5-Ply</button>
+                        <button onclick="setPly(7)" id="ply-btn-7" class="px-4 py-1.5 rounded-full text-[9px] font-bold font-mono tracking-widest uppercase transition-all duration-300">7-Ply</button>
+                      </div>
+                    </div>
+
+                    <div id="board-visual" class="board-canvas w-full">
+                      <!-- SVG generated dynamically -->
+                    </div>
+
+                    <div class="text-center text-[8px] font-mono text-stone-500 uppercase tracking-widest">
+                      Live Vector Cross-Section Model
+                    </div>
+                  </div>
+
+                  <!-- Right Side: Text & Specifications -->
+                  <div class="w-full md:w-1/2 flex flex-col justify-between space-y-6">
+                    <div class="space-y-3">
+                      <span class="text-[9px] font-mono font-bold tracking-widest text-[#cba37c] bg-[#cba37c]/10 border border-[#cba37c]/30 px-3 py-1 uppercase rounded-full w-fit block">Division 01 // Corrugated Packaging</span>
+                      <h3 id="ply-name" class="text-2xl font-black text-white tracking-tight uppercase leading-none">
+                        3-Ply Single Wall Board
+                      </h3>
+                      <p id="ply-desc" class="text-[11px] text-stone-400 font-light leading-relaxed">
+                        Consists of outer Kraft liners with a single inner wave flute sheet. Light, cost-effective, and ideal for standard e-commerce shipping.
+                      </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-stone-800">
+                      <div>
+                        <span class="text-[8px] text-stone-500 uppercase font-mono tracking-wider block">Stack Load Limit</span>
+                        <span id="ply-capacity" class="text-xs font-bold text-white font-mono">Up to 15 kg</span>
+                      </div>
+                      <div>
+                        <span class="text-[8px] text-stone-500 uppercase font-mono tracking-wider block">Primary Use Case</span>
+                        <span id="ply-usage" class="text-xs font-bold text-white font-mono">E-Commerce &amp; Retail</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- CARD 2: Physical Specifications Dashboard -->
+              <div class="md:col-span-4 bento-card bg-white p-8">
+                <div class="space-y-6 flex flex-col justify-between h-full">
+                  <div class="flex justify-between items-center pb-3 border-b border-stone-100">
+                    <h4 class="text-[10px] font-bold text-stone-850 uppercase tracking-widest font-mono">Material Specs</h4>
+                    <span class="text-[8px] font-mono font-bold text-brand-green bg-emerald-50 px-2 py-0.5 border border-brand-green/20 uppercase">FSC Certified</span>
+                  </div>
+
+                  <div class="space-y-4">
+                    <!-- Spec Stat 1 -->
+                    <div>
+                      <div class="flex justify-between text-[10px] text-stone-500 font-mono uppercase pb-1">
+                        <span>Bursting Factor</span>
+                        <span class="font-bold text-stone-800" id="spec-bf">24 - 28 BF</span>
+                      </div>
+                      <div class="h-1.5 w-full bg-stone-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-brand-green transition-all duration-500" style="width: 75%;" id="progress-bf"></div>
+                      </div>
+                    </div>
+                    
+                    <!-- Spec Stat 2 -->
+                    <div>
+                      <div class="flex justify-between text-[10px] text-stone-500 font-mono uppercase pb-1">
+                        <span>Moisture Limit</span>
+                        <span class="font-bold text-stone-800" id="spec-moisture">&lt; 8.0%</span>
+                      </div>
+                      <div class="h-1.5 w-full bg-stone-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-[#cba37c] transition-all duration-500" style="width: 40%;" id="progress-moisture"></div>
+                      </div>
+                    </div>
+
+                    <!-- Spec Stat 3 -->
+                    <div>
+                      <div class="flex justify-between text-[10px] text-stone-500 font-mono uppercase pb-1">
+                        <span>Thickness Caliper</span>
+                        <span class="font-bold text-stone-800" id="spec-caliper">3.2 mm</span>
+                      </div>
+                      <div class="h-1.5 w-full bg-stone-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-stone-850 transition-all duration-500" style="width: 32%;" id="progress-caliper"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="text-[9px] text-stone-400 font-light leading-relaxed">
+                    Measurements strictly match ISO 2759 testing protocols under regulated environmental standards.
+                  </p>
+                </div>
+              </div>
+
+              <!-- CARD 3: Production Spotlight -->
+              <div class="md:col-span-5 bento-card p-0 h-[280px] relative group">
+                <img src="assets/packaging_bg.png" class="w-full h-full object-cover image-scale" alt="Corrugated Manufacturing">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/20 to-transparent"></div>
+                
+                <div class="absolute bottom-6 left-6 right-6 text-white space-y-2">
+                  <div class="flex items-center gap-2">
+                    <span class="status-dot text-emerald-400 bg-emerald-400"></span>
+                    <span class="text-[9px] font-mono tracking-widest text-emerald-400 uppercase font-bold">Magadi Unit Active</span>
+                  </div>
+                  <h3 class="text-lg font-black uppercase tracking-wide leading-none">Magadi Manufacturing Plant</h3>
+                  <p class="text-[10px] text-stone-300 font-light leading-snug">
+                    Operating high-precision slots, heavy-duty partition cutters, and advanced multi-color flexographic printing presses.
+                  </p>
+                </div>
+              </div>
+
+              <!-- CARD 4: Sectors Served Checklist -->
+              <div class="md:col-span-4 bento-card bg-white p-6">
+                <div class="space-y-4 flex flex-col justify-between h-full">
+                  <h4 class="text-[10px] font-bold text-stone-850 uppercase tracking-widest font-mono">Applications &amp; Sectors</h4>
+                  <div class="space-y-2 text-xs text-stone-600">
+                    <div class="app-list-item flex items-center gap-3 p-2 bg-stone-50/50 border border-stone-150 rounded-lg">
+                      <span class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-green shrink-0"><i class="fa-solid fa-truck-ramp-box text-[10px]"></i></span>
+                      <div><strong class="text-stone-800 font-bold block leading-none">Logistics &amp; Freight</strong> High-stacking bulk boxes.</div>
+                    </div>
+                    <div class="app-list-item flex items-center gap-3 p-2 bg-stone-50/50 border border-stone-150 rounded-lg">
+                      <span class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-green shrink-0"><i class="fa-solid fa-pepper-hot text-[10px]"></i></span>
+                      <div><strong class="text-stone-800 font-bold block leading-none">Agro Produce</strong> Vented moisture-resistant trays.</div>
+                    </div>
+                    <div class="app-list-item flex items-center gap-3 p-2 bg-stone-50/50 border border-stone-150 rounded-lg">
+                      <span class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-green shrink-0"><i class="fa-solid fa-microchip text-[10px]"></i></span>
+                      <div><strong class="text-stone-800 font-bold block leading-none">Consumer Goods</strong> Partition separators &amp; slots.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARD 5: Sustainability Trust Badge -->
+              <div class="md:col-span-3 bento-card bento-card-accent justify-between min-h-[280px] p-8">
+                <div class="space-y-4">
+                  <div class="w-10 h-10 rounded-full bg-emerald-100/80 flex items-center justify-center text-emerald-800 text-lg">
+                    <i class="fa-solid fa-leaf"></i>
+                  </div>
+                  <h4 class="text-lg font-black uppercase tracking-wide leading-none">100% Recyclable Board</h4>
+                  <p class="text-[10px] text-emerald-800/80 font-light leading-relaxed">
+                    Manufactured entirely from organic cellulose. Completely recyclable, biodegradable, and sourced under rigid FSC certifications.
+                  </p>
+                </div>
+                <a href="products.html?cat=packaging" class="group mt-4 inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-[#2d5a27] hover:text-[#1c3c17] transition-colors">
+                  Explore Catalog <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Pane 2: Hygiene Division Details -->
+            <div id="pane-hygiene" class="workspace-pane grid grid-cols-1 md:grid-cols-12 gap-6 hidden transition-all duration-500">
+              
+              <!-- CARD 1: pH Explorer & Control Center -->
+              <div class="md:col-span-8 bento-card bento-card-dark min-h-[380px] p-8">
+                <div class="flex flex-col md:flex-row gap-8 justify-between h-full">
+                  
+                  <!-- Left Side: Spectrogram slider -->
+                  <div class="w-full md:w-1/2 flex flex-col justify-between space-y-6">
+                    <div class="space-y-3">
+                      <div class="flex items-center gap-2">
+                        <span class="status-dot text-emerald-400 bg-emerald-400"></span>
+                        <span class="text-[9px] font-mono tracking-widest text-emerald-400 uppercase font-bold">Spectrometer Online</span>
+                      </div>
+                      <h4 class="text-[10px] font-mono text-stone-400 uppercase tracking-widest font-bold">Select R&amp;D Sector</h4>
+                      <div class="flex bg-stone-900 p-0.5 rounded-full border border-stone-850 w-fit">
+                        <button onclick="setHygieneSector('hospitality')" id="sector-btn-hospitality" class="px-4 py-1.5 rounded-full text-[9px] font-bold font-mono tracking-widest uppercase transition-all duration-300">Hospitality</button>
+                        <button onclick="setHygieneSector('healthcare')" id="sector-btn-healthcare" class="px-4 py-1.5 rounded-full text-[9px] font-bold font-mono tracking-widest uppercase transition-all duration-300">Clinical</button>
+                        <button onclick="setHygieneSector('repellents')" id="sector-btn-repellents" class="px-4 py-1.5 rounded-full text-[9px] font-bold font-mono tracking-widest uppercase transition-all duration-300">Repellents</button>
+                      </div>
+                    </div>
+
+                    <!-- pH slider gauge -->
+                    <div class="space-y-2">
+                      <div class="flex justify-between items-center text-[8px] font-mono uppercase tracking-wider text-stone-500">
+                        <span>Formulation pH Range</span>
+                        <span id="ph-val" class="font-bold text-stone-300 font-mono">pH 7.0</span>
+                      </div>
+                      <div class="relative pb-6">
+                        <div class="ph-bar w-full">
+                          <div id="ph-slider" class="ph-indicator" style="left: 50%;"></div>
+                        </div>
+                        <!-- pH Ticks -->
+                        <div class="ph-scale-ticks">
+                          <span class="ph-tick">0</span>
+                          <span class="ph-tick">3</span>
+                          <span class="ph-tick">6</span>
+                          <span class="ph-tick">7 (Neutral)</span>
+                          <span class="ph-tick">10</span>
+                          <span class="ph-tick">12</span>
+                          <span class="ph-tick">14</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="text-center text-[8px] font-mono text-stone-500 uppercase tracking-widest">
+                      Bio-Chemical pH Index Spectrogram
+                    </div>
+                  </div>
+
+                  <!-- Right Side: Text & Specifications -->
+                  <div class="w-full md:w-1/2 flex flex-col justify-between space-y-6">
+                    <div class="space-y-3">
+                      <span class="text-[9px] font-mono font-bold tracking-widest text-emerald-600 bg-emerald-100/40 border border-emerald-500/30 px-3 py-1 uppercase rounded-full w-fit block">Division 02 // Advanced Chemical R&amp;D</span>
+                      <h3 id="sector-title" class="text-2xl font-black text-white tracking-tight uppercase leading-none">
+                        Hospitality Care Formulations
+                      </h3>
+                      <p id="sector-desc" class="text-[11px] text-stone-400 font-light leading-relaxed">
+                        Designed for premium hotel and luxury resort maintenance. Includes water-tank scale descalers, solar-panel cleaning concentrates, pool color enhancers, and fabric-preserving odor neutralizers.
+                      </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-stone-800">
+                      <div>
+                        <span class="text-[8px] text-stone-500 uppercase font-mono tracking-wider block">R&amp;D Specialization</span>
+                        <span id="sector-specialization" class="text-xs font-bold text-white font-mono">Anti-corrosive / Surface preservation</span>
+                      </div>
+                      <div>
+                        <span class="text-[8px] text-stone-500 uppercase font-mono tracking-wider block">Target Issue Solved</span>
+                        <span id="sector-challenge" class="text-xs font-bold text-white font-mono font-bold">Odour-neutralization</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- CARD 2: Formulation Dashboard stats -->
+              <div class="md:col-span-4 bento-card bg-white p-8">
+                <div class="space-y-6 flex flex-col justify-between h-full">
+                  <div class="flex justify-between items-center pb-3 border-b border-stone-100">
+                    <h4 class="text-[10px] font-bold text-stone-850 uppercase tracking-widest font-mono">Formulation Metrics</h4>
+                    <span id="sector-badge" class="text-[8px] font-mono font-bold text-brand-green bg-emerald-50 px-2 py-0.5 border border-brand-green/20 uppercase">Neutral Formula</span>
+                  </div>
+
+                  <div class="space-y-4">
+                    <!-- Bio Stat 1 -->
+                    <div>
+                      <div class="flex justify-between text-[10px] text-stone-500 font-mono uppercase pb-1">
+                        <span>Biodegradable Index</span>
+                        <span class="font-bold text-stone-800" id="spec-h1">98.2%</span>
+                      </div>
+                      <div class="h-1.5 w-full bg-stone-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-brand-green transition-all duration-500" style="width: 98%;" id="progress-h1"></div>
+                      </div>
+                    </div>
+                    
+                    <!-- Bio Stat 2 -->
+                    <div>
+                      <div class="flex justify-between text-[10px] text-stone-500 font-mono uppercase pb-1">
+                        <span>Active Surfactants</span>
+                        <span class="font-bold text-stone-800" id="spec-h2">Organic Ester</span>
+                      </div>
+                      <div class="h-1.5 w-full bg-stone-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-emerald-500 transition-all duration-500" style="width: 80%;" id="progress-h2"></div>
+                      </div>
+                    </div>
+
+                    <!-- Bio Stat 3 -->
+                    <div>
+                      <div class="flex justify-between text-[10px] text-stone-500 font-mono uppercase pb-1">
+                        <span>Solubility</span>
+                        <span class="font-bold text-stone-800" id="spec-h3">100% Water Soluble</span>
+                      </div>
+                      <div class="h-1.5 w-full bg-stone-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-[#cba37c] transition-all duration-500" style="width: 100%;" id="progress-h3"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="text-[9px] text-stone-400 font-light leading-relaxed">
+                    Ecotoxicity verified by NABL-accredited chemical testing laboratories.
+                  </p>
+                </div>
+              </div>
+
+              <!-- CARD 3: Laboratory Spotlight -->
+              <div class="md:col-span-5 bento-card p-0 h-[280px] relative group">
+                <img src="assets/hygiene_bg.png" class="w-full h-full object-cover image-scale" alt="Biochemistry Laboratory">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/20 to-transparent"></div>
+                
+                <div class="absolute bottom-6 left-6 right-6 text-white space-y-2">
+                  <div class="flex items-center gap-2">
+                    <span class="status-dot text-emerald-400 bg-emerald-400"></span>
+                    <span class="text-[9px] font-mono tracking-widest text-emerald-400 uppercase font-bold">R&amp;D Wing Online</span>
+                  </div>
+                  <h3 class="text-lg font-black uppercase tracking-wide leading-none">Bangalore Formulation Wing</h3>
+                  <p class="text-[10px] text-stone-300 font-light leading-snug">
+                    Staffed by senior biochemists developing natural cleaning enzymes and pathogen suppression solutions.
+                  </p>
+                </div>
+              </div>
+
+              <!-- CARD 4: Applications Checklist -->
+              <div class="md:col-span-4 bento-card bg-white p-6">
+                <div class="space-y-4 flex flex-col justify-between h-full">
+                  <h4 class="text-[10px] font-bold text-stone-850 uppercase tracking-widest font-mono">Applications &amp; Sectors</h4>
+                  <div class="space-y-2 text-xs text-stone-600">
+                    <div class="app-list-item flex items-center gap-3 p-2 bg-stone-50/50 border border-stone-150 rounded-lg">
+                      <span class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-green shrink-0"><i class="fa-solid fa-hospital text-[10px]"></i></span>
+                      <div><strong class="text-stone-800 font-bold block leading-none">Clinical / Healthcare</strong> Pathogencidal sanitization fluids.</div>
+                    </div>
+                    <div class="app-list-item flex items-center gap-3 p-2 bg-stone-50/50 border border-stone-150 rounded-lg">
+                      <span class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-green shrink-0"><i class="fa-solid fa-umbrella-beach text-[10px]"></i></span>
+                      <div><strong class="text-stone-800 font-bold block leading-none">Resorts &amp; Hospitality</strong> Odour-neutralizing wash codes.</div>
+                    </div>
+                    <div class="app-list-item flex items-center gap-3 p-2 bg-stone-50/50 border border-stone-150 rounded-lg">
+                      <span class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-green shrink-0"><i class="fa-solid fa-shield-cat text-[10px]"></i></span>
+                      <div><strong class="text-stone-800 font-bold block leading-none">Pest Management</strong> Botanical repellent compounds.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARD 5: Bio Compliance trust card -->
+              <div class="md:col-span-3 bento-card bento-card-accent-blue justify-between min-h-[280px] p-8">
+                <div class="space-y-4">
+                  <div class="w-10 h-10 rounded-full bg-cyan-100/80 flex items-center justify-center text-cyan-800 text-lg">
+                    <i class="fa-solid fa-shield-halved"></i>
+                  </div>
+                  <h4 class="text-lg font-black uppercase tracking-wide leading-none">WHO Compliance Standard</h4>
+                  <p class="text-[10px] text-cyan-800/80 font-light leading-relaxed">
+                    Formulated completely without toxic solvents or chlorine. Achieves a 99.999% germicidal kill rate while remaining skin and pet friendly.
+                  </p>
+                </div>
+                <a href="products.html?cat=hygiene" class="group mt-4 inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest text-[#164e63] hover:text-[#0c3645] transition-colors">
+                  Explore Catalog <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="bg-[#2d5a27] text-white py-10 px-6 md:px-12 border-t border-brand-greenHover relative z-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+          
+          <!-- Column 1 -->
+          <div class="space-y-6">
+            <div>
+              <span class="font-heading font-black text-2xl tracking-wider text-white">
+                SSP Industries
+              </span>
+            </div>
+            <ul class="space-y-3 text-sm font-medium text-stone-200">
+              <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+              <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+              <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+            <div class="bg-white p-2 inline-block w-max rounded-none">
+              <svg class="w-20 h-20 text-black" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M5 5h30v30H5V5zm6 6v18h18V11H11zM65 5h30v30H65V5zm6 6v18h18V11H71zM5 65h30v30H5V65zm6 6v18h18V71H11z" />
+                <rect x="17" y="17" width="6" height="6" /><rect x="77" y="17" width="6" height="6" /><rect x="17" y="77" width="6" height="6" /><rect x="45" y="15" width="8" height="8" /><rect x="45" y="35" width="12" height="6" /><rect x="35" y="45" width="6" height="12" /><rect x="55" y="55" width="10" height="10" /><rect x="75" y="45" width="12" height="8" /><rect x="45" y="75" width="10" height="12" /><rect x="65" y="75" width="8" height="6" /><rect x="75" y="65" width="6" height="16" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="space-y-6">
+            <h4 class="text-xl font-bold text-white tracking-wide">Contact Us</h4>
+            <div class="space-y-2 text-sm font-medium text-stone-200">
+              <p>9845814147 | 9902756137</p>
+              <p><a href="mailto:info@sspipl.com" class="hover:text-white transition-colors">info@sspipl.com</a></p>
+            </div>
+            
+            <div class="space-y-2 text-sm text-stone-200">
+              <h5 class="font-bold text-white">Corporate Office Address</h5>
+              <p class="leading-relaxed font-light">
+                No.40/11-1, 2nd floor, BDA No.1269/B,<br>
+                MRCR Layout, Agrahara dasarahalli,<br>
+                Magadi Main Road, Beside Housing<br>
+                Board Underpass, Govindarajnagar,<br>
+                Bangalore 560040
+              </p>
+            </div>
+
+            <div class="space-y-2 text-sm text-stone-200">
+              <h5 class="font-bold text-white">Factory Address</h5>
+              <p class="leading-relaxed font-light">
+                Plot # SpecialQ-26, KSSIDC Indl Estate,<br>
+                Magadi Taluk, Ramanagar - 562 120
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="space-y-6">
+            <h4 class="text-3xl font-heading font-bold text-white leading-tight">
+              Connect with<br>us for the More<br>details
+            </h4>
+            <form class="space-y-4 w-full max-w-sm" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+              <input type="email" placeholder="Email" required class="w-full px-4 py-3 text-sm text-white placeholder-stone-300 bg-brand-greenHover/80 border border-white focus:outline-none focus:bg-brand-greenHover transition-all rounded-none">
+              <button type="submit" class="w-full py-3 bg-white hover:bg-stone-100 text-stone-900 font-bold text-sm uppercase tracking-wider rounded-full transition-colors duration-300">
+                Subscribe
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[10px] text-stone-200 tracking-wider uppercase font-semibold gap-6">
+          <p>© 2026 SSP INDUSTRIES. ALL RIGHTS RESERVED.</p>
+          <div class="flex gap-6 text-base">
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/sspipl?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com/@sspipl?si=KId9bfi1pkHxVgCs" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+          <div class="flex gap-6 text-[10px]">
+            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. Dynamic Split-Text Words generator helper
+    function splitTextIntoWords(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      const text = el.innerText;
+      el.innerHTML = text.split(" ").map(word => {
+        return `<span class="word-mask"><span class="word-inner">${word}</span></span>`;
+      }).join(" ");
+    }
+
+
+    // Card Mouse tracking for radial border glow
+    const glowCards = document.querySelectorAll(".glow-border-card");
+    glowCards.forEach(card => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      });
+    });
+
+
+
+    // 5. Magnetic CTA Buttons Handler
+    const magneticBtns = document.querySelectorAll(".magnetic-btn");
+    magneticBtns.forEach(btn => {
+      btn.addEventListener("mousemove", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        gsap.to(btn, {
+          x: x * 0.35,
+          y: y * 0.35,
+          scale: 1.02,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+      btn.addEventListener("mouseleave", () => {
+        gsap.to(btn, {
+          x: 0,
+          y: 0,
+          scale: 1,
+          duration: 0.5,
+          ease: "elastic.out(1, 0.3)"
+        });
+      });
+    });
+
+    // 3. Packaging Ply Configurator Logic
+    const plyData = {
+      3: {
+        name: "3-Ply Single Wall Board",
+        desc: "Consists of outer Kraft liners with a single inner wave flute sheet. Light, cost-effective, and ideal for standard e-commerce shipping.",
+        capacity: "Up to 15 kg",
+        usage: "E-Commerce & Retail Packaging",
+        bf: "24 - 28 BF",
+        bfPct: "75%",
+        moisture: "< 8.0%",
+        moisturePct: "40%",
+        caliper: "3.2 mm",
+        caliperPct: "32%"
+      },
+      5: {
+        name: "5-Ply Double Wall Board",
+        desc: "Consists of three flat Kraft liners separated by two corrugated wave fluting sheets. Engineered with extra padding and high structural rigidity for heavier industrial loads.",
+        capacity: "Up to 50 kg",
+        usage: "Heavy Industrial Goods & Long Freight",
+        bf: "32 - 38 BF",
+        bfPct: "88%",
+        moisture: "< 7.5%",
+        moisturePct: "35%",
+        caliper: "5.6 mm",
+        caliperPct: "56%"
+      },
+      7: {
+        name: "7-Ply Triple Wall Board",
+        desc: "An ultra-strong composite board consisting of four flat Kraft liners and three wave fluting sheets. Built to withstand extreme vertical stacking and crush forces, commonly replacing wooden crates.",
+        capacity: "Up to 150 kg",
+        usage: "Heavy Machinery, Bulk Chemical & Steel Freight",
+        bf: "42 - 48 BF",
+        bfPct: "95%",
+        moisture: "< 7.0%",
+        moisturePct: "30%",
+        caliper: "7.8 mm",
+        caliperPct: "78%"
+      }
+    };
+
+    function setPly(num) {
+      // 1. Update button styling
+      [3, 5, 7].forEach(p => {
+        const btn = document.getElementById(`ply-btn-${p}`);
+        if (!btn) return;
+        if (p === num) {
+          btn.className = "px-4 py-1.5 rounded-full text-[9px] font-bold font-mono tracking-widest uppercase transition-all duration-300 bg-brand-green text-white shadow-sm";
+        } else {
+          btn.className = "px-4 py-1.5 rounded-full text-[9px] font-bold font-mono tracking-widest uppercase transition-all duration-300 text-stone-600 hover:text-stone-900";
+        }
+      });
+
+      // 2. Fetch packaging data
+      const data = plyData[num];
+      if (!data) return;
+
+      // 3. Update Text Content & Specifications Stats
+      document.getElementById("ply-name").innerText = data.name;
+      document.getElementById("ply-desc").innerText = data.desc;
+      document.getElementById("ply-capacity").innerText = data.capacity;
+      document.getElementById("ply-usage").innerText = data.usage;
+
+      // Update Spec indicators
+      document.getElementById("spec-bf").innerText = data.bf;
+      document.getElementById("spec-moisture").innerText = data.moisture;
+      document.getElementById("spec-caliper").innerText = data.caliper;
+
+      // Animate progress gauges
+      gsap.to("#progress-bf", { width: data.bfPct, duration: 0.6, ease: "power2.out" });
+      gsap.to("#progress-moisture", { width: data.moisturePct, duration: 0.6, ease: "power2.out" });
+      gsap.to("#progress-caliper", { width: data.caliperPct, duration: 0.6, ease: "power2.out" });
+
+      // 4. Render Dynamic SVG Cardboard Visualization
+      const canvas = document.getElementById("board-visual");
+      if (!canvas) return;
+
+      const fluteWave = "Q 10 [P] 15 [C] T 25 [C] T 35 [C] T 45 [C] T 55 [C] T 65 [C] T 75 [C] T 85 [C] T 95 [C] T 105 [C] T 115 [C] T 125 [C] T 135 [C] T 145 [C] T 155 [C] T 165 [C] T 175 [C] T 185 [C] T 195 [C] T 205 [C] T 215 [C] T 225 [C] T 235 [C]";
+      
+      let svgContent = `
+        <svg width="100%" height="100" viewBox="0 0 240 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="kraftGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#dfb48c" />
+              <stop offset="50%" stop-color="#cba37c" />
+              <stop offset="100%" stop-color="#9a714c" />
+            </linearGradient>
+            <linearGradient id="fluteGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#b68b60" />
+              <stop offset="100%" stop-color="#7a532f" />
+            </linearGradient>
+            <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
+              <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.45"/>
+            </filter>
+          </defs>
+      `;
+
+      if (num === 3) {
+        const wave = fluteWave.replace(/\[P\]/g, "37").replace(/\[C\]/g, "50");
+        svgContent += `
+          <rect x="5" y="30" width="230" height="6" rx="2.5" fill="url(#kraftGrad)" filter="url(#shadow)" class="svg-layer"/>
+          <path d="M 5 50 ${wave}" fill="none" stroke="url(#fluteGrad)" stroke-width="3" stroke-linecap="round" class="svg-layer" filter="url(#shadow)"/>
+          <rect x="5" y="62" width="230" height="6" rx="2.5" fill="url(#kraftGrad)" filter="url(#shadow)" class="svg-layer"/>
+        `;
+      } else if (num === 5) {
+        const wave1 = fluteWave.replace(/\[P\]/g, "26").replace(/\[C\]/g, "36");
+        const wave2 = fluteWave.replace(/\[P\]/g, "53").replace(/\[C\]/g, "63");
+        svgContent += `
+          <rect x="5" y="20" width="230" height="5" rx="2" fill="url(#kraftGrad)" filter="url(#shadow)" class="svg-layer"/>
+          <path d="M 5 36 ${wave1}" fill="none" stroke="url(#fluteGrad)" stroke-width="2.5" stroke-linecap="round" class="svg-layer" filter="url(#shadow)"/>
+          <rect x="5" y="47" width="230" height="5" rx="2" fill="url(#kraftGrad)" filter="url(#shadow)" class="svg-layer"/>
+          <path d="M 5 63 ${wave2}" fill="none" stroke="url(#fluteGrad)" stroke-width="2.5" stroke-linecap="round" class="svg-layer" filter="url(#shadow)"/>
+          <rect x="5" y="74" width="230" height="5" rx="2" fill="url(#kraftGrad)" filter="url(#shadow)" class="svg-layer"/>
+        `;
+      } else if (num === 7) {
+        const wave1 = fluteWave.replace(/\[P\]/g, "15").replace(/\[C\]/g, "24");
+        const wave2 = fluteWave.replace(/\[P\]/g, "38").replace(/\[C\]/g, "47");
+        const wave3 = fluteWave.replace(/\[P\]/g, "61").replace(/\[C\]/g, "70");
+        svgContent += `
+          <rect x="5" y="10" width="230" height="4" rx="1.5" fill="url(#kraftGrad)" filter="url(#shadow)" class="svg-layer"/>
+          <path d="M 5 24 ${wave1}" fill="none" stroke="url(#fluteGrad)" stroke-width="2" stroke-linecap="round" class="svg-layer" filter="url(#shadow)"/>
+          <rect x="5" y="33" width="230" height="4" rx="1.5" fill="url(#kraftGrad)" filter="url(#shadow)" class="svg-layer"/>
+          <path d="M 5 47 ${wave2}" fill="none" stroke="url(#fluteGrad)" stroke-width="2" stroke-linecap="round" class="svg-layer" filter="url(#shadow)"/>
+          <rect x="5" y="56" width="230" height="4" rx="1.5" fill="url(#kraftGrad)" filter="url(#shadow)" class="svg-layer"/>
+          <path d="M 5 70 ${wave3}" fill="none" stroke="url(#fluteGrad)" stroke-width="2" stroke-linecap="round" class="svg-layer" filter="url(#shadow)"/>
+          <rect x="5" y="79" width="230" height="4" rx="1.5" fill="url(#kraftGrad)" filter="url(#shadow)" class="svg-layer"/>
+        `;
+      }
+
+      svgContent += `</svg>`;
+      svgContent = svgContent.replace(/\s+/g, " "); // collapse whitespace
+      canvas.innerHTML = svgContent;
+
+      // 5. Animate the SVG layers in with GSAP!
+      gsap.fromTo(canvas.querySelectorAll(".svg-layer"), 
+        { scaleY: 0, opacity: 0, transformOrigin: "50% 50%" },
+        { scaleY: 1, opacity: 1, stagger: 0.05, duration: 0.5, ease: "power2.out" }
+      );
+    }
+
+    // 4. Hygiene Sector Explorer Logic
+    const hygieneData = {
+      hospitality: {
+        title: "Hospitality Care Formulations",
+        badge: "Neutral Formula",
+        desc: "Designed for premium hotel and luxury resort maintenance. Includes water-tank scale descalers, solar-panel cleaning concentrates, pool color enhancers, and fabric-preserving odor neutralizers.",
+        phVal: "pH 7.0 (Neutral)",
+        phPercent: "50%",
+        specialization: "Anti-corrosive / Surface preservation",
+        challenge: "Odour-neutralization and fabric softening",
+        h1: "98.2%",
+        h1Pct: "98%",
+        h2: "Organic Ester",
+        h2Pct: "80%",
+        h3: "100% Water Soluble",
+        h3Pct: "100%"
+      },
+      healthcare: {
+        title: "Clinical-Grade Disinfectants",
+        badge: "Alkaline Disinfectant",
+        desc: "Engineered specifically for clinical environments, ICUs, and surgical wards. Formulation kills 99.999% of bacterial pathogens, dissolves organic blood stains from linen, and remains completely safe for medical equipment.",
+        phVal: "pH 8.5 (Mildly Alkaline)",
+        phPercent: "68%",
+        specialization: "Antimicrobial & Biofilm Destabilization",
+        challenge: "Rapid blood stain lift & clinical sanitization",
+        h1: "94.5%",
+        h1Pct: "94%",
+        h2: "Quaternary Alkyl",
+        h2Pct: "90%",
+        h3: "100% Water Soluble",
+        h3Pct: "100%"
+      },
+      repellents: {
+        title: "Organic Pest Repellents",
+        badge: "Mildly Acidic Active",
+        desc: "Our premium bio-engineered repellent range. Formulated with natural botanical extracts to effectively repel mosquitoes, flies, and cockroaches. Odourless, non-toxic, and safe for use around children and food-prep areas.",
+        phVal: "pH 5.5 (Mildly Acidic)",
+        phPercent: "38%",
+        specialization: "Botanical Bio-extracts & Safe Pest Deterrence",
+        challenge: "Chemical-free repelling with long-lasting efficacy",
+        h1: "99.8%",
+        h1Pct: "99%",
+        h2: "Citrus Bio-extract",
+        h2Pct: "70%",
+        h3: "98.5% Soluble",
+        h3Pct: "98%"
+      }
+    };
+
+    function setHygieneSector(sector) {
+      // 1. Update button styling
+      ['hospitality', 'healthcare', 'repellents'].forEach(s => {
+        const btn = document.getElementById(`sector-btn-${s}`);
+        if (!btn) return;
+        if (s === sector) {
+          btn.className = "px-4 py-1.5 rounded-full text-[9px] font-bold font-mono tracking-widest uppercase transition-all duration-300 bg-brand-green text-white shadow-sm";
+        } else {
+          btn.className = "px-4 py-1.5 rounded-full text-[9px] font-bold font-mono tracking-widest uppercase transition-all duration-300 text-stone-600 hover:text-stone-900";
+        }
+      });
+
+      // 2. Fetch sector data
+      const data = hygieneData[sector];
+      if (!data) return;
+
+      // 3. Update Text Content
+      document.getElementById("sector-title").innerText = data.title;
+      document.getElementById("sector-badge").innerText = data.badge;
+      document.getElementById("sector-desc").innerText = data.desc;
+      document.getElementById("ph-val").innerText = data.phVal;
+      document.getElementById("sector-specialization").innerText = data.specialization;
+      document.getElementById("sector-challenge").innerText = data.challenge;
+
+      // Update Spec stats
+      document.getElementById("spec-h1").innerText = data.h1;
+      document.getElementById("spec-h2").innerText = data.h2;
+      document.getElementById("spec-h3").innerText = data.h3;
+
+      // Animate progress gauges
+      gsap.to("#progress-h1", { width: data.h1Pct, duration: 0.6, ease: "power2.out" });
+      gsap.to("#progress-h2", { width: data.h2Pct, duration: 0.6, ease: "power2.out" });
+      gsap.to("#progress-h3", { width: data.h3Pct, duration: 0.6, ease: "power2.out" });
+
+      // 4. Animate the pH Scale indicator left property with GSAP
+      const slider = document.getElementById("ph-slider");
+      if (slider) {
+        gsap.to(slider, {
+          left: data.phPercent,
+          duration: 0.6,
+          ease: "power2.out"
+        });
+      }
+    }
+
+    // 5. Workspace Switcher Logic
+    function switchWorkspace(division) {
+      const packagingPane = document.getElementById("pane-packaging");
+      const hygienePane = document.getElementById("pane-hygiene");
+      const packagingBtn = document.getElementById("ws-btn-packaging");
+      const hygieneBtn = document.getElementById("ws-btn-hygiene");
+
+      if (!packagingPane || !hygienePane || !packagingBtn || !hygieneBtn) return;
+
+      if (division === 'packaging') {
+        packagingBtn.className = "px-6 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all duration-500 bg-stone-900 text-white shadow-sm";
+        hygieneBtn.className = "px-6 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all duration-500 text-stone-600 hover:text-stone-900";
+        
+        gsap.to(hygienePane, { opacity: 0, scale: 0.98, duration: 0.2, onComplete: () => {
+          hygienePane.classList.add("hidden");
+          packagingPane.classList.remove("hidden");
+          gsap.fromTo(packagingPane, 
+            { opacity: 0, scale: 0.98, y: 10 },
+            { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "power2.out" }
+          );
+          setPly(3);
+        }});
+      } else {
+        hygieneBtn.className = "px-6 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all duration-500 bg-stone-900 text-white shadow-sm";
+        packagingBtn.className = "px-6 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-all duration-500 text-stone-600 hover:text-stone-900";
+
+        gsap.to(packagingPane, { opacity: 0, scale: 0.98, duration: 0.2, onComplete: () => {
+          packagingPane.classList.add("hidden");
+          hygienePane.classList.remove("hidden");
+          gsap.fromTo(hygienePane, 
+            { opacity: 0, scale: 0.98, y: 10 },
+            { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "power2.out" }
+          );
+          setHygieneSector('hospitality');
+        }});
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      splitTextIntoWords("divisions-headline");
+      
+      // Initialize interactive states
+      if (typeof setPly === 'function') setPly(3);
+      if (typeof setHygieneSector === 'function') setHygieneSector('hospitality');
+      
+      // Preloader initialization sequence
+      let progress = 0;
+      const progressEl = document.getElementById("loader-progress");
+      const statusEl = document.getElementById("loader-status");
+      const preloader = document.getElementById("preloader");
+      
+      const statuses = [
+        "Connecting to Zurich Hub...",
+        "Reading System Schematics...",
+        "Synthesizing Material Catalog...",
+        "Ready."
+      ];
+      
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 15) + 6;
+        if (progress > 100) progress = 100;
+        
+        if (progressEl) progressEl.style.width = `${progress}%`;
+        if (statusEl) {
+          statusEl.innerText = statuses[Math.min(Math.floor(progress / 26), statuses.length - 1)];
+        }
+        
+        if (progress === 100) {
+          clearInterval(interval);
+          
+          // Animate preloader out
+          gsap.to(preloader, {
+            yPercent: -100,
+            duration: 0.85,
+            ease: "power4.inOut",
+            delay: 0.15,
+            onComplete: () => {
+              preloader.style.display = "none";
+              document.body.classList.remove("overflow-hidden");
+              
+              // Trigger intro animations
+              const introTl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.2 } });
+              introTl
+                .to(".split-panel", { opacity: 1, y: 0, stagger: 0.15, duration: 0.8, ease: "power2.out" })
+                .fromTo(".split-panel .relative > *", 
+                  { opacity: 0, y: 15 },
+                  { opacity: 1, y: 0, stagger: 0.08, duration: 0.8, ease: "power3.out" },
+                  "-=0.4"
+                );
+            }
+          });
+        }
+      }, 50);
+
+      // Scroll triggers for workspace
+      const workspace = document.getElementById("divisions-workspace");
+      if (workspace) {
+        gsap.fromTo(workspace, 
+          { opacity: 0, y: 40 },
+          {
+            scrollTrigger: {
+              trigger: workspace,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            },
+            opacity: 1,
+            y: 0,
+            duration: 1.0,
+            ease: "power3.out"
+          }
+        );
+      }
+    });
+  </script>
+</body>
+</html>

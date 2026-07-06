@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | SSP Industries</title>
+  <meta name="description" content="Get in touch with SSP Industries corporate and factory teams for packaging, hygiene, and nutrition bulk orders.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#507a3c',
+              greenHover: '#3f602f',
+              lightBg: '#fcfbf9',
+              cardBg: '#f5f5f4',
+              border: '#e5e5e5',
+            }
+          },
+          fontFamily: {
+            sans: ['Hanken Grotesk', 'Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Hanken Grotesk', 'Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=4">
+  <!-- Custom Navigation Logic -->
+  <script src="navigation.js" defer></script>
+  <style>
+    /* Override font family globally to Hanken Grotesk */
+    body, h1, h2, h3, h4, h5, h6, .font-heading, .nav-link, button, input, textarea, label {
+      font-family: 'Hanken Grotesk', 'Plus Jakarta Sans', sans-serif !important;
+    }
+
+    /* Override brand green styles globally on contact page */
+    :root {
+      --brand-green: 80, 122, 60;      /* #507a3c */
+      --brand-green-hover: 63, 96, 47; /* #3f602f */
+    }
+
+    /* Minimal roundness */
+    .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-none {
+      border-radius: 4px !important;
+    }
+  </style>
+</head>
+<body class="bg-brand-lightBg text-stone-900 relative antialiased selection:bg-[#507a3c]/10 selection:text-[#507a3c] overflow-hidden bg-grid-pattern">
+
+  <!-- Page Preloader Screen -->
+  <div id="preloader">
+    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+      <div class="flex items-center gap-2">
+        <img src="assets/logo_new_revolving_white.png" alt="SSP Logo" class="w-8 h-8 object-contain rotate-slow">
+        <span class="font-heading font-black text-2xl tracking-wider text-white">SSP <span class="opacity-80">INDUSTRIES</span></span>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="loader-progress"></div>
+      </div>
+      <p id="loader-status" class="loader-status-text">CONNECTING TO SYSTEM...</p>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-header py-4 px-6 md:px-12 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 group">
+        <img src="assets/logo_new_revolving.png" alt="SSP Logo" class="w-5 h-5 object-contain rotate-slow">
+        <span class="font-heading font-black text-xl tracking-wider text-stone-900 group-hover:text-[#507a3c] transition-colors">
+          SSP <span class="text-[#507a3c] font-bold">INDUSTRIES</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link">Home</a>
+        
+        <!-- Dropdown Container -->
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1 py-2 focus:outline-none">
+            About Us
+            <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white/95 backdrop-blur border border-stone-200/80 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 rounded-xl py-2">
+            <a href="about.html" class="block px-4 py-2 text-stone-700 hover:text-[#507a3c] hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              About Company
+            </a>
+            <a href="team.html" class="block px-4 py-2 text-stone-700 hover:text-[#507a3c] hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              Team
+            </a>
+            <a href="achievements.html" class="block px-4 py-2 text-stone-700 hover:text-[#507a3c] hover:bg-stone-50 font-heading text-xs uppercase tracking-wider font-semibold transition-colors">
+              Achievements
+            </a>
+          </div>
+        </div>
+
+        <a href="divisions.html" class="nav-link">Divisions</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="contact.html" class="nav-link active">Contact Us</a>
+      </nav>
+
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-stone-500 hover:text-[#507a3c] transition-colors"><i class="fa-solid fa-globe text-base"></i></a>
+        <a href="#" class="text-stone-500 hover:text-[#507a3c] transition-colors"><i class="fa-solid fa-magnifying-glass text-base"></i></a>
+        <a href="#" id="nav-cta" class="hidden md:inline-flex magnetic-btn shimmer-effect px-6 py-2.5 bg-[#507a3c] hover:bg-[#3f602f] text-white text-xs font-bold uppercase tracking-wider transition-colors duration-300">
+          Get a Quote
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Wrapper -->
+  <div id="smooth-wrapper" class="pt-24 min-h-screen">
+    <div id="smooth-content">
+      
+      <!-- HEADER SECTION -->
+      <section class="pt-6 pb-4 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="space-y-4">
+          <h1 id="contact-headline" class="text-5xl md:text-6xl font-black text-[#1e293b] tracking-tight leading-none">
+            Get in Touch
+          </h1>
+
+        </div>
+      </section>
+
+      <!-- MAIN CONTACT AREA -->
+      <section id="contact-details-form" class="pb-16 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          
+          <!-- Left Column: Form Card -->
+          <div class="lg:col-span-7 bg-[#ffffff] border border-stone-200/80 p-8 md:p-10 rounded-[4px] shadow-sm contact-form-card opacity-0 translate-y-8 flex flex-col justify-between">
+            <div class="space-y-6">
+              <form id="contact-form" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                <div class="space-y-2">
+                  <label for="name" class="block text-[10px] font-bold text-stone-500 uppercase tracking-wider">Full Name</label>
+                  <input type="text" id="name" required placeholder="John Doe" class="w-full px-4 py-3 bg-[#f5f4f0] border-0 focus:ring-1 focus:ring-[#507a3c] focus:outline-none text-sm rounded-[4px] text-stone-800 placeholder-stone-400">
+                </div>
+                
+                <div class="space-y-2">
+                  <label for="email" class="block text-[10px] font-bold text-stone-500 uppercase tracking-wider">Email Address</label>
+                  <input type="email" id="email" required placeholder="john@example.com" class="w-full px-4 py-3 bg-[#f5f4f0] border-0 focus:ring-1 focus:ring-[#507a3c] focus:outline-none text-sm rounded-[4px] text-stone-800 placeholder-stone-400">
+                </div>
+                
+                <div class="space-y-2">
+                  <label for="message" class="block text-[10px] font-bold text-stone-500 uppercase tracking-wider">Message</label>
+                  <textarea id="message" rows="5" required placeholder="How can we help you today?" class="w-full px-4 py-3 bg-[#f5f4f0] border-0 focus:ring-1 focus:ring-[#507a3c] focus:outline-none text-sm rounded-[4px] text-stone-800 placeholder-stone-400 resize-none"></textarea>
+                </div>
+
+                <div class="pt-2">
+                  <button type="submit" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#507a3c] hover:bg-[#3f602f] text-white text-xs font-bold uppercase tracking-wider rounded-[4px] transition-colors duration-300">
+                    Submit <span class="text-sm font-light">▷</span>
+                  </button>
+                </div>
+              </form>
+
+              <div id="form-success" class="hidden p-6 bg-[#507a3c]/10 border border-[#507a3c] text-[#507a3c] text-sm rounded-[4px]">
+                <h4 class="font-bold text-lg">Thank You!</h4>
+                <p class="mt-1 font-light">Your message has been sent. Our team will get back to you shortly.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Solid Brand Green Card -->
+          <div class="lg:col-span-5 bg-[#507a3c] text-white p-8 md:p-10 rounded-[4px] shadow-sm contact-info opacity-0 translate-y-8 flex flex-col justify-between">
+            <div class="space-y-8">
+              
+              <!-- Quick Contact Section -->
+              <div>
+                <h3 class="text-[10px] font-bold uppercase tracking-widest text-white/60 mb-6">Quick Contact</h3>
+                <div class="space-y-6">
+                  
+                  <!-- Phone -->
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-[#3f602f] flex items-center justify-center text-white shrink-0">
+                      <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="space-y-0.5">
+                      <p class="text-[9px] font-bold text-white/50 uppercase tracking-wider">Phone Support</p>
+                      <p class="text-lg font-bold tracking-tight">9845814147 / 9902756137</p>
+                    </div>
+                  </div>
+
+                  <!-- Email -->
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-[#3f602f] flex items-center justify-center text-white shrink-0">
+                      <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="space-y-0.5">
+                      <p class="text-[9px] font-bold text-white/50 uppercase tracking-wider">General Inquiries</p>
+                      <p class="text-lg font-bold tracking-tight"><a href="mailto:info@sspipl.com" class="hover:underline">info@sspipl.com</a></p>
+                    </div>
+                  </div>
+
+                  <!-- Web -->
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-[#3f602f] flex items-center justify-center text-white shrink-0">
+                      <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <div class="space-y-0.5">
+                      <p class="text-[9px] font-bold text-white/50 uppercase tracking-wider">Web Presence</p>
+                      <p class="text-lg font-bold tracking-tight"><a href="https://www.sspipl.com" target="_blank" class="hover:underline">www.sspipl.com</a></p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <hr class="border-white/10">
+
+              <!-- Locations Section -->
+              <div>
+                <h3 class="text-[10px] font-bold uppercase tracking-widest text-white/60 mb-6">Locations</h3>
+                <div class="space-y-6">
+                  
+                  <!-- Corporate -->
+                  <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-[#3f602f] flex items-center justify-center text-white shrink-0 mt-0.5">
+                      <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div class="space-y-0.5">
+                      <p class="text-[9px] font-bold text-white/50 uppercase tracking-wider">Corporate Office</p>
+                      <p class="text-xs font-semibold leading-relaxed text-white/90">
+                        No.40/11-1, 2nd floor, BDA No.1269/B, MRCR Layout, Agrahara dasarahalli, Magadi Main Road, Bangalore 560040
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Factory -->
+                  <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-[#3f602f] flex items-center justify-center text-white shrink-0 mt-0.5">
+                      <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="space-y-0.5">
+                      <p class="text-[9px] font-bold text-white/50 uppercase tracking-wider">Factory Address</p>
+                      <p class="text-xs font-semibold leading-relaxed text-white/90">
+                        Plot # SpecialQ-26, KSSIDC Indl Estate, Magadi Taluk, Ramanagar - 562 120
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- OUR LOCATIONS SECTION -->
+      <section class="py-12 px-6 md:px-12 max-w-7xl mx-auto locations-section opacity-0 translate-y-8">
+        <div class="flex items-center gap-4 mb-8">
+          <h2 class="text-2xl font-bold text-stone-900 shrink-0">Our Locations</h2>
+          <div class="h-[1px] bg-stone-300 w-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Corporate Office Location Card -->
+          <div class="bg-white border border-stone-200/80 rounded-[4px] overflow-hidden shadow-sm flex flex-col justify-between group">
+            <div>
+              <!-- Map Placeholder Container -->
+              <div class="bg-[#f2f1ed] p-4 relative">
+                <a href="https://www.google.com/maps/place/SSP+Industries/@12.9802535,77.5345714,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae3d000821958b:0x27c3532df2b36412!8m2!3d12.9802535!4d77.5371517!16s%2Fg%2F11nqxw2dgj?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="block cursor-pointer">
+                  <div class="h-48 rounded-[4px] overflow-hidden relative border border-stone-300/40 hover:opacity-95 transition-opacity duration-300">
+                    <img src="assets/map_corp.png" class="w-full h-full object-cover brightness-[0.98]" alt="Corporate Map">
+                    <!-- Active Pin Overlay -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <div class="w-8 h-8 rounded-[4px] bg-[#507a3c] flex items-center justify-center text-white text-xs shadow-md transform -translate-y-1 animate-bounce">
+                        <i class="fa-solid fa-location-dot"></i>
+                      </div>
+                    </div>
+                    <!-- Label Pill -->
+                    <div class="absolute bottom-3 left-3 px-3 py-1 bg-white text-[9px] font-bold uppercase tracking-wider text-stone-700 rounded-[2px] shadow-sm">
+                      Corporate Hub
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Address Details Section -->
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-lg font-bold text-stone-900">Corporate Office</h3>
+                  <div class="text-[#507a3c] text-lg">
+                    <i class="fa-solid fa-building"></i>
+                  </div>
+                </div>
+                <p class="text-stone-600 text-sm font-light leading-relaxed mb-6">
+                  SSP Industries Private Limited<br>
+                  Industrial Tech Park, Phase II<br>
+                  Bangalore, Karnataka 560066, India
+                </p>
+              </div>
+            </div>
+            
+            <div class="px-6 pb-6 pt-0">
+              <a href="https://www.google.com/maps/place/SSP+Industries/@12.9802535,77.5345714,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae3d000821958b:0x27c3532df2b36412!8m2!3d12.9802535!4d77.5371517!16s%2Fg%2F11nqxw2dgj?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#507a3c] hover:text-[#3f602f] tracking-wider uppercase transition-colors">
+                View Directions <span class="text-sm">➔</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Factory Location Card -->
+          <div class="bg-white border border-stone-200/80 rounded-[4px] overflow-hidden shadow-sm flex flex-col justify-between group">
+            <div>
+              <!-- Map Placeholder Container -->
+              <div class="bg-[#f2f1ed] p-4 relative">
+                <div class="h-48 rounded-[4px] overflow-hidden relative border border-stone-300/40">
+                  <img src="assets/map_fact.png" class="w-full h-full object-cover brightness-[0.98]" alt="Factory Map">
+                  <!-- Active Pin Overlay -->
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-8 h-8 rounded-[4px] bg-[#d97706] flex items-center justify-center text-white text-xs shadow-md transform -translate-y-1 animate-bounce">
+                      <i class="fa-solid fa-robot"></i>
+                    </div>
+                  </div>
+                  <!-- Label Pill -->
+                  <div class="absolute bottom-3 left-3 px-3 py-1 bg-white text-[9px] font-bold uppercase tracking-wider text-stone-700 rounded-[2px] shadow-sm">
+                    Manufacturing Unit
+                  </div>
+                </div>
+              </div>
+
+              <!-- Address Details Section -->
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-lg font-bold text-stone-900">Factory Location</h3>
+                  <div class="text-[#d97706] text-lg">
+                    <i class="fa-solid fa-robot"></i>
+                  </div>
+                </div>
+                <p class="text-stone-600 text-sm font-light leading-relaxed mb-6">
+                  SSP Manufacturing Campus<br>
+                  Plot No. 45-C, Industrial Estate<br>
+                  Hosur, Tamil Nadu 635126, India
+                </p>
+              </div>
+            </div>
+            
+            <div class="px-6 pb-6 pt-0">
+              <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#d97706] hover:text-[#b45309] tracking-wider uppercase transition-colors">
+                View Directions <span class="text-sm">➔</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SIMPLE GREY FOOTER -->
+      <footer class="bg-[#1f2937] text-white py-12 px-6 md:px-12 mt-12 border-t border-stone-800 relative z-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-stone-400">
+          <p class="tracking-wide uppercase font-semibold text-center md:text-left">
+            © 2026 SSP INDUSTRIES. ALL RIGHTS RESERVED.
+          </p>
+          <div class="flex flex-wrap justify-center gap-6">
+            <a href="#" class="hover:text-white transition-colors uppercase font-bold tracking-wider">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors uppercase font-bold tracking-wider">Terms of Service</a>
+            <a href="#" class="hover:text-white transition-colors uppercase font-bold tracking-wider">Careers</a>
+            <a href="#" class="hover:text-white transition-colors uppercase font-bold tracking-wider">Sustainability</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. Dynamic Split-Text Words generator helper
+    function splitTextIntoWords(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      const text = el.innerText;
+      el.innerHTML = text.split(" ").map(word => {
+        return `<span class="word-mask"><span class="word-inner">${word}</span></span>`;
+      }).join(" ");
+    }
+
+    // 2. Magnetic CTA Buttons Handler
+    const magneticBtns = document.querySelectorAll(".magnetic-btn");
+    magneticBtns.forEach(btn => {
+      btn.addEventListener("mousemove", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        gsap.to(btn, {
+          x: x * 0.35,
+          y: y * 0.35,
+          scale: 1.02,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+      btn.addEventListener("mouseleave", () => {
+        gsap.to(btn, {
+          x: 0,
+          y: 0,
+          scale: 1,
+          duration: 0.5,
+          ease: "elastic.out(1, 0.3)"
+        });
+      });
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      splitTextIntoWords("contact-headline");
+      
+      // Preloader initialization sequence
+      let progress = 0;
+      const progressEl = document.getElementById("loader-progress");
+      const statusEl = document.getElementById("loader-status");
+      const preloader = document.getElementById("preloader");
+      
+      const statuses = [
+        "Connecting to India Hub...",
+        "Reading System Schematics...",
+        "Synthesizing Material Catalog...",
+        "Ready."
+      ];
+      
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 15) + 6;
+        if (progress > 100) progress = 100;
+        
+        if (progressEl) progressEl.style.width = `${progress}%`;
+        if (statusEl) {
+          statusEl.innerText = statuses[Math.min(Math.floor(progress / 26), statuses.length - 1)];
+        }
+        
+        if (progress === 100) {
+          clearInterval(interval);
+          
+          // Animate preloader out
+          gsap.to(preloader, {
+            yPercent: -100,
+            duration: 0.85,
+            ease: "power4.inOut",
+            delay: 0.15,
+            onComplete: () => {
+              preloader.style.display = "none";
+              document.body.classList.remove("overflow-hidden");
+              
+              // Trigger intro animations
+              const introTl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.2 } });
+              introTl
+                .to(".word-inner", { y: 0, stagger: 0.05 });
+            }
+          });
+        }
+      }, 50);
+
+      // Scroll triggers
+      gsap.to(".contact-info, .contact-form-card", {
+        scrollTrigger: {
+          trigger: "#contact-details-form",
+          start: "top 80%"
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+
+      gsap.to(".locations-section", {
+        scrollTrigger: {
+          trigger: ".locations-section",
+          start: "top 85%"
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
+      // Prefill product inquiry message from query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const productParam = urlParams.get("product");
+      if (productParam) {
+        const messageTextarea = document.getElementById("message");
+        if (messageTextarea) {
+          messageTextarea.value = `Hello, I am interested in inquiring about the following product: ${productParam}.\n\nPlease provide details regarding pricing, minimum order quantities, and delivery timelines.\n\nThank you!`;
+        }
+      }
+    });
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      const subject = encodeURIComponent("SSP Industries - Contact Inquiry");
+      const body = encodeURIComponent(`Full Name: ${name}\nEmail Address: ${email}\n\nMessage:\n${message}`);
+      
+      // Trigger default email client
+      window.location.href = `mailto:info@sspipl.com?subject=${subject}&body=${body}`;
+      
+      // Display success card
+      document.getElementById('contact-form').classList.add('hidden');
+      document.getElementById('form-success').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

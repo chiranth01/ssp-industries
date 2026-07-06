@@ -1,0 +1,8 @@
+# Ignore backups and scratch scripts
+ssp-static-backup/
+scratch/
+
+# Ignore large media binaries
+*.zip
+*.mp4
+*.rar

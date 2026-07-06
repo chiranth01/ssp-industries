@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSP Industries | Precision Engineered Systems</title>
+  <meta name="description"
+    content="SSP Industries delivers premium manufacturing solutions across Corrugated Packaging, Hygiene Solutions, and Animal Nutrition. Built to last, designed to perform.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#2d5a27',       // The primary forest green from the screenshot
+              greenHover: '#1e3e1a',  // Darker shade for hover
+              lightBg: '#fcfbf9',     // Premium off-white
+              cardBg: '#f5f5f4',      // Warm grey for cards
+              border: '#e5e5e5',      // Light border color
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- FontAwesome for crisp icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- GSAP and ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Custom Navigation Logic -->
+  <script src="navigation.js" defer></script>
+</head>
+
+<body
+  class="bg-brand-lightBg text-stone-900 relative antialiased selection:bg-brand-green/10 selection:text-brand-green overflow-hidden">
+
+  <!-- Page Preloader Screen -->
+  <div id="preloader">
+    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+      <div class="flex items-center gap-2">
+        <img src="assets/logo_new_revolving_white.png" alt="SSP Logo" class="w-8 h-8 object-contain rotate-slow">
+        <span class="font-heading font-black text-2xl tracking-wider text-white">SSP <span
+            class="opacity-80">SYSTEMS</span></span>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="loader-progress"></div>
+      </div>
+      <p id="loader-status" class="loader-status-text">CONNECTING TO SYSTEM...</p>
+    </div>
+  </div>
+
+
+  <!-- Header Navigation -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-header py-4 px-6 md:px-12 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 group relative">
+        <!-- Spinning logo detail for industrial precision theme -->
+        <img src="assets/logo_new_revolving.png" alt="SSP Logo" class="w-5 h-5 object-contain rotate-slow">
+        <span
+          class="font-heading font-black text-xl tracking-wider text-stone-900 group-hover:text-brand-green transition-colors">
+          SSP <span class="text-brand-green font-bold">INDUSTRIES</span>
+        </span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="divisions.html" class="nav-link">Divisions</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="products.html" class="nav-link">Products</a>
+      </nav>
+
+      <!-- Action Button & Icons -->
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-stone-500 hover:text-brand-green transition-colors"><i
+            class="fa-solid fa-globe text-base"></i></a>
+        <a href="#" class="text-stone-500 hover:text-brand-green transition-colors"><i
+            class="fa-solid fa-magnifying-glass text-base"></i></a>
+        <!-- Magnetic Contact Button -->
+        <a href="contact.html" id="nav-cta"
+          class="hidden md:inline-flex magnetic-btn shimmer-effect px-6 py-2.5 bg-brand-green hover:bg-brand-greenHover text-white text-xs font-bold uppercase tracking-wider transition-colors duration-300">
+          Contact Sales
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Smooth Scrolling Wrapper -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <!-- HERO SECTION -->
+      <section id="hero"
+        class="relative min-h-screen w-full overflow-hidden flex flex-col justify-center pt-28 pb-16 px-6 md:px-12 bg-grid-pattern">
+
+        <!-- Video Background Layer -->
+        <div class="video-bg-container">
+          <video autoplay muted loop playsinline class="w-full h-full object-cover">
+            <source src="assets/newbg.mp4" type="video/mp4">
+          </video>
+          <div class="video-bg-overlay"></div>
+        </div>
+
+        <!-- Technical Swiss Coordinates Badge -->
+        <div
+          class="absolute left-6 bottom-8 z-20 text-[9px] text-stone-400 font-mono tracking-widest hidden lg:block space-y-1">
+          <p>SYS.LOC // CH_ZURICH [47.3769° N, 8.5417° E]</p>
+          <p>STATUS // ACTIVE_STABLE</p>
+        </div>
+
+        <div
+          class="max-w-4xl mx-auto w-full text-center flex flex-col items-center justify-center relative z-20 space-y-6">
+
+          <!-- Badge -->
+          <div id="badge-wrapper" class="opacity-0 translate-y-8 z-30">
+            <span
+              class="inline-flex items-center text-stone-900 text-[11px] font-heading font-black tracking-[0.25em] uppercase transition-all duration-300">
+              Over 20 Years of Excellence
+            </span>
+          </div>
+
+          <!-- Main Hero Content (Fade out group) -->
+          <div id="hero-main-content" class="w-full flex flex-col items-center justify-center space-y-6">
+            <!-- Headline (Split Reveal ready) -->
+            <h1 id="hero-headline"
+              class="text-4xl sm:text-6xl md:text-7xl font-black text-stone-900 leading-tight tracking-tight max-w-4xl">
+              Precision Engineered Systems for a Sustainable Future.
+            </h1>
+
+            <!-- Subheadline Description -->
+            <p id="hero-subheadline"
+              class="text-stone-600 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-2xl opacity-0 translate-y-8">
+              Delivering uncompromising quality and innovation across Corrugated Packaging, Hygiene Solutions, and
+              Animal Nutrition sectors. Built to last, designed to perform.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div id="cta-wrapper"
+              class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto opacity-0 translate-y-8">
+              <a href="#divisions"
+                class="magnetic-btn shimmer-effect px-8 py-4 bg-brand-green hover:bg-brand-greenHover text-white text-center text-xs font-bold uppercase tracking-widest transition-colors duration-300">
+                Explore Divisions
+              </a>
+              <a href="contact.html"
+                class="magnetic-btn px-8 py-4 bg-white border border-stone-300 hover:border-stone-500 text-stone-800 text-center text-xs font-bold uppercase tracking-widest transition-colors duration-300">
+                Partner With Us
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Logo Reveal Container -->
+        <div id="logo-reveal-container"
+          class="absolute z-30 opacity-0 invisible flex flex-row justify-center items-center gap-4 sm:gap-8 md:gap-32 w-full max-w-5xl left-1/2 -translate-x-1/2 px-6"
+          style="top: 36%;">
+
+          <!-- Left Logo: SSP Industries -->
+          <div class="logo-item flex flex-col items-center text-center opacity-0 scale-90">
+            <img src="assets/logo1_clean.png" alt="SSP Industries"
+              class="h-20 sm:h-36 md:h-64 w-auto object-contain transition-all duration-300 hover:scale-105">
+          </div>
+
+          <!-- Right Logo: Curamax -->
+          <div class="logo-item flex flex-col items-center text-center opacity-0 scale-90">
+            <img src="assets/logo2_clean.png" alt="Curamax"
+              class="h-20 sm:h-36 md:h-64 w-auto object-contain transition-all duration-300 hover:scale-105">
+          </div>
+
+        </div>
+      </section>
+
+      <!-- WHY CHOOSE US SECTION -->
+      <section id="why-choose-us"
+        class="py-12 px-0 bg-white border-t border-b border-stone-200 relative overflow-hidden">
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 mb-6">
+          <!-- Section Headers -->
+          <div class="space-y-4 max-w-3xl">
+            <span
+              class="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 border border-stone-200 text-stone-600 text-xs font-bold uppercase tracking-widest">
+              Our Value Proposition
+            </span>
+            <h2 id="why-title" class="text-3xl md:text-5xl font-black text-stone-900 tracking-tight">
+              Why Choose SSP Industries?
+            </h2>
+          </div>
+        </div>
+
+        <!-- INFINITE BADGE MARQUEE SPLINE (White Background) -->
+        <div id="badge-marquee-container"
+          class="relative w-full overflow-hidden py-10 bg-white border-t border-b border-stone-100 z-20 mb-8">
+
+          <!-- Marquee Container -->
+          <div class="marquee-container w-full py-4">
+            <div class="marquee-track">
+
+              <!-- Sequence A -->
+              <div class="marquee-sequence">
+                <img src="assets/b1_clean.png" alt="20+ Years of Experience"
+                  class="marquee-badge h-24 sm:h-28 md:h-32 w-auto object-contain">
+                <img src="assets/b2_clean.png" alt="Bulk Manufacturing Custom Solutions"
+                  class="marquee-badge h-24 sm:h-28 md:h-32 w-auto object-contain">
+                <img src="assets/b3_clean.png" alt="Fair Pricing Premium Quality"
+                  class="marquee-badge h-24 sm:h-28 md:h-32 w-auto object-contain">
+                <img src="assets/b4_clean.png" alt="Fast, Reliable, On-Time Delivery"
+                  class="marquee-badge h-24 sm:h-28 md:h-32 w-auto object-contain">
+                <img src="assets/b5_clean.png" alt="Eco-Friendly & Sustainable Production"
+                  class="marquee-badge h-24 sm:h-28 md:h-32 w-auto object-contain">
+                <img src="assets/b6_clean.png" alt="Scientifically Driven R&D"
+                  class="marquee-badge h-24 sm:h-28 md:h-32 w-auto object-contain">
+              </div>
+
+              <!-- Sequence B (Duplicated for seamless looping) -->
+              <div class="marquee-sequence">
+                <img src="assets/b1_clean.png" alt="20+ Years of Experience"
+                  class="marquee-badge h-24 sm:h-28 md:h-32 w-auto object-contain">
+                <img src="assets/b2_clean.png" alt="Bulk Manufacturing Custom Solutions"
+                  class="marquee-badge h-24 sm:h-28 md:h-32 w-auto object-contain">
+                <img src="assets/b3_clean.png" alt="Fair Pricing Premium Quality"
+                  class="marquee-badge h-24 sm:h-28 md:h-32 w-auto object-contain">
+                <img src="assets/b4_clean.png" alt="Fast, Reliable, On-Time Delivery"
+                  class="marquee-badge h-24 sm:h-28 md:h-32 w-auto object-contain">
+                <img src="assets/b5_clean.png" alt="Eco-Friendly & Sustainable Production"
+                  class="marquee-badge h-24 sm:h-28 md:h-32 w-auto object-contain">
+                <img src="assets/b6_clean.png" alt="Scientifically Driven R&D"
+                  class="marquee-badge h-24 sm:h-28 md:h-32 w-auto object-contain">
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DIVISIONS SECTION -->
+      <section id="divisions" class="py-12 px-6 md:px-12 bg-brand-lightBg">
+        <div class="max-w-7xl mx-auto">
+
+          <div class="mb-8 space-y-4 max-w-3xl">
+            <span
+              class="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 border border-stone-200 text-stone-600 text-xs font-bold uppercase tracking-widest">
+              Business Portfolios
+            </span>
+            <h2 class="text-3xl md:text-5xl font-black text-stone-900 tracking-tight">
+              Integrated Industrial Divisions
+            </h2>
+            <p class="text-stone-600 text-base md:text-lg font-light leading-relaxed">
+              Our specialized sectors operate with synergistic efficiency, providing comprehensive solutions tailored to
+              modern industrial demands.
+            </p>
+          </div>
+
+          <!-- Divisions Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+            <!-- Left Large Card: Corrugated Packaging -->
+            <div
+              class="lg:col-span-7 rounded-lg border border-stone-200/80 shadow-md overflow-hidden relative group flex flex-col justify-end min-h-[450px] transition-custom division-card">
+              <div class="absolute inset-0 z-0">
+                <img src="assets/packaging_bg.png" class="w-full h-full object-cover image-scale"
+                  alt="Corrugated Packaging Manufacturing">
+                <div class="absolute inset-0 bg-gradient-to-t from-white/95 via-white/70 to-transparent z-10"></div>
+              </div>
+
+              <div class="relative z-20 p-8 md:p-10 space-y-4 max-w-xl">
+                <div class="w-12 h-12 bg-brand-green flex items-center justify-center text-white mb-2">
+                  <i class="fa-solid fa-boxes-packing text-xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-stone-900">Corrugated Packaging</h3>
+                <p class="text-stone-700 text-sm leading-relaxed font-light">
+                  Advanced structural designs engineered for maximum durability and minimal environmental impact. Our
+                  packaging solutions protect assets globally.
+                </p>
+                <div class="pt-2">
+                  <a href="divisions.html#packaging"
+                    class="inline-flex items-center gap-2 text-brand-green font-bold text-xs uppercase tracking-widest hover:text-brand-greenHover transition-colors">
+                    View Solutions
+                    <i
+                      class="fa-solid fa-arrow-right text-[10px] transition-transform duration-300 group-hover:translate-x-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column Cards -->
+            <div class="lg:col-span-5 flex flex-col gap-8 justify-between">
+
+              <!-- Hygiene Solutions Card -->
+              <div
+                class="rounded-lg border border-stone-200/80 bg-brand-cardBg p-8 flex flex-col justify-between flex-grow shadow-sm hover:shadow-md transition-custom group division-card">
+                <div class="space-y-4">
+                  <div
+                    class="w-12 h-12 border border-stone-300 bg-white flex items-center justify-center text-brand-green">
+                    <i class="fa-solid fa-droplet text-lg"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-stone-900">Hygiene Solutions</h3>
+                  <p class="text-stone-600 text-sm leading-relaxed font-light">
+                    Industrial-grade sanitary systems designed for stringent regulatory compliance and operational
+                    safety.
+                  </p>
+                </div>
+                <div class="pt-6">
+                  <a href="divisions.html#hygiene"
+                    class="inline-flex items-center gap-2 text-stone-800 hover:text-brand-green font-bold text-xs uppercase tracking-widest transition-colors">
+                    Learn More
+                    <i
+                      class="fa-solid fa-arrow-right text-[10px] transition-transform duration-300 group-hover:translate-x-1"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Animal Nutrition Card -->
+              <div
+                class="rounded-lg border border-stone-200/80 bg-brand-cardBg p-8 flex flex-row justify-between items-stretch flex-grow shadow-sm hover:shadow-md transition-custom group division-card">
+                <div class="flex flex-col justify-between flex-grow space-y-4 pr-4">
+                  <div class="space-y-4">
+                    <div
+                      class="w-12 h-12 border border-stone-300 bg-white flex items-center justify-center text-brand-green">
+                      <i class="fa-solid fa-leaf text-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-900">Animal Nutrition</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed font-light">
+                      Scientifically formulated feed systems optimizing agricultural yield and livestock health.
+                    </p>
+                  </div>
+                  <div class="pt-6">
+                    <a href="divisions.html#nutrition"
+                      class="inline-flex items-center gap-2 text-stone-800 hover:text-brand-green font-bold text-xs uppercase tracking-widest transition-colors">
+                      Learn More
+                      <i
+                        class="fa-solid fa-arrow-right text-[10px] transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="w-20 bg-stone-200/80 flex-shrink-0 self-stretch rounded hidden sm:block"></div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+      <!-- OUR STRENGTHS RIBBON -->
+      <section id="strengths-ribbon" class="py-12 bg-brand-green text-white relative z-20">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center md:text-left items-start divider-cols">
+
+            <div class="space-y-2 strength-item group cursor-default">
+              <div
+                class="text-brand-lightBg/40 font-bold text-sm tracking-wider uppercase transition-colors group-hover:text-brand-lightBg">
+                01</div>
+              <h4 class="font-bold text-sm text-white">Customer Focus</h4>
+              <p class="text-xs text-stone-200/80 leading-relaxed font-light">Tailoring solutions to exceed client
+                expectation.</p>
+            </div>
+
+            <div class="space-y-2 strength-item group cursor-default">
+              <div
+                class="text-brand-lightBg/40 font-bold text-sm tracking-wider uppercase transition-colors group-hover:text-brand-lightBg">
+                02</div>
+              <h4 class="font-bold text-sm text-white">Superb Efficiency</h4>
+              <p class="text-xs text-stone-200/80 leading-relaxed font-light">Optimizing processes for faster delivery.
+              </p>
+            </div>
+
+            <div class="space-y-2 strength-item group cursor-default">
+              <div
+                class="text-brand-lightBg/40 font-bold text-sm tracking-wider uppercase transition-colors group-hover:text-brand-lightBg">
+                03</div>
+              <h4 class="font-bold text-sm text-white">Commitment</h4>
+              <p class="text-xs text-stone-200/80 leading-relaxed font-light">Constantly upgrading techniques and tools.
+              </p>
+            </div>
+
+            <div class="space-y-2 strength-item group cursor-default">
+              <div
+                class="text-brand-lightBg/40 font-bold text-sm tracking-wider uppercase transition-colors group-hover:text-brand-lightBg">
+                04</div>
+              <h4 class="font-bold text-sm text-white">Sustainability First</h4>
+              <p class="text-xs text-stone-200/80 leading-relaxed font-light">Clean raw inputs and circular processes.
+              </p>
+            </div>
+
+            <div class="space-y-2 strength-item group cursor-default col-span-2 md:col-span-1">
+              <div
+                class="text-brand-lightBg/40 font-bold text-sm tracking-wider uppercase transition-colors group-hover:text-brand-lightBg">
+                05</div>
+              <h4 class="font-bold text-sm text-white">Unmatched Support</h4>
+              <p class="text-xs text-stone-200/80 leading-relaxed font-light">Dedicated corporate client assistance.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- WHAT WE DO SECTION (Accordion Content Crossfader Upgrade) -->
+      <section id="what-we-do" class="py-12 px-6 md:px-12 bg-stone-100/50 border-t border-b border-stone-200">
+        <div class="max-w-7xl mx-auto">
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+            <!-- Left Side: Crossfading Image Block -->
+            <div id="what-image-container" class="lg:col-span-5 relative">
+              <div class="rounded-lg overflow-hidden border border-stone-200 shadow-lg h-[450px] relative">
+                <!-- Accordion Display Image with GSAP fade target -->
+                <img id="accordion-display-img" src="assets/hygiene_bg.png" class="w-full h-full object-cover"
+                  alt="Manufacturing Segment Display">
+                <div class="absolute inset-0 bg-stone-900/10"></div>
+              </div>
+
+              <!-- Floating Orange Badge -->
+              <div class="absolute bottom-6 right-6 left-6 bg-[#eb7d3c] p-6 shadow-xl border border-[#d66e30] z-20">
+                <h4 class="text-white font-bold text-base leading-tight uppercase tracking-wider">
+                  Experts in Manufacturing Across Key Segments
+                </h4>
+              </div>
+            </div>
+
+            <!-- Right Side: Expandable Accordion Tabs -->
+            <div id="what-text" class="lg:col-span-7 space-y-6">
+              <span
+                class="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 border border-stone-200 text-stone-600 text-xs font-bold uppercase tracking-widest">
+                Our Mandate
+              </span>
+              <h2 class="text-3xl md:text-5xl font-black text-stone-900 tracking-tight">
+                What We Do
+              </h2>
+
+              <!-- Accordion Wrapper -->
+              <div class="space-y-4 pt-4">
+
+                <!-- Tab 1 -->
+                <div
+                  class="accordion-tab active p-5 border border-stone-200 bg-white cursor-pointer transition-all duration-300"
+                  data-image="assets/hygiene_bg.png">
+                  <div class="flex items-center gap-4">
+                    <span class="text-brand-green font-mono font-bold text-xs">01</span>
+                    <h4 class="font-bold text-stone-900 text-base">Highly Specialized Production</h4>
+                  </div>
+                  <div class="tab-content-panel active pl-8 pt-2">
+                    <p class="text-stone-600 text-sm font-light leading-relaxed">
+                      Our plants produce high durability corrugated boxes, hygiene sanitizing formulations, and animal
+                      feed nutritional supplements under certified guidelines.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Tab 2 -->
+                <div
+                  class="accordion-tab p-5 border border-stone-200 bg-stone-50 cursor-pointer transition-all duration-300"
+                  data-image="assets/packaging_bg.png">
+                  <div class="flex items-center gap-4">
+                    <span class="text-brand-green font-mono font-bold text-xs">02</span>
+                    <h4 class="font-bold text-stone-900 text-base">Automated High-Speed Machinery</h4>
+                  </div>
+                  <div class="tab-content-panel pl-8 pt-2">
+                    <p class="text-stone-600 text-sm font-light leading-relaxed">
+                      Equipped with state-of-the-art automated machinery for precise, high-speed output, catering to
+                      major corporate orders.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Tab 3 -->
+                <div
+                  class="accordion-tab p-5 border border-stone-200 bg-stone-50 cursor-pointer transition-all duration-300"
+                  data-image="assets/nutrition_bg.png">
+                  <div class="flex items-center gap-4">
+                    <span class="text-brand-green font-mono font-bold text-xs">03</span>
+                    <h4 class="font-bold text-stone-900 text-base">Strict Quality Control parameters</h4>
+                  </div>
+                  <div class="tab-content-panel pl-8 pt-2">
+                    <p class="text-stone-600 text-sm font-light leading-relaxed">
+                      Applying rigorous testing procedures at every stage of the manufacturing cycle, ensuring
+                      compliance, purity, and tensile strength.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Tab 4 -->
+                <div
+                  class="accordion-tab p-5 border border-stone-200 bg-stone-50 cursor-pointer transition-all duration-300"
+                  data-image="assets/hygiene_bg.png">
+                  <div class="flex items-center gap-4">
+                    <span class="text-brand-green font-mono font-bold text-xs">04</span>
+                    <h4 class="font-bold text-stone-900 text-base">Value-Added Customized Solutions</h4>
+                  </div>
+                  <div class="tab-content-panel pl-8 pt-2">
+                    <p class="text-stone-600 text-sm font-light leading-relaxed">
+                      Delivering custom solutions tailored to the unique supply chain, biosafety, and agricultural
+                      requirements of our global partners.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Button CTA -->
+              <div class="pt-6">
+                <a href="about.html"
+                  class="magnetic-btn inline-flex items-center justify-center px-8 py-4 bg-[#eb7d3c] hover:bg-[#d66e30] text-white text-xs font-bold uppercase tracking-widest transition-colors duration-300">
+                  Read More Details
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- INDUSTRIES WE SERVE SECTION (Interactive Horizontal Accordion Upgrade) -->
+      <section id="industries-we-serve" class="py-16 px-6 md:px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+
+          <!-- Headers -->
+          <div class="mb-12 text-center space-y-4 max-w-3xl mx-auto">
+            <span
+              class="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 border border-stone-200 text-stone-600 text-xs font-bold uppercase tracking-widest">
+              Market Segments
+            </span>
+            <h2 id="industries-title" class="text-3xl md:text-5xl font-black text-stone-900 tracking-tight">
+              Industries We Serve
+            </h2>
+            <p id="industries-desc" class="text-stone-600 text-base md:text-lg font-light leading-relaxed">
+              Delivering precision-engineered solutions and organic formulations across 9 core industrial and commercial
+              sectors.
+            </p>
+          </div>
+
+          <!-- Interactive Accordion Container -->
+          <div class="accordion-container">
+
+            <!-- Industry 1: Pharmaceutical & Medical -->
+            <div class="accordion-panel group active" data-index="1">
+              <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=600&auto=format&fit=crop"
+                  class="w-full h-full object-cover transition-transform duration-700 lg:group-hover:scale-105"
+                  alt="Pharmaceutical & Medical">
+                <div class="absolute inset-0 bg-black/60 transition-opacity duration-500 lg:group-hover:opacity-45">
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-black/50 to-transparent opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100 panel-active-gradient">
+                </div>
+              </div>
+
+              <!-- Collapsed Content -->
+              <div
+                class="panel-collapsed-content absolute inset-0 z-10 flex flex-row lg:flex-col justify-between items-center p-6 text-white lg:group-hover:opacity-0 transition-opacity duration-300 lg:group-hover:pointer-events-none select-none">
+                <div class="font-mono text-sm tracking-wider opacity-60">01</div>
+                <div class="font-heading font-bold text-sm lg:text-base tracking-wider uppercase vertical-title">
+                  Pharmaceutical & Medical
+                </div>
+                <div class="w-6 h-6 border border-white/30 rounded-full flex items-center justify-center text-[10px]">
+                  <i class="fa-solid fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+                </div>
+              </div>
+
+              <!-- Expanded Content -->
+              <div
+                class="panel-expanded-content absolute inset-0 z-10 p-6 md:p-8 flex flex-col justify-between text-white opacity-0 pointer-events-none transition-all duration-300 translate-y-4 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto lg:group-hover:translate-y-0">
+                <div class="flex justify-between items-start">
+                  <div class="font-mono text-[10px] tracking-wider px-2.5 py-1 bg-white/10 rounded">01 / HYGIENE &
+                    PACKAGING</div>
+                  <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center text-sm shadow">
+                    <i class="fa-solid fa-pump-medical"></i>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <h3 class="text-lg lg:text-2xl font-black font-heading tracking-tight leading-tight">Pharmaceutical &
+                    Medical</h3>
+                  <p class="text-stone-200 text-xs lg:text-sm font-light leading-relaxed max-w-md">
+                    Clinical-grade sterile disinfectant formulations and specialized regulatory-compliant packaging
+                    engineered for pharmaceutical cleanrooms and medical applications.
+                  </p>
+                  <div class="pt-2">
+                    <a href="products.html?cat=hygiene"
+                      class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 hover:bg-brand-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300 rounded shadow">
+                      Learn More
+                      <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Industry 2: Hospitality, Hotels & Resorts -->
+            <div class="accordion-panel group" data-index="2">
+              <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600&auto=format&fit=crop"
+                  class="w-full h-full object-cover transition-transform duration-700 lg:group-hover:scale-105"
+                  alt="Hospitality, Hotels & Resorts">
+                <div class="absolute inset-0 bg-black/60 transition-opacity duration-500 lg:group-hover:opacity-45">
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-black/50 to-transparent opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100 panel-active-gradient">
+                </div>
+              </div>
+
+              <!-- Collapsed Content -->
+              <div
+                class="panel-collapsed-content absolute inset-0 z-10 flex flex-row lg:flex-col justify-between items-center p-6 text-white lg:group-hover:opacity-0 transition-opacity duration-300 lg:group-hover:pointer-events-none select-none">
+                <div class="font-mono text-sm tracking-wider opacity-60">02</div>
+                <div class="font-heading font-bold text-sm lg:text-base tracking-wider uppercase vertical-title">
+                  Hospitality, Hotels & Resorts
+                </div>
+                <div class="w-6 h-6 border border-white/30 rounded-full flex items-center justify-center text-[10px]">
+                  <i class="fa-solid fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+                </div>
+              </div>
+
+              <!-- Expanded Content -->
+              <div
+                class="panel-expanded-content absolute inset-0 z-10 p-6 md:p-8 flex flex-col justify-between text-white opacity-0 pointer-events-none transition-all duration-300 translate-y-4 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto lg:group-hover:translate-y-0">
+                <div class="flex justify-between items-start">
+                  <div class="font-mono text-[10px] tracking-wider px-2.5 py-1 bg-white/10 rounded">02 / HYGIENE
+                    SOLUTIONS</div>
+                  <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center text-sm shadow">
+                    <i class="fa-solid fa-hotel"></i>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <h3 class="text-lg lg:text-2xl font-black font-heading tracking-tight leading-tight">Hospitality,
+                    Hotels & Resorts</h3>
+                  <p class="text-stone-200 text-xs lg:text-sm font-light leading-relaxed max-w-md">
+                    Premium institutional sanitation systems and eco-safe laundry detergents tailored to maintain
+                    pristine cleanliness across high-end hospitality sectors.
+                  </p>
+                  <div class="pt-2">
+                    <a href="products.html?cat=hygiene"
+                      class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 hover:bg-brand-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300 rounded shadow">
+                      Learn More
+                      <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Industry 3: Food & Beverage -->
+            <div class="accordion-panel group" data-index="3">
+              <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=600&auto=format&fit=crop"
+                  class="w-full h-full object-cover transition-transform duration-700 lg:group-hover:scale-105"
+                  alt="Food & Beverage">
+                <div class="absolute inset-0 bg-black/60 transition-opacity duration-500 lg:group-hover:opacity-45">
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-black/50 to-transparent opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100 panel-active-gradient">
+                </div>
+              </div>
+
+              <!-- Collapsed Content -->
+              <div
+                class="panel-collapsed-content absolute inset-0 z-10 flex flex-row lg:flex-col justify-between items-center p-6 text-white lg:group-hover:opacity-0 transition-opacity duration-300 lg:group-hover:pointer-events-none select-none">
+                <div class="font-mono text-sm tracking-wider opacity-60">03</div>
+                <div class="font-heading font-bold text-sm lg:text-base tracking-wider uppercase vertical-title">
+                  Food & Beverage
+                </div>
+                <div class="w-6 h-6 border border-white/30 rounded-full flex items-center justify-center text-[10px]">
+                  <i class="fa-solid fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+                </div>
+              </div>
+
+              <!-- Expanded Content -->
+              <div
+                class="panel-expanded-content absolute inset-0 z-10 p-6 md:p-8 flex flex-col justify-between text-white opacity-0 pointer-events-none transition-all duration-300 translate-y-4 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto lg:group-hover:translate-y-0">
+                <div class="flex justify-between items-start">
+                  <div class="font-mono text-[10px] tracking-wider px-2.5 py-1 bg-white/10 rounded">03 / PACKAGING
+                    SOLUTIONS</div>
+                  <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center text-sm shadow">
+                    <i class="fa-solid fa-utensils"></i>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <h3 class="text-lg lg:text-2xl font-black font-heading tracking-tight leading-tight">Food & Beverage
+                  </h3>
+                  <p class="text-stone-200 text-xs lg:text-sm font-light leading-relaxed max-w-md">
+                    Moisture-resistant food-grade packaging solutions and sanitizing lines that safeguard product
+                    freshness and maintain compliance with food safety authorities.
+                  </p>
+                  <div class="pt-2">
+                    <a href="products.html?cat=packaging"
+                      class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 hover:bg-brand-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300 rounded shadow">
+                      Learn More
+                      <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Industry 4: Institutional & Industrial Cleaning -->
+            <div class="accordion-panel group" data-index="4">
+              <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=600&auto=format&fit=crop"
+                  class="w-full h-full object-cover transition-transform duration-700 lg:group-hover:scale-105"
+                  alt="Institutional & Industrial Cleaning">
+                <div class="absolute inset-0 bg-black/60 transition-opacity duration-500 lg:group-hover:opacity-45">
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-black/50 to-transparent opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100 panel-active-gradient">
+                </div>
+              </div>
+
+              <!-- Collapsed Content -->
+              <div
+                class="panel-collapsed-content absolute inset-0 z-10 flex flex-row lg:flex-col justify-between items-center p-6 text-white lg:group-hover:opacity-0 transition-opacity duration-300 lg:group-hover:pointer-events-none select-none">
+                <div class="font-mono text-sm tracking-wider opacity-60">04</div>
+                <div class="font-heading font-bold text-sm lg:text-base tracking-wider uppercase vertical-title">
+                  Institutional & Industrial
+                </div>
+                <div class="w-6 h-6 border border-white/30 rounded-full flex items-center justify-center text-[10px]">
+                  <i class="fa-solid fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+                </div>
+              </div>
+
+              <!-- Expanded Content -->
+              <div
+                class="panel-expanded-content absolute inset-0 z-10 p-6 md:p-8 flex flex-col justify-between text-white opacity-0 pointer-events-none transition-all duration-300 translate-y-4 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto lg:group-hover:translate-y-0">
+                <div class="flex justify-between items-start">
+                  <div class="font-mono text-[10px] tracking-wider px-2.5 py-1 bg-white/10 rounded">04 / HYGIENE SYSTEMS
+                  </div>
+                  <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center text-sm shadow">
+                    <i class="fa-solid fa-soap"></i>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <h3 class="text-lg lg:text-2xl font-black font-heading tracking-tight leading-tight">Institutional &
+                    Industrial</h3>
+                  <p class="text-stone-200 text-xs lg:text-sm font-light leading-relaxed max-w-md">
+                    Concentrated industrial degreasers, sanitizers, and heavy-duty chemicals formulated for large-scale
+                    factories, warehouse floors, and commercial facilities.
+                  </p>
+                  <div class="pt-2">
+                    <a href="products.html?cat=hygiene"
+                      class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 hover:bg-brand-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300 rounded shadow">
+                      Learn More
+                      <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Industry 5: Laundry & Dry Cleaning -->
+            <div class="accordion-panel group" data-index="5">
+              <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1545173168-9f1947eebd01?q=80&w=600&auto=format&fit=crop"
+                  class="w-full h-full object-cover transition-transform duration-700 lg:group-hover:scale-105"
+                  alt="Laundry & Dry Cleaning">
+                <div class="absolute inset-0 bg-black/60 transition-opacity duration-500 lg:group-hover:opacity-45">
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-black/50 to-transparent opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100 panel-active-gradient">
+                </div>
+              </div>
+
+              <!-- Collapsed Content -->
+              <div
+                class="panel-collapsed-content absolute inset-0 z-10 flex flex-row lg:flex-col justify-between items-center p-6 text-white lg:group-hover:opacity-0 transition-opacity duration-300 lg:group-hover:pointer-events-none select-none">
+                <div class="font-mono text-sm tracking-wider opacity-60">05</div>
+                <div class="font-heading font-bold text-sm lg:text-base tracking-wider uppercase vertical-title">
+                  Laundry & Dry Cleaning
+                </div>
+                <div class="w-6 h-6 border border-white/30 rounded-full flex items-center justify-center text-[10px]">
+                  <i class="fa-solid fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+                </div>
+              </div>
+
+              <!-- Expanded Content -->
+              <div
+                class="panel-expanded-content absolute inset-0 z-10 p-6 md:p-8 flex flex-col justify-between text-white opacity-0 pointer-events-none transition-all duration-300 translate-y-4 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto lg:group-hover:translate-y-0">
+                <div class="flex justify-between items-start">
+                  <div class="font-mono text-[10px] tracking-wider px-2.5 py-1 bg-white/10 rounded">05 / SPECIALIST
+                    HYGIENE</div>
+                  <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center text-sm shadow">
+                    <i class="fa-solid fa-shirt"></i>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <h3 class="text-lg lg:text-2xl font-black font-heading tracking-tight leading-tight">Laundry & Dry
+                    Cleaning</h3>
+                  <p class="text-stone-200 text-xs lg:text-sm font-light leading-relaxed max-w-md">
+                    Biodegradable washing compounds, fabric softeners, and spot-treatment chemicals optimized for
+                    high-volume commercial laundry operations.
+                  </p>
+                  <div class="pt-2">
+                    <a href="products.html?cat=hygiene"
+                      class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 hover:bg-brand-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300 rounded shadow">
+                      Learn More
+                      <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Industry 6: Dairy, Poultry & Aqua Farming -->
+            <div class="accordion-panel group" data-index="6">
+              <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?q=80&w=600&auto=format&fit=crop"
+                  class="w-full h-full object-cover transition-transform duration-700 lg:group-hover:scale-105"
+                  alt="Dairy, Poultry & Aqua Farming">
+                <div class="absolute inset-0 bg-black/60 transition-opacity duration-500 lg:group-hover:opacity-45">
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-black/50 to-transparent opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100 panel-active-gradient">
+                </div>
+              </div>
+
+              <!-- Collapsed Content -->
+              <div
+                class="panel-collapsed-content absolute inset-0 z-10 flex flex-row lg:flex-col justify-between items-center p-6 text-white lg:group-hover:opacity-0 transition-opacity duration-300 lg:group-hover:pointer-events-none select-none">
+                <div class="font-mono text-sm tracking-wider opacity-60">06</div>
+                <div class="font-heading font-bold text-sm lg:text-base tracking-wider uppercase vertical-title">
+                  Dairy, Poultry & Aqua
+                </div>
+                <div class="w-6 h-6 border border-white/30 rounded-full flex items-center justify-center text-[10px]">
+                  <i class="fa-solid fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+                </div>
+              </div>
+
+              <!-- Expanded Content -->
+              <div
+                class="panel-expanded-content absolute inset-0 z-10 p-6 md:p-8 flex flex-col justify-between text-white opacity-0 pointer-events-none transition-all duration-300 translate-y-4 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto lg:group-hover:translate-y-0">
+                <div class="flex justify-between items-start">
+                  <div class="font-mono text-[10px] tracking-wider px-2.5 py-1 bg-white/10 rounded">06 / ANIMAL
+                    NUTRITION</div>
+                  <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center text-sm shadow">
+                    <i class="fa-solid fa-cow"></i>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <h3 class="text-lg lg:text-2xl font-black font-heading tracking-tight leading-tight">Dairy, Poultry &
+                    Aqua</h3>
+                  <p class="text-stone-200 text-xs lg:text-sm font-light leading-relaxed max-w-md">
+                    Scientifically-formulated feed supplements and organic bio-nutrition solutions designed to optimize
+                    herd health, aqua yields, and veterinary compliance.
+                  </p>
+                  <div class="pt-2">
+                    <a href="products.html?cat=nutrition"
+                      class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 hover:bg-brand-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300 rounded shadow">
+                      Learn More
+                      <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Industry 7: Engineering & Automobile -->
+            <div class="accordion-panel group" data-index="7">
+              <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0bc?q=80&w=600&auto=format&fit=crop"
+                  class="w-full h-full object-cover transition-transform duration-700 lg:group-hover:scale-105"
+                  alt="Engineering & Automobile">
+                <div class="absolute inset-0 bg-black/60 transition-opacity duration-500 lg:group-hover:opacity-45">
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-black/50 to-transparent opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100 panel-active-gradient">
+                </div>
+              </div>
+
+              <!-- Collapsed Content -->
+              <div
+                class="panel-collapsed-content absolute inset-0 z-10 flex flex-row lg:flex-col justify-between items-center p-6 text-white lg:group-hover:opacity-0 transition-opacity duration-300 lg:group-hover:pointer-events-none select-none">
+                <div class="font-mono text-sm tracking-wider opacity-60">07</div>
+                <div class="font-heading font-bold text-sm lg:text-base tracking-wider uppercase vertical-title">
+                  Engineering & Automobile
+                </div>
+                <div class="w-6 h-6 border border-white/30 rounded-full flex items-center justify-center text-[10px]">
+                  <i class="fa-solid fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+                </div>
+              </div>
+
+              <!-- Expanded Content -->
+              <div
+                class="panel-expanded-content absolute inset-0 z-10 p-6 md:p-8 flex flex-col justify-between text-white opacity-0 pointer-events-none transition-all duration-300 translate-y-4 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto lg:group-hover:translate-y-0">
+                <div class="flex justify-between items-start">
+                  <div class="font-mono text-[10px] tracking-wider px-2.5 py-1 bg-white/10 rounded">07 / PACKAGING
+                    SOLUTIONS</div>
+                  <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center text-sm shadow">
+                    <i class="fa-solid fa-gears"></i>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <h3 class="text-lg lg:text-2xl font-black font-heading tracking-tight leading-tight">Engineering &
+                    Automobile</h3>
+                  <p class="text-stone-200 text-xs lg:text-sm font-light leading-relaxed max-w-md">
+                    Heavy-duty custom corrugated boxes and moisture-barrier protective packaging designed for shipping
+                    precision automotive components and metal machinery.
+                  </p>
+                  <div class="pt-2">
+                    <a href="products.html?cat=packaging"
+                      class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 hover:bg-brand-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300 rounded shadow">
+                      Learn More
+                      <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Industry 8: Vehicle & Fleet Cleaning -->
+            <div class="accordion-panel group" data-index="8">
+              <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=600&auto=format&fit=crop"
+                  class="w-full h-full object-cover transition-transform duration-700 lg:group-hover:scale-105"
+                  alt="Vehicle & Fleet Cleaning">
+                <div class="absolute inset-0 bg-black/60 transition-opacity duration-500 lg:group-hover:opacity-45">
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-black/50 to-transparent opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100 panel-active-gradient">
+                </div>
+              </div>
+
+              <!-- Collapsed Content -->
+              <div
+                class="panel-collapsed-content absolute inset-0 z-10 flex flex-row lg:flex-col justify-between items-center p-6 text-white lg:group-hover:opacity-0 transition-opacity duration-300 lg:group-hover:pointer-events-none select-none">
+                <div class="font-mono text-sm tracking-wider opacity-60">08</div>
+                <div class="font-heading font-bold text-sm lg:text-base tracking-wider uppercase vertical-title">
+                  Vehicle & Fleet Cleaning
+                </div>
+                <div class="w-6 h-6 border border-white/30 rounded-full flex items-center justify-center text-[10px]">
+                  <i class="fa-solid fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+                </div>
+              </div>
+
+              <!-- Expanded Content -->
+              <div
+                class="panel-expanded-content absolute inset-0 z-10 p-6 md:p-8 flex flex-col justify-between text-white opacity-0 pointer-events-none transition-all duration-300 translate-y-4 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto lg:group-hover:translate-y-0">
+                <div class="flex justify-between items-start">
+                  <div class="font-mono text-[10px] tracking-wider px-2.5 py-1 bg-white/10 rounded">08 / CLEANING
+                    FORMULATIONS</div>
+                  <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center text-sm shadow">
+                    <i class="fa-solid fa-car"></i>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <h3 class="text-lg lg:text-2xl font-black font-heading tracking-tight leading-tight">Vehicle & Fleet
+                    Cleaning</h3>
+                  <p class="text-stone-200 text-xs lg:text-sm font-light leading-relaxed max-w-md">
+                    Specialized vehicle shampoos, active foams, and wax finishes developed for high-gloss, scratch-free
+                    results across corporate fleets and washing systems.
+                  </p>
+                  <div class="pt-2">
+                    <a href="products.html?cat=hygiene"
+                      class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 hover:bg-brand-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300 rounded shadow">
+                      Learn More
+                      <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Industry 9: Household/Residential Use -->
+            <div class="accordion-panel group" data-index="9">
+              <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=600&auto=format&fit=crop"
+                  class="w-full h-full object-cover transition-transform duration-700 lg:group-hover:scale-105"
+                  alt="Household/Residential Use">
+                <div class="absolute inset-0 bg-black/60 transition-opacity duration-500 lg:group-hover:opacity-45">
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-black/50 to-transparent opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100 panel-active-gradient">
+                </div>
+              </div>
+
+              <!-- Collapsed Content -->
+              <div
+                class="panel-collapsed-content absolute inset-0 z-10 flex flex-row lg:flex-col justify-between items-center p-6 text-white lg:group-hover:opacity-0 transition-opacity duration-300 lg:group-hover:pointer-events-none select-none">
+                <div class="font-mono text-sm tracking-wider opacity-60">09</div>
+                <div class="font-heading font-bold text-sm lg:text-base tracking-wider uppercase vertical-title">
+                  Household/Residential
+                </div>
+                <div class="w-6 h-6 border border-white/30 rounded-full flex items-center justify-center text-[10px]">
+                  <i class="fa-solid fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+                </div>
+              </div>
+
+              <!-- Expanded Content -->
+              <div
+                class="panel-expanded-content absolute inset-0 z-10 p-6 md:p-8 flex flex-col justify-between text-white opacity-0 pointer-events-none transition-all duration-300 translate-y-4 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto lg:group-hover:translate-y-0">
+                <div class="flex justify-between items-start">
+                  <div class="font-mono text-[10px] tracking-wider px-2.5 py-1 bg-white/10 rounded">09 / HYGIENE
+                    SOLUTIONS</div>
+                  <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center text-sm shadow">
+                    <i class="fa-solid fa-house"></i>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <h3 class="text-lg lg:text-2xl font-black font-heading tracking-tight leading-tight">
+                    Household/Residential</h3>
+                  <p class="text-stone-200 text-xs lg:text-sm font-light leading-relaxed max-w-md">
+                    Gentle yet effective surface cleaners, liquid hand washes, and laundry detergents formulated for
+                    safe, eco-friendly daily residential cleaning.
+                  </p>
+                  <div class="pt-2">
+                    <a href="products.html?cat=hygiene"
+                      class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 hover:bg-brand-green hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all duration-300 rounded shadow">
+                      Learn More
+                      <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SMART SOLUTIONS, SUPERIOR RESULTS SECTION -->
+      <section id="smart-solutions"
+        class="py-20 px-6 md:px-12 bg-stone-100/50 border-t border-b border-stone-200 relative overflow-hidden">
+
+        <!-- WebGL Laser-Cut Spotlight Canvas -->
+        <canvas id="laser-spotlight-canvas" class="absolute inset-0 w-full h-full z-0 pointer-events-none"></canvas>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+          <!-- Centered Header -->
+          <div id="solutions-header" class="text-center mb-16 space-y-4 max-w-3xl mx-auto">
+            <span class="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 border border-stone-200 text-stone-600 text-xs font-bold uppercase tracking-widest">
+              Core Value Proposition
+            </span>
+            <h2 class="text-3xl md:text-5xl font-black text-stone-900 tracking-tight">
+              Smart Solutions, Superior Results
+            </h2>
+          </div>
+
+          <!-- 1px Grid Layout Columns -->
+          <div id="solutions-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-stone-200/80 divide-y md:divide-y-0 md:divide-x divide-stone-200/80 bg-white/40 backdrop-blur-md rounded-lg overflow-hidden">
+
+            <!-- Column 1: Competitive Pricing -->
+            <div class="p-8 lg:p-12 text-center flex flex-col items-center justify-center space-y-4 solution-col transition-colors duration-300 hover:bg-white/20">
+              <div class="w-12 h-12 bg-brand-green/10 text-brand-green flex items-center justify-center text-xl rounded-none mb-2">
+                <i class="fa-solid fa-tags"></i>
+              </div>
+              <h4 class="font-bold text-lg text-[#1c1917] font-heading tracking-tight">Competitive Pricing</h4>
+              <p class="text-stone-600 text-sm font-light leading-relaxed max-w-xs">
+                Affordable solutions without compromising on quality.
+              </p>
+            </div>
+
+            <!-- Column 2: Rust-Free Stitching & Precision Cuts -->
+            <div class="p-8 lg:p-12 text-center flex flex-col items-center justify-center space-y-4 solution-col transition-colors duration-300 hover:bg-white/20">
+              <div class="w-12 h-12 bg-[#eb7d3c]/10 text-[#eb7d3c] flex items-center justify-center text-xl rounded-none mb-2">
+                <i class="fa-solid fa-scissors"></i>
+              </div>
+              <h4 class="font-bold text-lg text-[#1c1917] font-heading tracking-tight">Rust-Free Stitching & Precision Cuts</h4>
+              <p class="text-stone-600 text-sm font-light leading-relaxed max-w-xs">
+                Clean finishes and durable construction every time.
+              </p>
+            </div>
+
+            <!-- Column 3: Eco-Friendly Materials -->
+            <div class="p-8 lg:p-12 text-center flex flex-col items-center justify-center space-y-4 solution-col transition-colors duration-300 hover:bg-white/20">
+              <div class="w-12 h-12 bg-brand-green/10 text-brand-green flex items-center justify-center text-xl rounded-none mb-2">
+                <i class="fa-solid fa-leaf"></i>
+              </div>
+              <h4 class="font-bold text-lg text-[#1c1917] font-heading tracking-tight">Eco-Friendly Materials</h4>
+              <p class="text-stone-600 text-sm font-light leading-relaxed max-w-xs">
+                Made with recyclable, sustainable materials.
+              </p>
+            </div>
+
+            <!-- Column 4: Custom Sizes & Branding -->
+            <div class="p-8 lg:p-12 text-center flex flex-col items-center justify-center space-y-4 solution-col transition-colors duration-300 hover:bg-white/20">
+              <div class="w-12 h-12 bg-brand-green/10 text-brand-green flex items-center justify-center text-xl rounded-none mb-2">
+                <i class="fa-solid fa-expand"></i>
+              </div>
+              <h4 class="font-bold text-lg text-[#1c1917] font-heading tracking-tight">Custom Sizes & Branding</h4>
+              <p class="text-stone-600 text-sm font-light leading-relaxed max-w-xs">
+                Tailored designs with your brand in mind.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- GREEN SUSTAINABILITY BANNER (True GSAP Parallax Image) -->
+      <section id="expertise-banner" class="relative py-20 px-6 md:px-12 bg-stone-950 text-white overflow-hidden">
+
+        <!-- Background Landscape Image (Animates for Parallax depth) -->
+        <div class="absolute inset-0 z-0 h-[140%] -top-[20%]">
+          <img id="parallax-bg-img"
+            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80"
+            class="w-full h-full object-cover opacity-50" alt="Natural Landscape green valley">
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/20 to-stone-950/80 z-10"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-20 flex flex-col md:flex-row items-center justify-between gap-12">
+          <div class="space-y-4 max-w-2xl">
+            <span
+              class="inline-flex items-center gap-2 px-3 py-1 bg-brand-green/80 text-white text-xs font-bold uppercase tracking-widest">
+              Industry Expertise
+            </span>
+            <h2 class="text-3xl md:text-5xl font-black tracking-tight leading-tight">
+              Industry Expertise Since 2005
+            </h2>
+            <p class="text-stone-300 font-light text-sm md:text-base leading-relaxed">
+              Delivering premium manufacturing solutions across Packaging, Hygiene, and Feed Supplements with a
+              commitment to ecological conservation.
+            </p>
+          </div>
+          <div class="flex-shrink-0">
+            <a href="about.html"
+              class="magnetic-btn px-8 py-4 bg-brand-green hover:bg-brand-greenHover text-white text-xs font-bold uppercase tracking-widest transition-colors duration-300 inline-block">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPANDED GREEN FOOTER -->
+      <footer class="bg-[#2d5a27] text-white py-10 px-6 md:px-12 border-t border-brand-greenHover relative z-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+
+          <!-- Column 1 -->
+          <div class="space-y-6">
+            <div>
+              <span class="font-heading font-black text-2xl tracking-wider text-white">
+                SSP Industries
+              </span>
+            </div>
+            <ul class="space-y-3 text-sm font-medium text-stone-200">
+              <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+              <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+              <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+            <div class="bg-white p-2 inline-block w-max rounded-none">
+              <svg class="w-20 h-20 text-black" viewBox="0 0 100 100" fill="currentColor">
+                <path
+                  d="M5 5h30v30H5V5zm6 6v18h18V11H11zM65 5h30v30H65V5zm6 6v18h18V11H71zM5 65h30v30H5V65zm6 6v18h18V71H11z" />
+                <rect x="17" y="17" width="6" height="6" />
+                <rect x="77" y="17" width="6" height="6" />
+                <rect x="17" y="77" width="6" height="6" />
+                <rect x="45" y="15" width="8" height="8" />
+                <rect x="45" y="35" width="12" height="6" />
+                <rect x="35" y="45" width="6" height="12" />
+                <rect x="55" y="55" width="10" height="10" />
+                <rect x="75" y="45" width="12" height="8" />
+                <rect x="45" y="75" width="10" height="12" />
+                <rect x="65" y="75" width="8" height="6" />
+                <rect x="75" y="65" width="6" height="16" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="space-y-6">
+            <h4 class="text-xl font-bold text-white tracking-wide">Contact Us</h4>
+            <div class="space-y-2 text-sm font-medium text-stone-200">
+              <p>9845814147 | 9902756137</p>
+              <p><a href="mailto:info@sspipl.com" class="hover:text-white transition-colors">info@sspipl.com</a></p>
+            </div>
+
+            <div class="space-y-2 text-sm text-stone-200">
+              <h5 class="font-bold text-white">Corporate Office Address</h5>
+              <p class="leading-relaxed font-light">
+                No.40/11-1, 2nd floor, BDA No.1269/B,<br>
+                MRCR Layout, Agrahara dasarahalli,<br>
+                Magadi Main Road, Beside Housing<br>
+                Board Underpass, Govindarajnagar,<br>
+                Bangalore 560040
+              </p>
+            </div>
+
+            <div class="space-y-2 text-sm text-stone-200">
+              <h5 class="font-bold text-white">Factory Address</h5>
+              <p class="leading-relaxed font-light">
+                Plot # SpecialQ-26, KSSIDC Indl Estate,<br>
+                Magadi Taluk, Ramanagar - 562 120
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="space-y-6">
+            <h4 class="text-3xl font-heading font-bold text-white leading-tight">
+              Connect with<br>us for the More<br>details
+            </h4>
+            <form class="space-y-4 w-full max-w-sm"
+              onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+              <input type="email" placeholder="Email" required
+                class="w-full px-4 py-3 text-sm text-white placeholder-stone-300 bg-brand-greenHover/80 border border-white focus:outline-none focus:bg-brand-greenHover transition-all rounded-none">
+              <button type="submit"
+                class="w-full py-3 bg-white hover:bg-stone-100 text-stone-900 font-bold text-sm uppercase tracking-wider rounded-full transition-colors duration-300">
+                Subscribe
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+        <div
+          class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[10px] text-stone-200 tracking-wider uppercase font-semibold gap-6">
+          <p>© 2026 SSP INDUSTRIES. ALL RIGHTS RESERVED.</p>
+
+          <div class="flex gap-6 text-base">
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+
+          <div class="flex gap-6 text-[10px]">
+            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- INTERACTIVE JS CONTROLLER -->
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. Dynamic Split-Text Words generator helper
+    function splitTextIntoWords(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      const text = el.innerText;
+      el.innerHTML = text.split(" ").map(word => {
+        return `<span class="word-mask"><span class="word-inner">${word}</span></span>`;
+      }).join(" ");
+    }
+
+
+    // Card Mouse tracking for radial border glow
+    const glowCards = document.querySelectorAll(".glow-border-card");
+    glowCards.forEach(card => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      });
+    });
+
+
+
+    // 5. Magnetic CTA Buttons Handler
+    const magneticBtns = document.querySelectorAll(".magnetic-btn");
+    magneticBtns.forEach(btn => {
+      btn.addEventListener("mousemove", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        gsap.to(btn, {
+          x: x * 0.35,
+          y: y * 0.35,
+          scale: 1.02,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+      btn.addEventListener("mouseleave", () => {
+        gsap.to(btn, {
+          x: 0,
+          y: 0,
+          scale: 1,
+          duration: 0.5,
+          ease: "elastic.out(1, 0.3)"
+        });
+      });
+    });
+
+    // 4. Expandable Accordion Tabs Crossfader
+    const accordionTabs = document.querySelectorAll(".accordion-tab");
+    const accordionDisplayImage = document.getElementById("accordion-display-img");
+    accordionTabs.forEach(tab => {
+      tab.addEventListener("mouseenter", () => {
+        // Deactivate other tabs
+        accordionTabs.forEach(t => {
+          t.classList.remove("active", "bg-white");
+          t.classList.add("bg-stone-50");
+          t.querySelector(".tab-content-panel").classList.remove("active");
+        });
+
+        // Activate this tab
+        tab.classList.add("active", "bg-white");
+        tab.classList.remove("bg-stone-50");
+        tab.querySelector(".tab-content-panel").classList.add("active");
+
+        // Image Crossfade transition
+        const newImgSrc = tab.getAttribute("data-image");
+        if (accordionDisplayImage.src !== newImgSrc) {
+          gsap.to(accordionDisplayImage, {
+            opacity: 0.3,
+            scale: 0.98,
+            duration: 0.25,
+            ease: "power1.inOut",
+            onComplete: () => {
+              accordionDisplayImage.src = newImgSrc;
+              gsap.to(accordionDisplayImage, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.4,
+                ease: "power2.out"
+              });
+            }
+          });
+        }
+      });
+    });
+
+    // 5. Scroll-Driven Hero to Logo Reveal Setup
+    function initScrollReveal() {
+      const hero = document.getElementById("hero");
+      const badgeWrapper = document.getElementById("badge-wrapper");
+      const badgeSpan = badgeWrapper ? badgeWrapper.querySelector("span") : null;
+      const heroMainContent = document.getElementById("hero-main-content");
+      const logoRevealContainer = document.getElementById("logo-reveal-container");
+
+      if (!hero || !badgeWrapper || !badgeSpan || !heroMainContent || !logoRevealContainer) return;
+
+      // Temporarily remove transform classes to get clean layout positions
+      const hasTransform = badgeWrapper.classList.contains("translate-y-8");
+      if (hasTransform) badgeWrapper.classList.remove("translate-y-8");
+
+      // Set initial positions relative to parent container
+      const badgeRect = badgeWrapper.getBoundingClientRect();
+      const heroRect = hero.getBoundingClientRect();
+      const initialBadgeY = badgeRect.top - heroRect.top;
+      const initialBadgeHeight = badgeRect.height;
+
+      // Put the class back so the entrance animation works
+      if (hasTransform) badgeWrapper.classList.add("translate-y-8");
+
+      const scrollTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "top top",
+          end: "+=1200", // Tighter, faster scroll distance
+          pin: true,
+          scrub: 0.8, // Smooth damping to absorb scroll wheel jitter
+          invalidateOnRefresh: true
+        }
+      });
+
+      // Step 1: Fade out main hero content and video background, center and morph badge text
+      scrollTl.to(heroMainContent, {
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.6,
+        ease: "power2.out"
+      }, 0);
+
+      scrollTl.to(".video-bg-container", {
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.6,
+        ease: "power2.out"
+      }, 0);
+
+      const isMobile = window.innerWidth < 768;
+      const targetFontSize = isMobile ? "18px" : "36px";
+      const targetLetterSpacing = isMobile ? "0.12em" : "0.2em";
+
+      scrollTl.to(badgeSpan, {
+        fontSize: targetFontSize, // Morph to responsive bold format
+        fontWeight: "900",
+        letterSpacing: targetLetterSpacing,
+        duration: 0.6,
+        ease: "power2.out"
+      }, 0);
+
+      scrollTl.to(badgeWrapper, {
+        y: () => {
+          const centerY = window.innerHeight / 2;
+          return centerY - (initialBadgeHeight / 2) - initialBadgeY;
+        },
+        duration: 0.6,
+        ease: "power2.out"
+      }, 0);
+
+      // Step 2: Upward shift of badge to top-third
+      scrollTl.to(badgeWrapper, {
+        y: () => {
+          const topThirdY = window.innerHeight / 4.5;
+          return topThirdY - (initialBadgeHeight / 2) - initialBadgeY;
+        },
+        duration: 0.6,
+        ease: "power2.inOut"
+      }, 0.7);
+
+      // Step 3: Expand logos container and reveal logos
+      scrollTl.to(logoRevealContainer, {
+        autoAlpha: 1,
+        duration: 0.5,
+        ease: "power3.out"
+      }, 1.1);
+
+      scrollTl.to(".logo-item", {
+        opacity: 1,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: "back.out(1.2)" // smooth entrance
+      }, 1.3);
+    }
+
+    // 6. Interactive Accordion for Market Segments (Mobile Support)
+    function initAccordion() {
+      const panels = document.querySelectorAll(".accordion-panel");
+      panels.forEach((panel) => {
+        panel.addEventListener("click", () => {
+          if (window.innerWidth < 1024) {
+            const isActive = panel.classList.contains("active");
+            // Collapse all other panels
+            panels.forEach((p) => p.classList.remove("active"));
+            // Toggle active state on clicked panel
+            if (!isActive) {
+              panel.classList.add("active");
+            }
+          }
+        });
+      });
+    }
+
+    // Init Animation timelines on page load
+    window.addEventListener("DOMContentLoaded", () => {
+      // Initialize Lenis smooth scroll
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        smoothTouch: false,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        infinite: false,
+      });
+
+      // Bind Lenis scroll events to ScrollTrigger updates
+      lenis.on('scroll', ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+
+      gsap.ticker.lagSmoothing(0);
+
+      // Stop scroll during preloader
+      lenis.stop();
+
+      // Store lenis globally so other code blocks can access it if needed
+      window.lenis = lenis;
+
+      // Perform typography split text mask wraps
+      splitTextIntoWords("hero-headline");
+
+      // Initialize scroll reveal immediately so the scroll bindings work from page load
+      initScrollReveal();
+
+      // Initialize interactive accordion for industries we serve
+      initAccordion();
+
+      // Preloader initialization sequence
+      let progress = 0;
+      const progressEl = document.getElementById("loader-progress");
+      const statusEl = document.getElementById("loader-status");
+      const preloader = document.getElementById("preloader");
+
+      const statuses = [
+        "Connecting to Zurich Hub...",
+        "Reading System Schematics...",
+        "Synthesizing Material Catalog...",
+        "Ready."
+      ];
+
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 15) + 6;
+        if (progress > 100) progress = 100;
+
+        if (progressEl) progressEl.style.width = `${progress}%`;
+        if (statusEl) {
+          statusEl.innerText = statuses[Math.min(Math.floor(progress / 26), statuses.length - 1)];
+        }
+
+        if (progress === 100) {
+          clearInterval(interval);
+
+          // Animate preloader out
+          gsap.to(preloader, {
+            yPercent: -100,
+            duration: 0.85,
+            ease: "power4.inOut",
+            delay: 0.15,
+            onComplete: () => {
+              preloader.style.display = "none";
+              document.body.classList.remove("overflow-hidden"); // Restore scrolling
+              if (window.lenis) window.lenis.start(); // Start Lenis smooth scroll
+
+              // Recalculate ScrollTrigger coordinates now that layout is unfrozen
+              ScrollTrigger.refresh();
+
+              // Trigger hero load animations
+              const introTl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.2 } });
+              introTl
+                .to("#badge-wrapper", { opacity: 1, y: 0, delay: 0.1 })
+                .to(".word-inner", { y: 0, stagger: 0.05 }, "-=0.9")
+                .to("#hero-subheadline", { opacity: 1, y: 0 }, "-=0.9")
+                .to("#cta-wrapper", { opacity: 1, y: 0 }, "-=0.9");
+            }
+          });
+        }
+      }, 50);
+
+      // Why Choose Us Section Reveal
+      gsap.from(".why-card", {
+        scrollTrigger: {
+          trigger: "#why-choose-us-details",
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out"
+      });
+
+      // Strengths Ribbon Reveal
+      gsap.from(".strength-item", {
+        scrollTrigger: {
+          trigger: "#strengths-ribbon",
+          start: "top 90%",
+          toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power1.out"
+      });
+
+      // Divisions Section ScrollTrigger
+      gsap.from(".division-card", {
+        scrollTrigger: {
+          trigger: "#divisions",
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+
+      // What We Do Section ScrollTrigger
+      gsap.from("#what-image-container", {
+        scrollTrigger: {
+          trigger: "#what-we-do",
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        opacity: 0,
+        x: -40,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+
+      gsap.from("#what-text", {
+        scrollTrigger: {
+          trigger: "#what-we-do",
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        opacity: 0,
+        x: 40,
+        duration: 0.8,
+        ease: "power2.out"
+      }, "-=0.8");
+
+
+
+      // Smart Solutions Section ScrollTrigger
+      const solutionsTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#smart-solutions",
+          start: "top 80%",
+          toggleActions: "play none none none"
+        }
+      });
+      solutionsTl
+        .from("#solutions-header", {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          ease: "power3.out"
+        })
+        .from(".solution-col", {
+          opacity: 0,
+          y: 40,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power2.out"
+        }, "-=0.4");
+
+
+
+      // Initialize WebGL Laser-Cut Spotlight
+      initLaserSpotlight();
+
+    });
+
+    // Header scroll background toggle
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector("header");
+      if (window.scrollY > 50) {
+        header.classList.add("shadow-sm");
+      } else {
+        header.classList.remove("shadow-sm");
+      }
+    });
+
+    // ========================================================
+    // INTERACTIVE WEBGL LASER-CUT SPOTLIGHT
+    // ========================================================
+    function initLaserSpotlight() {
+      const canvas = document.getElementById("laser-spotlight-canvas");
+      if (!canvas) return;
+
+      const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+      if (!gl) {
+        initLaserSpotlight2D(canvas);
+        return;
+      }
+
+      const vsSource = `
+        attribute vec2 position;
+        void main() {
+          gl_Position = vec4(position, 0.0, 1.0);
+        }
+      `;
+
+      const fsSource = `
+        precision mediump float;
+        uniform vec2 u_resolution;
+        uniform float u_mouse_x;
+        uniform vec3 u_color;
+        
+        void main() {
+          vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+          float y = 1.0 - uv.y;
+          float x = uv.x;
+          
+          float slope = -0.3; 
+          float beamCenter = u_mouse_x + (y - 0.5) * slope;
+          
+          float halfWidth = 0.08;
+          float edgeSoftness = 0.07;
+          
+          float dist = abs(x - beamCenter);
+          float intensity = 1.0 - smoothstep(halfWidth - edgeSoftness, halfWidth + edgeSoftness, dist);
+          
+          // Translucent accent color glow
+          float alpha = intensity * (1.0 - y * 0.7) * 0.35;
+          
+          gl_FragColor = vec4(u_color * intensity, alpha);
+        }
+      `;
+
+      function createShader(gl, type, source) {
+        const shader = gl.createShader(type);
+        gl.shaderSource(shader, source);
+        gl.compileShader(shader);
+        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+          gl.deleteShader(shader);
+          return null;
+        }
+        return shader;
+      }
+
+      const vs = createShader(gl, gl.VERTEX_SHADER, vsSource);
+      const fs = createShader(gl, gl.FRAGMENT_SHADER, fsSource);
+      if (!vs || !fs) {
+        initLaserSpotlight2D(canvas);
+        return;
+      }
+
+      const program = gl.createProgram();
+      gl.attachShader(program, vs);
+      gl.attachShader(program, fs);
+      gl.linkProgram(program);
+
+      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+        initLaserSpotlight2D(canvas);
+        return;
+      }
+
+      const positionAttributeLocation = gl.getAttribLocation(program, "position");
+      const resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
+      const mouseXUniformLocation = gl.getUniformLocation(program, "u_mouse_x");
+      const colorUniformLocation = gl.getUniformLocation(program, "u_color");
+
+      const positionBuffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+      const positions = [
+        -1, -1,
+         1, -1,
+        -1,  1,
+        -1,  1,
+         1, -1,
+         1,  1,
+      ];
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+
+      let targetMouseX = 0.8;
+      let currentMouseX = 0.8;
+      
+      const section = document.getElementById("smart-solutions");
+      if (section) {
+        section.addEventListener("mousemove", (e) => {
+          const rect = section.getBoundingClientRect();
+          targetMouseX = (e.clientX - rect.left) / rect.width;
+        });
+        
+        section.addEventListener("mouseleave", () => {
+          targetMouseX = 0.8;
+        });
+      }
+
+      function getAccentColor() {
+        const brandColorStr = getComputedStyle(document.documentElement).getPropertyValue('--brand-green') || '45, 90, 39';
+        const rgb = brandColorStr.split(',').map(n => parseInt(n.trim()) / 255);
+        return rgb.length === 3 ? rgb : [0.176, 0.353, 0.153];
+      }
+
+      function resize() {
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+        if (canvas.width !== width || canvas.height !== height) {
+          canvas.width = width;
+          canvas.height = height;
+          gl.viewport(0, 0, canvas.width, canvas.height);
+        }
+      }
+
+      function render() {
+        resize();
+
+        currentMouseX += (targetMouseX - currentMouseX) * 0.08;
+
+        gl.clearColor(0, 0, 0, 0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+
+        gl.useProgram(program);
+
+        gl.enableVertexAttribArray(positionAttributeLocation);
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+
+        gl.uniform2f(resolutionUniformLocation, canvas.width, canvas.height);
+        gl.uniform1f(mouseXUniformLocation, currentMouseX);
+        
+        const accentRGB = getAccentColor();
+        gl.uniform3f(colorUniformLocation, accentRGB[0], accentRGB[1], accentRGB[2]);
+
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+        requestAnimationFrame(render);
+      }
+
+      requestAnimationFrame(render);
+    }
+
+    function initLaserSpotlight2D(canvas) {
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+      
+      let targetMouseX = 0.8;
+      let currentMouseX = 0.8;
+      
+      const section = document.getElementById("smart-solutions");
+      if (section) {
+        section.addEventListener("mousemove", (e) => {
+          const rect = section.getBoundingClientRect();
+          targetMouseX = (e.clientX - rect.left) / rect.width;
+        });
+        section.addEventListener("mouseleave", () => {
+          targetMouseX = 0.8;
+        });
+      }
+      
+      function render() {
+        const w = canvas.width = canvas.clientWidth;
+        const h = canvas.height = canvas.clientHeight;
+        
+        currentMouseX += (targetMouseX - currentMouseX) * 0.08;
+        
+        ctx.clearRect(0, 0, w, h);
+        
+        const slope = -0.3;
+        const beamXTop = currentMouseX * w - 0.5 * slope * h;
+        const beamXBottom = currentMouseX * w + 0.5 * slope * h;
+        
+        const beamWidth = w * 0.08;
+        
+        ctx.beginPath();
+        ctx.moveTo(beamXTop - beamWidth, 0);
+        ctx.lineTo(beamXTop + beamWidth, 0);
+        ctx.lineTo(beamXBottom + beamWidth, h);
+        ctx.lineTo(beamXBottom - beamWidth, h);
+        ctx.closePath();
+        
+        const brandColorStr = getComputedStyle(document.documentElement).getPropertyValue('--brand-green') || '45, 90, 39';
+        
+        const grad = ctx.createLinearGradient(0, 0, 0, h);
+        grad.addColorStop(0, `rgba(${brandColorStr}, 0.35)`);
+        grad.addColorStop(1, `rgba(${brandColorStr}, 0.05)`);
+        
+        ctx.fillStyle = grad;
+        ctx.fill();
+        
+        requestAnimationFrame(render);
+      }
+      
+      requestAnimationFrame(render);
+    }
+  </script>
+</body>
+
+</html>
