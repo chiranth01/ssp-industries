@@ -704,13 +704,13 @@
         
         const clientNames = [
           "Cargill Industries", "Swiss Agro Foods", "Apex Logistics", "Zenith Chemicals",
-          "BioCore Labs", "Novatech Biotech", "CleanFiber Solutions", "ICAR Research Partner",
+          "Graphilicious Media", "Novatech Biotech", "CleanFiber Solutions", "ICAR Research Partner",
           "Curamax Health", "EcoPack Systems", "Quantum Materials", "Apex Precision",
           "Vertex Formulations", "Delta Nutrition", "Magna Supply", "Global Logistics",
           "Synergy Labs", "TechCorp Group", "Prime Pack", "United Agro",
           "Beacon Chemicals", "Horizon Materials", "Phoenix Energy", "Orion Biotech",
-          "Nexa Industries", "Genesis Foods", "Vanguard Dynamics", "Atlas Systems",
-          "Matrix Tech", "Alpha Logistics"
+          "Nexa Industries", "Naomika", "Vanguard Dynamics", "Atlas Systems",
+          "Matrix Tech"
         ];
         
         const logosPerRow = 15;
@@ -764,7 +764,7 @@
         for (let i = 0; i < 15; i++) {
           createLogoNode(i, trackTop, 'top');
         }
-        for (let i = 15; i < 30; i++) {
+        for (let i = 15; i < 29; i++) {
           createLogoNode(i, trackBottom, 'bottom');
         }
         
@@ -785,14 +785,14 @@
           const W = section.clientWidth;
           const currentSpacing = window.innerWidth < 768 ? 160 : 260;
           
-          // Total length of the loop track
-          const L = Math.max(logosPerRow * currentSpacing, W + 520);
-          
-          // Speed: complete one full cycle (L pixels) in 48 seconds (much slower)
-          const scrollSpeed = L / 48; 
+          // Total length of the loop track (row-specific: top has 15, bottom has 14)
+          const L_top = Math.max(15 * currentSpacing, W + 520);
+          const L_bottom = Math.max(14 * currentSpacing, W + 520);
           
           nodeStates.forEach((ns) => {
             const isRowHovered = ns.row === 'top' ? isTopHovered : isBottomHovered;
+            const L = ns.row === 'top' ? L_top : L_bottom;
+            const scrollSpeed = L / 48; 
             
             if (!isRowHovered && !prefersReducedMotion) {
               if (ns.row === 'top') {

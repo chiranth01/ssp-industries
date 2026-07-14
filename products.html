@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Catalog | SSP Industries</title>
-  <meta name="description" content="Browse the full product catalog of SSP Industries across Corrugated Packaging, Hygiene, and Animal Feed.">
+  <meta name="description" content="Browse the full product catalog of SSP Industries across Corrugated Packaging and Hygiene.">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -166,19 +166,37 @@
 
         </div>
 
-        <!-- Download brochure / PDF banner -->
-        <div class="max-w-4xl mx-auto bg-stone-900 text-white rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl relative overflow-hidden group border border-stone-800">
-          <div class="absolute inset-0 bg-gradient-to-r from-brand-green/20 to-transparent pointer-events-none"></div>
-          <div class="space-y-2 relative z-10 text-center md:text-left">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-green text-white text-[10px] font-bold uppercase tracking-wider">
-              <i class="fa-solid fa-file-pdf"></i> PDF Brochure
-            </span>
-            <h3 class="text-xl font-bold font-heading">SSP Industries Complete Product Catalog</h3>
-            <p class="text-stone-300 text-xs font-light max-w-md">Download our official 12-page company brochure to view all specifications, founders' profile, and custom packaging details.</p>
+        <!-- Download brochure / PDF banners -->
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          
+          <!-- Left Card: Unique Products Brochure -->
+          <div class="bg-stone-900 text-white rounded-2xl p-6 md:p-8 flex flex-col justify-between gap-6 shadow-xl relative overflow-hidden group border border-stone-800 text-left">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-green/20 to-transparent pointer-events-none"></div>
+            <div class="space-y-2 relative z-10">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-green text-white text-[10px] font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-file-pdf"></i> PDF Brochure
+              </span>
+              <h3 class="text-xl font-bold font-heading">Curamax Unique Products Brochure</h3>
+            </div>
+            <a href="unique_products_brochure.pdf" download class="relative z-10 px-6 py-3 bg-brand-green hover:bg-brand-greenHover text-white text-xs font-bold uppercase tracking-wider transition-colors duration-300 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-brand-green/20 w-full sm:w-max">
+              <i class="fa-solid fa-download"></i> DOWNLOAD UNIQUE BROCHURE
+            </a>
           </div>
-          <a href="broucher.pdf" download class="relative z-10 px-6 py-3 bg-brand-green hover:bg-brand-greenHover text-white text-xs font-bold uppercase tracking-wider transition-colors duration-300 rounded-full flex items-center gap-2 shadow-lg shadow-brand-green/20 shrink-0">
-            <i class="fa-solid fa-download"></i> Download Catalog
-          </a>
+
+          <!-- Right Card: Complete Catalog (Original) -->
+          <div class="bg-stone-900 text-white rounded-2xl p-6 md:p-8 flex flex-col justify-between gap-6 shadow-xl relative overflow-hidden group border border-stone-800 text-left">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-green/20 to-transparent pointer-events-none"></div>
+            <div class="space-y-2 relative z-10">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-green text-white text-[10px] font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-file-pdf"></i> PDF Brochure
+              </span>
+              <h3 class="text-xl font-bold font-heading">SSP Industries Complete Product Catalog</h3>
+            </div>
+            <a href="broucher.pdf" download class="relative z-10 px-6 py-3 bg-brand-green hover:bg-brand-greenHover text-white text-xs font-bold uppercase tracking-wider transition-colors duration-300 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-brand-green/20 w-full sm:w-max">
+              <i class="fa-solid fa-download"></i> DOWNLOAD CATALOG
+            </a>
+          </div>
+
         </div>
 
         <!-- Dynamic Catalog Grid -->

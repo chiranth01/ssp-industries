@@ -464,8 +464,8 @@ html.lenis, html.lenis body {
 
 @media (min-width: 1024px) {
   .accordion-container {
-    flex-direction: row;
-    height: 520px;
+    flex-direction: column;
+    height: 820px;
     gap: 0.5rem;
   }
 }
@@ -514,23 +514,40 @@ html.lenis, html.lenis body {
   /* Desktop Default state */
   .accordion-panel {
     flex: 1;
-    height: 100%;
+    height: auto;
+    width: 100%;
   }
   
   /* Desktop Hover state */
   .accordion-container:hover .accordion-panel {
-    flex: 0.6; /* shrink others slightly */
+    flex: 0.85; /* shrink others slightly */
   }
   
   .accordion-container .accordion-panel:hover {
-    flex: 4; /* expand hovered panel */
+    flex: 5.2; /* expand hovered panel */
     border-color: rgba(45, 90, 39, 0.4);
+  }
+
+  /* Desktop active content states on hover */
+  .accordion-panel:hover .panel-collapsed-content {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .accordion-panel:hover .panel-expanded-content {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .accordion-panel:hover .panel-active-gradient {
+    opacity: 1 !important;
   }
 
   /* Rotated title for collapsed state on desktop */
   .vertical-title {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
+    writing-mode: horizontal-tb;
+    transform: none;
     white-space: nowrap;
   }
 }

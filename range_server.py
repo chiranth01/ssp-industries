@@ -69,8 +69,13 @@ class RangeRequestHandler(SimpleHTTPRequestHandler):
         return f
 
     def end_headers(self):
-        if self.path.endswith(('.jpg', '.jpeg', '.png', '.gif', '.svg', '.js', '.css', '.webp', '.ico')):
+        clean_path = self.path.split('?')[0]
+        if clean_path.endswith(('.jpg', '.jpeg', '.png', '.gif', '.svg', '.js', '.css', '.webp', '.ico')):
             self.send_header('Cache-Control', 'public, max-age=31536000')
+        elif clean_path.endswith(('.html', '.htm')) or not clean_path.split('/')[-1].count('.'):
+            self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
+            self.send_header('Pragma', 'no-cache')
+            self.send_header('Expires', '0')
         super().end_headers()
 
     def copyfile(self, source, outputfile):
