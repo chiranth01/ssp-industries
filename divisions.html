@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Core Divisions | SSP Industries</title>
-  <meta name="description" content="Explore SSP Industries core operating divisions: Corrugated Packaging & Carton Boxes and Curamax Hygiene & Cleaning Solutions.">
+  <meta name="description"
+    content="Explore SSP Industries core operating divisions: Corrugation (3/5/7 ply heavy duty shipping boxes in White/GYT &amp; Natural Colours, Narrow/E Flute, smell proof paper) and Curamax Hygiene (Scientist-led cleaning formulations for various sectors and organic products).">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -286,7 +287,7 @@
   <div id="smooth-wrapper" class="pt-12">
     <div id="smooth-content">
       
-      <!-- Mobile Page Title (hidden on desktop) -->
+      <!-- Mobile Clean Intro Banner (Visible only on small screens) -->
       <div class="block md:hidden px-6 pt-12 pb-6 bg-[#fcfbf9] text-center space-y-3">
         <span class="text-[9px] font-mono tracking-widest text-[#2d5a27] uppercase font-bold bg-[#2d5a27]/10 px-3 py-1 rounded-full">
           Industrial Capabilities
@@ -295,26 +296,26 @@
           Our Divisions
         </h1>
         <p class="text-xs text-stone-500 font-light max-w-sm mx-auto leading-relaxed">
-          Explore our state-of-the-art packaging configurations and scientist-led bio-chemical formulations.
+          3/5/7-ply heavy duty corrugation in White/GYT/Natural with Narrow/E Flute &amp; smell proof paper, and scientist-led Curamax Hygiene formulations.
         </p>
       </div>
 
       <!-- DUAL SPLIT SHOWCASE HERO -->
       <section class="split-hero-container hidden md:flex h-auto md:h-[85vh] md:min-h-[500px] flex-col md:flex-row overflow-hidden border-b border-stone-300 relative z-10 bg-stone-100">
         
-        <!-- Packaging Panel -->
+        <!-- Packaging / Corrugation Panel -->
         <a href="#divisions-workspace" onclick="switchWorkspace('packaging')" class="split-panel group relative w-full md:w-1/2 flex items-center justify-center py-14 px-8 md:p-12 transition-all cursor-pointer select-none overflow-hidden bg-stone-950 text-white opacity-0 translate-y-8">
           <!-- Background image & overlay -->
           <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700" style="background-image: url('assets/packaging_bg.png');"></div>
           <div class="absolute inset-0 bg-gradient-to-tr from-stone-950 via-stone-950/80 to-transparent"></div>
           
           <div class="relative z-10 space-y-4 max-w-md">
-            <span class="text-[9px] font-mono font-bold tracking-widest text-[#cba37c] bg-[#cba37c]/10 border border-[#cba37c]/30 px-3 py-1 uppercase rounded-full">Division 01 // Industrial Packaging</span>
+            <span class="text-[9px] font-mono font-bold tracking-widest text-[#cba37c] bg-[#cba37c]/10 border border-[#cba37c]/30 px-3 py-1 uppercase rounded-full">Division 01 // Corrugation</span>
             <h2 class="text-3xl md:text-5xl font-black font-heading tracking-tight leading-none uppercase group-hover:text-[#cba37c] transition-colors">
-              Corrugated<br>Packaging
+              Corrugation
             </h2>
             <p class="text-xs text-stone-300 font-light leading-relaxed">
-              State-of-the-art manufacturing of 3/5/7-ply heavy-duty shipping cartons, partition sheets, and custom flex-printed brand boxes.
+              Precision-engineered 3, 5, and 7-ply heavy-duty shipping boxes available in White, GYT (Golden Yellow Top), and Natural Kraft shades. Equipped with high-precision Narrow Flute, E-Flute, automated punching facilities, and odor-barrier smell-proof paper.
             </p>
             <div class="pt-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#cba37c]">
               Launch Configurator &amp; Specs
@@ -323,19 +324,19 @@
           </div>
         </a>
 
-        <!-- Hygiene Panel -->
+        <!-- Curamax Hygiene Panel -->
         <a href="#divisions-workspace" onclick="switchWorkspace('hygiene')" class="split-panel group relative w-full md:w-1/2 flex items-center justify-center py-14 px-8 md:p-12 transition-all cursor-pointer select-none overflow-hidden bg-brand-greenHover text-white opacity-0 translate-y-8">
           <!-- Background image & overlay -->
           <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity duration-700" style="background-image: url('assets/hygiene_bg.png');"></div>
           <div class="absolute inset-0 bg-gradient-to-tl from-[#1e3e1a] via-[#1e3e1a]/70 to-[#2d5a27]/30"></div>
           
           <div class="relative z-10 space-y-4 max-w-md">
-            <span class="text-[9px] font-mono font-bold tracking-widest text-emerald-450 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 uppercase rounded-full">Division 02 // Chemical Formulations</span>
+            <span class="text-[9px] font-mono font-bold tracking-widest text-emerald-450 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 uppercase rounded-full">Division 02 // Curamax Hygiene</span>
             <h2 class="text-3xl md:text-5xl font-black font-heading tracking-tight leading-none uppercase group-hover:text-emerald-400 transition-colors">
               Curamax<br>Hygiene
             </h2>
             <p class="text-xs text-stone-200 font-light leading-relaxed">
-              Scientist-led, customized cleaning formulations, hospital-grade disinfection fluids, and organic repellents.
+              Scientist-led cleaning formulations for various sectors and organic products.
             </p>
             <div class="pt-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400">
               Launch R&amp;D Lab Specs
@@ -351,11 +352,10 @@
         <div class="max-w-5xl mx-auto space-y-12">
           
           <!-- Master Switcher Bar -->
-          <!-- Master Switcher Bar -->
           <div class="flex justify-center">
             <div class="inline-flex bg-stone-200/80 p-1 border border-stone-300 shadow-inner rounded-full max-w-full">
               <button onclick="switchWorkspace('packaging')" id="ws-btn-packaging" class="px-3 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider transition-all duration-500 bg-stone-900 text-white shadow-sm whitespace-nowrap">
-                📦 Industrial Packaging
+                📦 Corrugation
               </button>
               <button onclick="switchWorkspace('hygiene')" id="ws-btn-hygiene" class="px-3 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider transition-all duration-500 text-stone-600 hover:text-stone-900 whitespace-nowrap">
                 🧪 Curamax Hygiene
@@ -483,9 +483,9 @@
                     <span class="status-dot text-emerald-400 bg-emerald-400"></span>
                     <span class="text-[9px] font-mono tracking-widest text-emerald-400 uppercase font-bold">Magadi Unit Active</span>
                   </div>
-                  <h3 class="text-lg font-black uppercase tracking-wide leading-none">Magadi Manufacturing Plant</h3>
+                  <h3 class="text-lg font-black uppercase tracking-wide leading-none">Corrugation &amp; Conversion Plant</h3>
                   <p class="text-[10px] text-stone-300 font-light leading-snug">
-                    Operating high-precision slots, heavy-duty partition cutters, and advanced multi-color flexographic printing presses.
+                    Operating automated 3/5/7-ply corrugator lines, Narrow &amp; E-fluting profiles, heavy-duty die punching units, and specialized smell-proof paper coatings for zero odor transmission.
                   </p>
                 </div>
               </div>
@@ -493,19 +493,19 @@
               <!-- CARD 4: Sectors Served Checklist -->
               <div class="md:col-span-4 bento-card bg-white p-6">
                 <div class="space-y-4 flex flex-col justify-between h-full">
-                  <h4 class="text-[10px] font-bold text-stone-850 uppercase tracking-widest font-mono">Applications &amp; Sectors</h4>
+                  <h4 class="text-[10px] font-bold text-stone-850 uppercase tracking-widest font-mono">Specialized Capabilities</h4>
                   <div class="space-y-2 text-xs text-stone-600">
                     <div class="app-list-item flex items-center gap-3 p-2 bg-stone-50/50 border border-stone-150 rounded-lg">
-                      <span class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-green shrink-0"><i class="fa-solid fa-truck-ramp-box text-[10px]"></i></span>
-                      <div><strong class="text-stone-800 font-bold block leading-none">Logistics &amp; Freight</strong> High-stacking bulk boxes.</div>
+                      <span class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-green shrink-0"><i class="fa-solid fa-boxes-stacked text-[10px]"></i></span>
+                      <div><strong class="text-stone-800 font-bold block leading-none">3, 5 &amp; 7-Ply Heavy Duty</strong> White, GYT &amp; Natural Kraft finishes.</div>
                     </div>
                     <div class="app-list-item flex items-center gap-3 p-2 bg-stone-50/50 border border-stone-150 rounded-lg">
-                      <span class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-green shrink-0"><i class="fa-solid fa-pepper-hot text-[10px]"></i></span>
-                      <div><strong class="text-stone-800 font-bold block leading-none">Agro Produce</strong> Vented moisture-resistant trays.</div>
+                      <span class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-green shrink-0"><i class="fa-solid fa-shapes text-[10px]"></i></span>
+                      <div><strong class="text-stone-800 font-bold block leading-none">Narrow &amp; E-Flute + Punching</strong> Custom flutes &amp; die-cut slots.</div>
                     </div>
                     <div class="app-list-item flex items-center gap-3 p-2 bg-stone-50/50 border border-stone-150 rounded-lg">
-                      <span class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-green shrink-0"><i class="fa-solid fa-microchip text-[10px]"></i></span>
-                      <div><strong class="text-stone-800 font-bold block leading-none">Consumer Goods</strong> Partition separators &amp; slots.</div>
+                      <span class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-green shrink-0"><i class="fa-solid fa-shield-virus text-[10px]"></i></span>
+                      <div><strong class="text-stone-800 font-bold block leading-none">Smell-Proof Barrier Paper</strong> Total odor protection in production.</div>
                     </div>
                   </div>
                 </div>
@@ -665,9 +665,9 @@
                     <span class="status-dot text-emerald-400 bg-emerald-400"></span>
                     <span class="text-[9px] font-mono tracking-widest text-emerald-400 uppercase font-bold">R&amp;D Wing Online</span>
                   </div>
-                  <h3 class="text-lg font-black uppercase tracking-wide leading-none">Bangalore Formulation Wing</h3>
+                  <h3 class="text-lg font-black uppercase tracking-wide leading-none">Curamax R&amp;D Formulation Wing</h3>
                   <p class="text-[10px] text-stone-300 font-light leading-snug">
-                    Staffed by senior biochemists developing natural cleaning enzymes and pathogen suppression solutions.
+                    Scientist-led cleaning formulations developed for diverse industrial &amp; institutional sectors and organic eco-friendly products.
                   </p>
                 </div>
               </div>
@@ -760,7 +760,7 @@
             <div class="space-y-2 text-sm text-stone-200">
               <h5 class="font-bold text-white">Factory Address</h5>
               <p class="leading-relaxed font-light">
-                Plot # SpecialQ-26, KSSIDC Indl Estate,<br>
+                Plot No.Spl.26 , KSSIDC Indl Estate,<br>
                 Magadi Taluk, Ramanagar - 562 120
               </p>
             </div>
@@ -858,10 +858,10 @@
     // 3. Packaging Ply Configurator Logic
     const plyData = {
       3: {
-        name: "3-Ply Single Wall Board",
-        desc: "Consists of outer Kraft liners with a single inner wave flute sheet. Light, cost-effective, and ideal for standard e-commerce shipping.",
+        name: "3-Ply Corrugated Shipping Box",
+        desc: "High-integrity single-wall board in White, GYT (Golden Yellow Top), and Natural Kraft finishes. Manufactured with Narrow Flute / E-Flute corrugation, precision die-punching, and high-barrier smell-proof paper.",
         capacity: "Up to 15 kg",
-        usage: "E-Commerce & Retail Packaging",
+        usage: "E-Commerce & Precision Retail Goods",
         bf: "24 - 28 BF",
         bfPct: "75%",
         moisture: "< 8.0%",
@@ -870,10 +870,10 @@
         caliperPct: "32%"
       },
       5: {
-        name: "5-Ply Double Wall Board",
-        desc: "Consists of three flat Kraft liners separated by two corrugated wave fluting sheets. Engineered with extra padding and high structural rigidity for heavier industrial loads.",
+        name: "5-Ply Double Wall Heavy Duty Box",
+        desc: "Reinforced double-wall construction in White, GYT, and Natural Kraft. Features Narrow & E-Flute combinations, custom die-punching facilities, and smell-proof barrier paper to prevent odor penetration.",
         capacity: "Up to 50 kg",
-        usage: "Heavy Industrial Goods & Long Freight",
+        usage: "Industrial Machinery & Export Freight",
         bf: "32 - 38 BF",
         bfPct: "88%",
         moisture: "< 7.5%",
@@ -882,10 +882,10 @@
         caliperPct: "56%"
       },
       7: {
-        name: "7-Ply Triple Wall Board",
-        desc: "An ultra-strong composite board consisting of four flat Kraft liners and three wave fluting sheets. Built to withstand extreme vertical stacking and crush forces, commonly replacing wooden crates.",
+        name: "7-Ply Triple Wall Extra Heavy Duty Box",
+        desc: "Ultra-heavy-duty triple-wall master container in White, GYT, and Natural Kraft. Built with dense Narrow/E-Flute layering, advanced punching facilities, and specialized smell-proof paper to replace heavy wooden crates.",
         capacity: "Up to 150 kg",
-        usage: "Heavy Machinery, Bulk Chemical & Steel Freight",
+        usage: "Heavy Equipment, Bulk Logistics & Sea Cargo",
         bf: "42 - 48 BF",
         bfPct: "95%",
         moisture: "< 7.0%",

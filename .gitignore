@@ -1,8 +1,10 @@
 # Ignore backups and scratch scripts
 ssp-static-backup/
 scratch/
+.agent/
 
 # Ignore large media binaries
 *.zip
 *.mp4
 *.rar
+
